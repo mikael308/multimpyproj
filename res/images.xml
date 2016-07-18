@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<images rootdir="./img/">
+	<image name="icon">icon.bmp</image>
+	<image name="background">background.bmp</image>
+	<image name="player">player.bmp</image>
+	<image name="enemy">enemy.bmp</image>
+	<image name="health">health.bmp</image>
+</images>
+
