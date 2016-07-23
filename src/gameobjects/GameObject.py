@@ -33,12 +33,18 @@ class GameObject:
 	# get current sprite
 	def getSprite(self):	
 		return self.__sprite
-	# get current rect
+
+	"""
+	get current rect
+	"""
 	def getRect(self):
 		return self.__rect
+
 	def getPos(self):
 		return self.__pos
-	# get 
+	"""
+	get
+	"""
 	def getCenterPos(self):
 		x = self.getPos()[0] - self.getRect().width / 2
 		y = self.getPos()[1] - self.getRect().height / 2
