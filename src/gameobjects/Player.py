@@ -36,7 +36,8 @@ class Player(GameObject):
 	# get this speed value
 	def setSpeed(self, speed):
 		self.__speed = speed
-	# fet this name
+
+	# get this name
 	def getName(self):
 		return self.__name
 
@@ -47,7 +48,9 @@ class Player(GameObject):
 	def getSpeed(self):
 		return self.__speed
 
-	# determines if this instance is alive
+	"""
+	determines if this instance is alive
+	"""
 	def isAlive(self):
 		return self.__health > 0
 
