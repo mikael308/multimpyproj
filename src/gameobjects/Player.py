@@ -8,6 +8,7 @@ import pygame
 from GameObject import GameObject
 import resource
 
+
 class Player(GameObject):
 
 	# name of this player
@@ -31,15 +32,18 @@ class Player(GameObject):
 	# set current health
 	def setHealth(self, health):
 		self.__health = health
+
 	# get this speed value
 	def setSpeed(self, speed):
 		self.__speed = speed
 	# fet this name
 	def getName(self):
 		return self.__name
+
 	# get current health
 	def getHealth(self):
 		return self.__health
+
 	def getSpeed(self):
 		return self.__speed
 
