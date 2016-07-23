@@ -1,4 +1,5 @@
 from GameObjects import *
+#TODO fix inherit
 
 class Enemy:
 	
