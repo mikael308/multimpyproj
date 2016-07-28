@@ -312,8 +312,8 @@ class GameEngine:
 
 		# 	(up) 
 		if key[u] and rect.top > 0: 
-			mov_y = mov_speed * -1
 			mov_x = __get_mov_x(key)
+			mov_y = mov_speed * -1
 
 			# (up left) |  (up right)
 			if mov_x != 0:
@@ -322,8 +322,8 @@ class GameEngine:
 
 		# 	(down)
 		elif key[d] and rect.bottom < self.__screen_height:
-			mov_y = mov_speed
 			mov_x = __get_mov_x(key)
+			mov_y = mov_speed
 
 			# (down left) |  (down right)
 			if mov_x != 0:
