@@ -274,8 +274,8 @@ class GameEngine:
 		return movement direction as list [X, Y]
 	"""
 	def __input_movement(self, key, gameobject):
-		movX 		= 0
-		movY 		= 0
+		mov_x 		= 0
+		mov_y 		= 0
 
 		rect 		= gameobject.getRect()
 		mov_speed 	= gameobject.getSpeed()
@@ -312,29 +312,29 @@ class GameEngine:
 
 		# 	(up) 
 		if key[u] and rect.top > 0: 
-			movY = mov_speed * -1
-			movX = __get_mov_x(key)
+			mov_y = mov_speed * -1
+			mov_x = __get_mov_x(key)
 
 			# (up left) |  (up right)
-			if movX != 0:
-				movX *= ddir
-				movY *= ddir
+			if mov_x != 0:
+				mov_x *= ddir
+				mov_y *= ddir
 
 		# 	(down)
 		elif key[d] and rect.bottom < self.__screen_height:
-			movY = mov_speed 
-			movX = __get_mov_x(key)
-			
+			mov_y = mov_speed
+			mov_x = __get_mov_x(key)
+
 			# (down left) |  (down right)
-			if movX != 0:
-				movX *= ddir
-				movY *= ddir
+			if mov_x != 0:
+				mov_x *= ddir
+				mov_y *= ddir
 
 		# 	(left) | (right)
 		else:
-			movX = __get_mov_x(key)
+			mov_x = __get_mov_x(key)
 
-		return (movX, movY)
+		return (mov_x, mov_y)
 
 	"""
 		gets current key event slow delay and interval
