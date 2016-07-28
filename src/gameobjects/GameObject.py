@@ -64,4 +64,4 @@ class GameObject:
 		x = self.get_pos()[0] - self.get_rect().width / 2
 		y = self.get_pos()[1] - self.get_rect().height / 2
 
-		return (x,y)
+		return (x, y)
