@@ -18,8 +18,6 @@ class Player(GameObject):
 	__speed		= 10
 
 	def __init__(self, name, health):
-		#s = resource.getString("klaatu")
-		#print "klas : " + s
 		src = resource.get_imagesrc("player")
 		
 		playerImage 	= pygame.image.load(src)
