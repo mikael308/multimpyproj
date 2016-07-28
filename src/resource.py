@@ -1,11 +1,11 @@
-# 
-# handling string resource data from xml file
-# resourcefile is defined in var resourcefile
-# to get string from resourcefile, use getString(resId) function
-#
-# author Mikael Holmbom
-# ver 1.0
+"""
+handling string resource data from xml file
+resourcefile is defined in var resourcefile
+to get string from resourcefile, use getString(resId) function
 
+author Mikael Holmbom
+ver 1.0
+"""
 import xml.etree.ElementTree as ET
 
 
@@ -17,12 +17,12 @@ resfile_dimen 	= "dimens.xml"
 resfile_img		= "images.xml"
 
 
-"""
-get string from resource
-param resId: resource id as of attribute name in resource file
-returns textvalue from resource element, if resource not found, empty string is returned
-"""
 def get_string(resId):
+	"""
+	get string from resource
+	param resId: resource id as of attribute name in resource file
+	returns textvalue from resource element, if resource not found, empty string is returned
+	"""
 	attr_key = "name"
 	res_notfound_val = ""
 
@@ -37,10 +37,10 @@ def get_string(resId):
 	return res_notfound_val
 
 
-"""
-get resource dimension of name param
-"""
 def get_dimen(resId):
+	"""
+	get resource dimension of name param
+	"""
 	attr_key = "name"
 	res_notfound_val = None
 
@@ -55,10 +55,10 @@ def get_dimen(resId):
 	return res_notfound_val
 
 
-"""
-get filepath of image of name param
-"""
 def get_imagesrc(resId):
+	"""
+	get filepath of image of name param
+	"""
 	attr_key = "name"
 	res_notfound_val = None
 
