@@ -28,7 +28,6 @@ class GameEngine:
 
 	__end_state			= 0
 
-
 	def __init__(self):
 		
 		size 			= (self.__screen_width, self.__screen_height)
