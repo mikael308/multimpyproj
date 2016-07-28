@@ -293,7 +293,7 @@ class GameEngine:
 		# inner function
 		# get X-axis movement from key
 		# if no movement was found, 0 is returned
-		def __getMovX(key):
+		def __get_mov_x(key):
 			if key[l] and rect.left > 0:
 				## if movement is higher than distance to wall
 				#if rect.left < mov_speed:
@@ -313,7 +313,7 @@ class GameEngine:
 		# 	(up) 
 		if key[u] and rect.top > 0: 
 			movY = mov_speed * -1
-			movX = __getMovX(key)
+			movX = __get_mov_x(key)
 
 			# (up left) |  (up right)
 			if movX != 0:
@@ -323,7 +323,7 @@ class GameEngine:
 		# 	(down)
 		elif key[d] and rect.bottom < self.__screen_height:
 			movY = mov_speed 
-			movX = __getMovX(key)
+			movX = __get_mov_x(key)
 			
 			# (down left) |  (down right)
 			if movX != 0:
@@ -332,7 +332,7 @@ class GameEngine:
 
 		# 	(left) | (right)
 		else:
-			movX = __getMovX(key)
+			movX = __get_mov_x(key)
 
 		return (movX, movY)
 
