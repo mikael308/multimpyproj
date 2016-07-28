@@ -82,7 +82,7 @@ class GameEngine:
 				y = movs[1]
 				
 				#check if x and y is bigger than distance between gameobj and screensize
-				self.__player = GameEngine.__moveGameObj(self.__player, movs)
+				self.__player = GameEngine.__move_gameobj(self.__player, movs)
 
 		elif event.type == pygame.KEYUP:
 			key = pygame.key.get_pressed()
@@ -95,7 +95,7 @@ class GameEngine:
 				print ""
 
 	@staticmethod
-	def __moveGameObj(gameobj, movs):
+	def __move_gameobj(gameobj, movs):
 		rect = gameobj.getRect()
 		gameobj.setRect(rect.move(movs[0], movs[1]))
 
