@@ -22,6 +22,7 @@ class GameEngine:
 	__bomb_flag 		= False
 	__bomb 				= None
 
+	# users gameobject
 	__player 			= None
 	__enemy				= None
 
