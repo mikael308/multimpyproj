@@ -1,7 +1,6 @@
 
 import pygame, thread, time
 import resource
-from gameobjects import Player
 from settings import controls
 
 
