@@ -154,6 +154,14 @@ class GameEngine:
 
 		self.__destruct()
 
+	def __display(self, gameobject):
+		"""
+		displays gameobject on current screen
+		:param gameobject: gameobject to display
+		:return:
+		"""
+		self.__screen.blit(gameobject.get_sprite(), gameobject.get_rect())
+
 	def __validate_endstate(self):
 		"""
 		start endsequence according to this current endstate
