@@ -8,6 +8,7 @@
 
 import xml.etree.ElementTree as ET
 
+
 # path to resource data
 resdir = "res/"
 # resourcefiles containing data
@@ -15,55 +16,59 @@ resfile_string 	= "strings.xml"
 resfile_dimen 	= "dimens.xml"
 resfile_img		= "images.xml"
 
+
 """
 get string from resource
 param resId: resource id as of attribute name in resource file
 returns textvalue from resource element, if resource not found, empty string is returned
 """
 def get_string(resId):
-
-	attrKey = "name"
-	resNotFoundValue = ""
+	attr_key = "name"
+	res_notfound_val = ""
 
 	tree = ET.parse(resdir + resfile_string)
 	root = tree.getroot()
 
 	for child in root:
 		# if resource is found
-		if child.attrib[attrKey] == resId:
+		if child.attrib[attr_key] == resId:
 			return child.text
 
-	return resNotFoundValue
+	return res_notfound_val
+
+
 """
 get resource dimension of name param
 """
 def get_dimen(resId):
-	attrKey = "name"
-	resNotFoundValue = None
+	attr_key = "name"
+	res_notfound_val = None
 
 	tree = ET.parse(resdir + resfile_dimen)
 	root = tree.getroot()
 
 	for child in root:
 		# if resource is found
-		if child.attrib[attrKey] == resId:
+		if child.attrib[attr_key] == resId:
 			return int(child.text)
 
-	return resNotFoundValue
+	return res_notfound_val
+
+
 """
 get filepath of image of name param
 """
 def get_imagesrc(resId):
-	attrKey = "name"
-	resNotFoundValue = None
+	attr_key = "name"
+	res_notfound_val = None
 
 	tree = ET.parse(resdir + resfile_img)
 	root = tree.getroot()
 
 	for child in root:
 		# if resource is found
-		if child.attrib[attrKey] == resId:
+		if child.attrib[attr_key] == resId:
 
 			return resdir + root.attrib["rootdir"] + child.text
 
-	return resNotFoundValue
+	return res_notfound_val
