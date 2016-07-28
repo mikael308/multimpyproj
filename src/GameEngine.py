@@ -55,7 +55,7 @@ class GameEngine:
 	"""
 		handles incoming event
 	"""
-	def __handleEvent(self, event):
+	def __handle_event(self, event):
 		
 		if event.type == pygame.QUIT:
 			self.__destruct()
@@ -129,7 +129,7 @@ class GameEngine:
 		# GAME LOOP
 		while self.__game_loop:
 			for event in pygame.event.get():
-				self.__handleEvent(event)
+				self.__handle_event(event)
 			
 			# display
 			screen.blit(background, (0,0))
