@@ -1,10 +1,4 @@
-"""
-	@author Mikael Holmbom
 
-	gameengine for game
-	gameloop: @see run(self)
-
-"""
 import pygame, thread, time
 import resource
 from gameobjects import Player
@@ -12,6 +6,13 @@ from settings import controls
 
 
 class GameEngine:
+	"""
+	@author Mikael Holmbom
+
+	gameengine for game
+	gameloop: @see run(self)
+
+	"""
 
 	__game_title 		= resource.get_string("game_title")
 
@@ -41,21 +42,22 @@ class GameEngine:
 
 	def __destruct(self):
 		pygame.quit()
-		
-	"""
-		add client player to this gameengine
-	"""
+
 	def add_player(self, player):
+		"""
+		add client player to this gameengine
+		"""
+
 		self.__player = player
 
 	@staticmethod
 	def loadImage(imgId):
 		return pygame.image.load(resource.get_imagesrc(imgId))
 
-	"""
-		handles incoming event
-	"""
 	def __handle_event(self, event):
+		"""
+		handles incoming event
+		"""
 		
 		if event.type == pygame.QUIT:
 			self.__destruct()
@@ -96,16 +98,21 @@ class GameEngine:
 
 	@staticmethod
 	def __move_gameobj(gameobj, movs):
+		"""
+		move gameobject with direction movs
+		movs[0] - X -> positive:right, negative:left
+		movs[1] - Y -> positive:down, negative:up
+		"""
 		rect = gameobj.get_rect()
 		gameobj.set_rect(rect.move(movs[0], movs[1]))
 
 		return gameobj
 
-	"""
-	start this gameengine
-	prior: player must be defined
-	"""
 	def run(self):
+		"""
+		start this gameengine
+		prior: player must be defined
+		"""
 		pygame.init()
 
 		screen 			= self.__screen
@@ -149,11 +156,10 @@ class GameEngine:
 
 		self.__destruct()
 
-
-	"""
-		start endsequence according to this current endstate
-	"""
 	def __validate_endstate(self):
+		"""
+		start endsequence according to this current endstate
+		"""
 
 		es = self.__end_state
 		if es 		== -1:
@@ -255,10 +261,11 @@ class GameEngine:
 		self.__bomb_flag = False
 
 	"""
-	
-	
-	# move obj to absolute position (x, y)
+
 	def __move_object(self, obj, x, y):
+		"""
+		move obj to absolute position (x, y)
+		"""
 		w 		= obj.get_rect().width
 		h 		= obj.get_rect().height
 
@@ -268,12 +275,12 @@ class GameEngine:
 
 		obj.set_rect(rect)
 		return obj
-	
-	"""
+
+	def __input_movement(self, key, gameobject):
+		"""
 		moves gameobject according to input movement
 		return movement direction as list [X, Y]
-	"""
-	def __input_movement(self, key, gameobject):
+		"""
 		mov_x 		= 0
 		mov_y 		= 0
 
@@ -336,11 +343,11 @@ class GameEngine:
 
 		return (mov_x, mov_y)
 
-	"""
+	def __slow_key(self):
+		"""
 		gets current key event slow delay and interval
 		sets keys to instant repeat again after used
-	"""
-	def __slow_key(self):
+		"""
 		pygame.key.set_repeat(60000,60000)
 		pygame.key.set_repeat(21,21)
 
