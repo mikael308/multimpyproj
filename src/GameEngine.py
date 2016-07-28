@@ -279,8 +279,6 @@ class GameEngine:
 		moves gameobject according to input movement
 		return movement direction as list [X, Y]
 		"""
-		mov_x 		= 0
-		mov_y 		= 0
 
 		rect 		= gameobject.get_rect()
 		mov_speed 	= gameobject.get_speed()
