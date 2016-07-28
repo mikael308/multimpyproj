@@ -286,10 +286,10 @@ class GameEngine:
 		mov_speed 	= gameobject.get_speed()
 		ddir 		= 0.7 # diagonal direction: factor multiplied to distance on diagonal movement
 
-		l 	= controls.key_mov_left
-		r 	= controls.key_mov_right
-		u 	= controls.key_mov_up
-		d 	= controls.key_mov_down
+		left 	= controls.key_mov_left
+		right 	= controls.key_mov_right
+		up 		= controls.key_mov_up
+		down 	= controls.key_mov_down
 
 		print "rect"
 		print "bottom:" + str(rect.bottom) + "    top:" + str(rect.top)
