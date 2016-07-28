@@ -34,7 +34,9 @@ def get_string(resId):
 			return child.text
 
 	return resNotFoundValue
-
+"""
+get resource dimension of name param
+"""
 def get_dimen(resId):
 	attrKey = "name"
 	resNotFoundValue = None
