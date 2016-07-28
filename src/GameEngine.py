@@ -292,21 +292,22 @@ class GameEngine:
 		print "rect"
 		print "bottom:" + str(rect.bottom) + "    top:" + str(rect.top)
 		print "left:" + str(rect.left) + "     right:"+str(rect.right) 
-		
-		# inner function
-		# get X-axis movement from key
-		# if no movement was found, 0 is returned
+
 		def __get_mov_x(key):
+			"""
+			inner function
+			get X-axis movement from key
+			if no movement was found, 0 is returned
+			"""
 			if key[left]:
-				dist = rect.left
+				dist = rect.left # distance to wall
 				if dist < mov_speed:
-					# distance to wall is less than movement length
 					return dist * -1
 				else:
 					return mov_speed * -1
 
 			elif key[right]:
-				dist = self.__screen_width - rect.right
+				dist = self.__screen_width - rect.right # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
@@ -315,14 +316,19 @@ class GameEngine:
 				return 0
 
 		def __get_mov_y(key):
+			"""
+			inner function
+			get Y-axis movement from key
+			if no movement was found, 0 is returned
+			"""
 			if key[up]:
-				dist = rect.top
+				dist = rect.top # distance to wall
 				if dist < mov_speed:
 					return dist * -1
 				else:
 					return mov_speed * -1
 			elif key[down]:
-				dist = self.__screen_height - rect.bottom
+				dist = self.__screen_height - rect.bottom # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
