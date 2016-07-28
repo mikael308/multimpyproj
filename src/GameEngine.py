@@ -145,7 +145,7 @@ class GameEngine:
 		# ending gameplay
 
 		self.__updateEndState()
-		self.__validateEndState()
+		self.__validate_endstate()
 
 		self.__destruct()
 
@@ -153,7 +153,7 @@ class GameEngine:
 	"""
 		start endsequence according to this current endstate
 	"""
-	def __validateEndState(self):
+	def __validate_endstate(self):
 
 		es = self.__end_state
 		if es 		== -1:
