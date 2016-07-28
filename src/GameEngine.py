@@ -100,7 +100,10 @@ class GameEngine:
 
 		return gameobj
 
-	#player must be defined
+	"""
+	start this gameengine
+	prior: player must be defined
+	"""
 	def run(self):
 		pygame.init()
 
