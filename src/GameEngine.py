@@ -279,7 +279,7 @@ class GameEngine:
 
 		rect 		= gameobject.getRect()
 		mov_speed 	= gameobject.getSpeed()
-	 	ddir 		= 0.7
+		ddir 		= 0.7 # diagonal direction: factor multiplied to distance on diagonal movement
 
 		l 	= controls.key_mov_left
 		r 	= controls.key_mov_right
