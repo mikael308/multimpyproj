@@ -4,7 +4,6 @@ graphic object used in gameplay
 author Mikael Holmbom
 ver 1.0
 """
-
 class GameObject:
 
 	# this current sprite
