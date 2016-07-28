@@ -19,9 +19,8 @@ class Player(GameObject):
 
 	def __init__(self, name, health):
 		src = resource.get_imagesrc("player")
-		
-		player_img 	= pygame.image.load(src)
-		GameObject.__init__(self, player_img)
+		img 	= pygame.image.load(src)
+		GameObject.__init__(self, img)
 
 		self.__name 	= name
 		self.__health 	= health
