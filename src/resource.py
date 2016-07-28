@@ -20,8 +20,8 @@ resfile_img		= "images.xml"
 def get_string(resId):
 	"""
 	get string from resource
-	param resId: resource id as of attribute name in resource file
-	returns textvalue from resource element, if resource not found, empty string is returned
+	:param resId: resource id as of attribute name in resource file
+	:return: textvalue from resources, if resource not found: empty string is returned
 	"""
 	attr_key = "name"
 	res_notfound_val = ""
@@ -40,6 +40,8 @@ def get_string(resId):
 def get_dimen(resId):
 	"""
 	get resource dimension of name param
+	:param resId: resource id as of attribute name in resource file
+	:return: dimension from resources, if resource not found: None is returned
 	"""
 	attr_key = "name"
 	res_notfound_val = None
@@ -58,6 +60,8 @@ def get_dimen(resId):
 def get_imagesrc(resId):
 	"""
 	get filepath of image of name param
+	:param resId: resource id as of attribute name in resource file
+	:return: image source from resources, if resource not found: None is returned
 	"""
 	attr_key = "name"
 	res_notfound_val = None
