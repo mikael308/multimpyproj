@@ -13,11 +13,11 @@ from settings import controls
 
 class GameEngine:
 
-	__game_title 		= resource.getString("game_title")
+	__game_title 		= resource.get_string("game_title")
 
 	__screen 			= None
-	__screen_width		= resource.getDimen("main_window_size_width")
-	__screen_height		= resource.getDimen("main_window_size_height")
+	__screen_width		= resource.get_dimen("main_window_size_width")
+	__screen_height		= resource.get_dimen("main_window_size_height")
 
 	__bomb_flag 		= False
 	__bomb 				= None
@@ -50,7 +50,7 @@ class GameEngine:
 
 	@staticmethod
 	def loadImage(imgId):
-		return pygame.image.load(resource.getImageSrc(imgId))
+		return pygame.image.load(resource.get_imagesrc(imgId))
 
 	"""
 		handles incoming event
