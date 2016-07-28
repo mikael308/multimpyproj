@@ -1,14 +1,13 @@
-"""
-	defines the player 
-
-	author Mikael Holmbom
-	ver 1.0
-"""
 import pygame
 from GameObject import GameObject
 import resource
 
+"""
+	defines the player
 
+	author Mikael Holmbom
+	ver 1.0
+"""
 class Player(GameObject):
 
 	# name of this player
