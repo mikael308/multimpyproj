@@ -144,7 +144,7 @@ class GameEngine:
 		# ! GAME LOOP
 		# ending gameplay
 
-		self.__updateEndState()
+		self.__update_endstate()
 		self.__validate_endstate()
 
 		self.__destruct()
@@ -165,7 +165,7 @@ class GameEngine:
 		elif es 	== 2:
 			print "you quit the game"
 
-	def __updateEndState(self):
+	def __update_endstate(self):
 		if not self.__player.isAlive():
 			self.__end_state = 0
 		
