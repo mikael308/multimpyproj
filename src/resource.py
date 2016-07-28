@@ -20,7 +20,7 @@ get string from resource
 param resId: resource id as of attribute name in resource file
 returns textvalue from resource element, if resource not found, empty string is returned
 """
-def getString(resId):
+def get_string(resId):
 
 	attrKey = "name"
 	resNotFoundValue = ""
