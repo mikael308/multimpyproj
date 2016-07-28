@@ -2,13 +2,14 @@ import pygame
 from GameObject import GameObject
 import resource
 
-"""
-	defines the player
 
-	author Mikael Holmbom
-	ver 1.0
-"""
 class Player(GameObject):
+	"""
+		defines the player
+
+		author Mikael Holmbom
+		ver 1.0
+	"""
 
 	# name of this player
 	__name 		= ""
@@ -26,38 +27,40 @@ class Player(GameObject):
 		self.__name 	= name
 		self.__health 	= health
 
-	"""
-	set current health
-	"""
+
 	def set_health(self, health):
+		"""
+		set current health
+		"""
 		self.__health = health
 
-	"""
-	get this speed value
-	"""
 	def set_speed(self, speed):
+		"""
+		get this speed value
+		"""
 		self.__speed = speed
 
-	"""
-	get this name
-	"""
 	def get_name(self):
+		"""
+		get this name
+		"""
 		return self.__name
 
-	"""
-	get current health
-	"""
 	def get_health(self):
+		"""
+		get current health
+		"""
 		return self.__health
-	"""
-	get current speed
-	"""
+
 	def get_speed(self):
+		"""
+		get current speed
+		"""
 		return self.__speed
 
-	"""
-	determines if this instance is alive
-	"""
 	def is_alive(self):
+		"""
+		determines if this instance is alive
+		"""
 		return self.__health > 0
 
