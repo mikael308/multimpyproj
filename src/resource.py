@@ -35,7 +35,7 @@ def get_string(resId):
 
 	return resNotFoundValue
 
-def getDimen(resId):
+def get_dimen(resId):
 	attrKey = "name"
 	resNotFoundValue = None
 
