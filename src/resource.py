@@ -49,7 +49,7 @@ def get_dimen(resId):
 
 	return resNotFoundValue
 
-def getImageSrc(resId):
+def get_imagesrc(resId):
 	attrKey = "name"
 	resNotFoundValue = None
 
