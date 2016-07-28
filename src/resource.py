@@ -50,7 +50,9 @@ def get_dimen(resId):
 			return int(child.text)
 
 	return resNotFoundValue
-
+"""
+get filepath of image of name param
+"""
 def get_imagesrc(resId):
 	attrKey = "name"
 	resNotFoundValue = None
