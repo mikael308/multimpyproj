@@ -21,32 +21,32 @@ class GameObject:
 		self.__rect 	= sprite.get_rect()
 		
 	# set current sprite
-	def setSprite(self, sprite):
+	def set_sprite(self, sprite):
 		self.__sprite = sprite
 	# set current rect
-	def setRect(self, rect):
+	def set_rect(self, rect):
 		self.__rect = rect
-	def setPos(self, x, y):
+	def set_pos(self, x, y):
 		self.__pos[0] = x
 		self.__pos[1] = y
 
 	# get current sprite
-	def getSprite(self):	
+	def get_sprite(self):
 		return self.__sprite
 
 	"""
 	get current rect
 	"""
-	def getRect(self):
+	def get_rect(self):
 		return self.__rect
 
-	def getPos(self):
+	def get_pos(self):
 		return self.__pos
 	"""
-	get
+	get the centerposition of this rectangle
 	"""
-	def getCenterPos(self):
-		x = self.getPos()[0] - self.getRect().width / 2
-		y = self.getPos()[1] - self.getRect().height / 2
+	def get_centerpos(self):
+		x = self.get_pos()[0] - self.get_rect().width / 2
+		y = self.get_pos()[1] - self.get_rect().height / 2
 
 		return (x,y)
