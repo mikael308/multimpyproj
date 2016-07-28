@@ -69,7 +69,7 @@ class GameEngine:
 
 			elif key[controls.key_action]:
 				print "actionkey"
-				pos = self.__player.getCenterPos()
+				pos = self.__player.get_centerpos()
 				
 				self.__plant_bomb(pos)
 				
@@ -89,15 +89,15 @@ class GameEngine:
 			if key[controls.key_info]:
 				print "info"
 				pl = self.__player
-				print pl.getName() + " hp:" + str(pl.getHealth())
+				print pl.get_name() + " hp:" + str(pl.get_health())
 				#print en.get_name() + " hp:" + str(en.getHealth())
 				print " -"
 				print ""
 
 	@staticmethod
 	def __move_gameobj(gameobj, movs):
-		rect = gameobj.getRect()
-		gameobj.setRect(rect.move(movs[0], movs[1]))
+		rect = gameobj.get_rect()
+		gameobj.set_rect(rect.move(movs[0], movs[1]))
 
 		return gameobj
 
@@ -133,11 +133,11 @@ class GameEngine:
 			
 			# display
 			screen.blit(background, (0,0))
-			screen.blit(self.__player.getSprite(), self.__player.getRect())
+			screen.blit(self.__player.get_sprite(), self.__player.get_rect())
 
 			if self.__bomb_flag:
 				b = self.__bomb
-				screen.blit(b.getSprite(), b.getRect())
+				screen.blit(b.get_sprite(), b.get_rect())
 
 			pygame.display.update()
 
@@ -166,7 +166,7 @@ class GameEngine:
 			print "you quit the game"
 
 	def __update_endstate(self):
-		if not self.__player.isAlive():
+		if not self.__player.is_alive():
 			self.__end_state = 0
 		
 		"""if not en.is_alive():
@@ -259,14 +259,14 @@ class GameEngine:
 	
 	# move obj to absolute position (x, y)
 	def __move_object(self, obj, x, y):
-		w 		= obj.getRect().width
-		h 		= obj.getRect().height
+		w 		= obj.get_rect().width
+		h 		= obj.get_rect().height
 
 		# edit the rectangle
 		rect 	= pygame.Rect((0,0), (w, h))
 		rect 	= rect.move((x, y))
 
-		obj.setRect(rect)
+		obj.set_rect(rect)
 		return obj
 	
 	"""
@@ -277,8 +277,8 @@ class GameEngine:
 		mov_x 		= 0
 		mov_y 		= 0
 
-		rect 		= gameobject.getRect()
-		mov_speed 	= gameobject.getSpeed()
+		rect 		= gameobject.get_rect()
+		mov_speed 	= gameobject.get_speed()
 		ddir 		= 0.7 # diagonal direction: factor multiplied to distance on diagonal movement
 
 		l 	= controls.key_mov_left
