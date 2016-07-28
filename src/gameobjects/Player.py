@@ -21,7 +21,7 @@ class Player(GameObject):
 	def __init__(self, name, health):
 		#s = resource.getString("klaatu")
 		#print "klas : " + s
-		src = resource.getImageSrc("player")
+		src = resource.get_imagesrc("player")
 		
 		playerImage 	= pygame.image.load(src)
 		GameObject.__init__(self, playerImage)
@@ -30,27 +30,27 @@ class Player(GameObject):
 		self.__health 	= health
 
 	# set current health
-	def setHealth(self, health):
+	def set_health(self, health):
 		self.__health = health
 
 	# get this speed value
-	def setSpeed(self, speed):
+	def set_speed(self, speed):
 		self.__speed = speed
 
 	# get this name
-	def getName(self):
+	def get_name(self):
 		return self.__name
 
 	# get current health
-	def getHealth(self):
+	def get_health(self):
 		return self.__health
 
-	def getSpeed(self):
+	def get_speed(self):
 		return self.__speed
 
 	"""
 	determines if this instance is alive
 	"""
-	def isAlive(self):
+	def is_alive(self):
 		return self.__health > 0
 
