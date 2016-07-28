@@ -297,10 +297,6 @@ class GameEngine:
 		up 		= controls.key_mov_up
 		down 	= controls.key_mov_down
 
-		print "rect"
-		print "bottom:" + str(rect.bottom) + "    top:" + str(rect.top)
-		print "left:" + str(rect.left) + "     right:"+str(rect.right) 
-
 		def __get_mov_x(key):
 			"""
 			inner function
