@@ -26,22 +26,32 @@ class Player(GameObject):
 		self.__name 	= name
 		self.__health 	= health
 
-	# set current health
+	"""
+	set current health
+	"""
 	def set_health(self, health):
 		self.__health = health
 
-	# get this speed value
+	"""
+	get this speed value
+	"""
 	def set_speed(self, speed):
 		self.__speed = speed
 
-	# get this name
+	"""
+	get this name
+	"""
 	def get_name(self):
 		return self.__name
 
-	# get current health
+	"""
+	get current health
+	"""
 	def get_health(self):
 		return self.__health
-
+	"""
+	get current speed
+	"""
 	def get_speed(self):
 		return self.__speed
 
