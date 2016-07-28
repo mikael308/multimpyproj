@@ -1,6 +1,5 @@
-import pygame
+import resource, pygame
 from GameObject import GameObject
-import resource
 
 
 class Player(GameObject):
