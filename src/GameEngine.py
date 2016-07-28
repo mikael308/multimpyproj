@@ -41,7 +41,9 @@ class GameEngine:
 	def __destruct(self):
 		pygame.quit()
 		
-
+	"""
+		add client player to this gameengine
+	"""
 	def add_player(self, player):
 		self.__player = player
 
