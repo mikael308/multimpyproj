@@ -341,8 +341,10 @@ class GameEngine:
 
 		# (up left) |  (up right)
 		if mov_x != 0 and mov_y != 0:
-			mov_x *= ddir
-			mov_y *= ddir
+			if mov_x > 1:
+				mov_x *= ddir
+			if mov_y > 1:
+				mov_y *= ddir
 
 		return (mov_x, mov_y)
 
