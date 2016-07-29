@@ -114,8 +114,6 @@ class GameEngine:
 		"""
 		pygame.init()
 
-		screen 			= self.__screen
-
 		background 		= GameEngine.loadImage("background")
 		enemyImage		= GameEngine.loadImage("enemy")
 		health_icon 	= GameEngine.loadImage("health")
@@ -138,12 +136,12 @@ class GameEngine:
 				self.__handle_event(event)
 			
 			# display
-			screen.blit(background, (0,0))
 			screen.blit(self.__player.get_sprite(), self.__player.get_rect())
+			self.__screen.blit(background, (0, 0))
 
 			if self.__bomb_flag:
 				b = self.__bomb
-				screen.blit(b.get_sprite(), b.get_rect())
+				self.__screen.blit(b.get_sprite(), b.get_rect())
 
 			pygame.display.update()
 
