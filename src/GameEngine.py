@@ -6,11 +6,10 @@ from settings import controls
 
 class GameEngine:
 	"""
-	@author Mikael Holmbom
-
 	gameengine for game
 	gameloop: @see run(self)
 
+	@author Mikael Holmbom
 	"""
 
 	__game_title 		= resource.get_string("game_title")
