@@ -32,14 +32,18 @@ class GameObject:
 
 	def set_pos(self, x, y):
 		"""
-		set current position
+		set current position\n
+		:param x: new X-axis position
+		:param y: new Y-axis position
+		:return:
 		"""
 		mod_rect 	= self.get_rect().move((x, y))
 		self.set_rect(mod_rect)
 
 	def get_sprite(self):
 		"""
-		get current sprite
+		get current sprite\n
+		:return:
 		"""
 		return self.__sprite
 
@@ -51,6 +55,7 @@ class GameObject:
 
 	def get_pos(self):
 		"""
-		get this position
+		get this current center position
+		:return: current position
 		"""
 		return self.get_rect().center
