@@ -25,6 +25,10 @@ class GameEngine:
 	__end_state			= 0
 
 	def __init__(self):
+		"""
+		initialize gameengine\n
+		defines screen and init pygame
+		"""
 		
 		size 			= (resource.get_dimen("main_window_size_width"),
 						   resource.get_dimen("main_window_size_height"))
