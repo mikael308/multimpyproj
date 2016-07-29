@@ -24,6 +24,9 @@ class GameEngine:
 
 	# contain current games CPUs
 	__cpus				= {}
+	# contain current games Packets
+	__packets			= {}
+
 	__end_state			= 0
 
 	def __init__(self):
