@@ -12,8 +12,6 @@ class GameObject:
 	__sprite	= None
 	# this current rectangle
 	__rect		= None
-	# this current position
-	__pos		= [0,0]
 
 	def __init__(self, sprite):
 		# add args sprite and rect
@@ -36,8 +34,8 @@ class GameObject:
 		"""
 		set current position
 		"""
-		self.__pos[0] = x
-		self.__pos[1] = y
+		mod_rect 	= self.get_rect().move((x, y))
+		self.set_rect(mod_rect)
 
 	def get_sprite(self):
 		"""
@@ -55,13 +53,4 @@ class GameObject:
 		"""
 		get this position
 		"""
-		return self.__pos
-
-	def get_centerpos(self):
-		"""
-		get the centerposition of this rectangle
-		"""
-		x = self.get_pos()[0] - self.get_rect().width / 2
-		y = self.get_pos()[1] - self.get_rect().height / 2
-
-		return (x, y)
+		return self.get_rect().center
