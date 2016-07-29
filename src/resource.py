@@ -15,6 +15,7 @@ resdir = "res/"
 resfile_string 	= "strings.xml"
 resfile_dimen 	= "dimens.xml"
 resfile_img		= "images.xml"
+resfile_val		= "values.xml"
 
 
 def get_string(resId):
@@ -52,6 +53,21 @@ def get_dimen(resId):
 	for child in root:
 		# if resource is found
 		if child.attrib[attr_key] == resId:
+			return int(child.text)
+
+	return res_notfound_val
+
+
+def get_value(res_id):
+	attr_key = "name"
+	res_notfound_val = None
+
+	tree = ET.parse(resdir + resfile_val)
+	root = tree.getroot()
+
+	for child in root:
+		# if resource is found
+		if child.attrib[attr_key] == res_id:
 			return int(child.text)
 
 	return res_notfound_val
