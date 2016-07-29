@@ -14,10 +14,7 @@ class GameEngine:
 	"""
 
 	__game_title 		= resource.get_string("game_title")
-
 	__screen 			= None
-	__screen_width		= resource.get_dimen("main_window_size_width")
-	__screen_height		= resource.get_dimen("main_window_size_height")
 
 	__bomb_flag 		= False
 	__bomb 				= None
@@ -30,7 +27,8 @@ class GameEngine:
 
 	def __init__(self):
 		
-		size 			= (self.__screen_width, self.__screen_height)
+		size 			= (resource.get_dimen("main_window_size_width"),
+						   resource.get_dimen("main_window_size_height"))
 		self.__screen  	= pygame.display.set_mode(size)
 		
 		pygame.display.set_caption(self.__game_title)
@@ -311,7 +309,7 @@ class GameEngine:
 					return mov_speed * -1
 
 			elif key[right]:
-				dist = self.__screen_width - rect.right # distance to wall
+				dist = self.__screen.get_width() - rect.right # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
@@ -332,7 +330,7 @@ class GameEngine:
 				else:
 					return mov_speed * -1
 			elif key[down]:
-				dist = self.__screen_height - rect.bottom # distance to wall
+				dist = self.__screen.get_height() - rect.bottom # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
