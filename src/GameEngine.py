@@ -45,6 +45,7 @@ class GameEngine:
 		pygame.font.init()
 
 	def __destruct(self):
+		pygame.font.quit()
 		pygame.quit()
 
 	def add_player(self, player):
