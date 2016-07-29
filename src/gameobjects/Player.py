@@ -1,8 +1,8 @@
 import resource, pygame
-from GameObject import GameObject
+from Attachable import Attachable
 
 
-class Player(GameObject):
+class Player(Attachable):
 	"""
 		defines the player
 
