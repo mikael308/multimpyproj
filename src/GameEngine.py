@@ -159,6 +159,16 @@ class GameEngine:
 
 		self.__destruct()
 
+	def __display_all_current(self):
+		for x in self.__cpus.values():
+			self.__display(x)
+
+		for p in self.__packets.values():
+			self.__display(p)
+
+		self.__display(self.__player)
+
+
 	def __display(self, gameobject):
 		"""
 		displays gameobject on current screen
