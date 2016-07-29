@@ -22,6 +22,8 @@ class GameEngine:
 	__player 			= None
 	__enemy				= None
 
+	# contain current games CPUs
+	__cpus				= {}
 	__end_state			= 0
 
 	def __init__(self):
