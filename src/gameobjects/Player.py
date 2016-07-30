@@ -20,7 +20,7 @@ class Player(Attachable):
 	def __init__(self, name, health, speed):
 		src = resource.get_imagesrc("player")
 		img 	= pygame.image.load(src)
-		GameObject.__init__(self, img)
+		Attachable.__init__(self, img)
 
 		self.__name 	= name
 		self.__health 	= health
