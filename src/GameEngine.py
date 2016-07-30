@@ -87,6 +87,25 @@ class GameEngine:
 				self.__game_loop = False
 				self.__end_state = 2	
 
+
+			###############################################
+			# DEBUG
+			if key[pygame.K_k]:
+				print "kill player by 1"
+				self.__player.damage(1)
+
+				print "player health: " + str(self.__player.get_health())
+
+			if key[pygame.K_s]:
+				print "SCORE!!!"
+				self.__player.mod_score(1)
+
+			if key[pygame.K_p]:
+				print "my packets"
+				for p in self.__packets.values():
+					print " * " + str(p.get_val())
+			# ! DEBUG
+			####################################################
 			elif key[controls.key_action]:
 
 				if self.__player.has_attached():
