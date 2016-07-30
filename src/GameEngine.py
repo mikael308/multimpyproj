@@ -55,7 +55,9 @@ class GameEngine:
 
 	def add_player(self, player):
 		"""
-		add client player to this gameengine
+		add client player to this gameengine\n
+		:param player: the player of this game\n
+		:return:
 		"""
 
 		self.__player = player
