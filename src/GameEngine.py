@@ -14,6 +14,7 @@ class GameEngine:
 
 	__game_title 		= resource.get_string("game_title")
 	__screen 			= None
+	__FPS				= resource.get_value("fps")
 
 	__bomb_flag 		= False
 	__bomb 				= None
@@ -140,6 +141,7 @@ class GameEngine:
 
 		self.__game_loop = True
 	
+		clock = pygame.time.Clock()
 		# GAME LOOP
 		while self.__game_loop:
 			for event in pygame.event.get():
@@ -154,6 +156,7 @@ class GameEngine:
 				self.__screen.blit(b.get_sprite(), b.get_rect())
 
 			pygame.display.update()
+			clock.tick(self.__FPS)
 
 		# ! GAME LOOP
 		# ending gameplay
