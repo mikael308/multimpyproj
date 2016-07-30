@@ -115,7 +115,6 @@ class GameEngine:
 	def __move_gameobj(gameobj, movs):
 		"""
 		move gameobject with direction movs
-		movs[0] - X -> positive:right, negative:left
 		:param gameobj:
 		:param movs: movs[0] - X -> positive:right, negative:left\n
 		movs[1] - Y -> positive:down, negative:up
