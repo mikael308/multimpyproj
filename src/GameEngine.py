@@ -307,7 +307,7 @@ class GameEngine:
 			if mov_y > 1:
 				mov_y *= ddir
 
-		return (mov_x, mov_y)
+		return mov_x, mov_y
 
 	def __slow_key(self):
 		"""
