@@ -2,6 +2,7 @@
 import pygame, thread, time
 import resource
 from settings import controls
+from gameobjects.Cpu import CPU
 
 
 class GameEngine:
