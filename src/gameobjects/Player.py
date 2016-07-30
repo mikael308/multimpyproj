@@ -26,7 +26,6 @@ class Player(Attachable):
 
 		self.__name 	= name
 		self.__health 	= health
-
 		self.__speed	= speed
 
 	def set_health(self, health):
