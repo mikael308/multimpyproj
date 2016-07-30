@@ -84,3 +84,13 @@ class Player(Attachable):
 		hp = self.get_health()
 		self.set_health(hp - damage)
 
+	def mod_score(self, diff):
+		"""
+		modify current score\n
+		:param diff: modifying term\n
+		increase score: positive integer param\n
+		decrease score: negative integer param
+		:return:
+		"""
+		s = self.get_score()
+		self.set_score(s + diff)
