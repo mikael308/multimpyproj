@@ -21,8 +21,6 @@ class GameEngine:
 
 	# users gameobject
 	__player 			= None
-	__enemy				= None
-
 	# contain current games CPUs
 	__cpus				= []
 	# contain current games Packets
