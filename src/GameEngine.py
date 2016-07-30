@@ -1,9 +1,10 @@
-
 import pygame, thread, time
 import resource
+from random import randint
 from settings import controls
 from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
+from gameobjects.packet import Packet
 from infopanel import InfoPanel
 
 
@@ -317,4 +318,17 @@ class GameEngine:
 		"""
 		pygame.key.set_repeat(60000,60000)
 		pygame.key.set_repeat(21,21)
+
+	def __add_packet(self):
+		n_cpu = len(self.__cpus)
+		val_idx = randint(0, n_cpu - 1)
+		val = self.__cpus[val_idx].get_val()
+
+		p = Packet(val)
+		y = 400 - (50 * len(self.__packets))
+		p.set_pos(20, y)
+
+		self.__packets[p.get_id()] = p
+
+
 
