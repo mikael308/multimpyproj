@@ -135,17 +135,10 @@ class GameEngine:
 		"""
 		pygame.init()
 
-		background 		= GameEngine.loadImage("background")
-		enemyImage		= GameEngine.loadImage("enemy")
-		health_icon 	= GameEngine.loadImage("health")
 		self.__background 		= GameEngine.load_image("background")
 		self.__panel = InfoPanel(self.__player)
 
-		
-		#en 				= Enemy("tom", 10, enemyImage, 2, 3)
-
-		self.__player = self.__move_object(self.__player, 100, 100)
-		#en = self.__move_object(e
+		self.__setup_gameobjects()
 
 		# set key press repeat instantly as standard
 		flag_key_repeat_inst = True
