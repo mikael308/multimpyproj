@@ -69,6 +69,8 @@ class GameEngine:
 	def __handle_event(self, event):
 		"""
 		handles incoming event
+		:param event: the event to handle
+		:return:
 		"""
 		
 		if event.type == pygame.QUIT:
@@ -113,7 +115,10 @@ class GameEngine:
 		"""
 		move gameobject with direction movs
 		movs[0] - X -> positive:right, negative:left
+		:param gameobj:
+		:param movs: movs[0] - X -> positive:right, negative:left\n
 		movs[1] - Y -> positive:down, negative:up
+		:return: edited gameobj with new position
 		"""
 		rect = gameobj.get_rect()
 		gameobj.set_rect(rect.move(movs[0], movs[1]))
@@ -122,8 +127,9 @@ class GameEngine:
 
 	def run(self):
 		"""
-		start this gameengine
-		prior: player must be defined
+		start this gameengines gameloop\n
+		prior -- player must be defined
+		:return:
 		"""
 		pygame.init()
 
@@ -189,6 +195,7 @@ class GameEngine:
 	def __validate_endstate(self):
 		"""
 		start endsequence according to this current endstate
+		:return:
 		"""
 
 		es = self.__end_state
@@ -204,114 +211,16 @@ class GameEngine:
 	def __update_endstate(self):
 		if not self.__player.is_alive():
 			self.__end_state = 0
-		
-		"""if not en.is_alive():
-			end_state = 1
-			break
-		"""
 
-
-	"""
-		make follower follow target with the speed of n
-	"""
-	"""
-	def __ai_follow(self, follower, target, n):
-		f 		= follower.get_rect()
-		fs 		= follower.get_speed()
-		
-		tX		= target.get_rect().center[0]
-		tY 		= target.get_rect().center[1]
-
-		movX = 0
-		movY = 0
-
-		for i in range(n):
-			if 		tX < f.left:		movX 	= fs *-1
-			elif 	f.right < tX:		movX 	= fs 
-			if 		f.top > tY:			movY 	= fs *-1
-			elif 	tY > f.bottom:		movY 	= fs 
-
-			f = f.move((movX, movY))
-
-		follower.set_rect(f)
-		return follower
-	"""
-	"""
-	def __plant_bomb(self, pos):
-		if not self.__bomb_flag:
-			b 					= Obstacle_bomb(3)
-			self.__bomb_flag 	= True
-			self.__bomb 		= self.__move_object(b, pos[0], pos[1])
-
-			#TODO params are wierd....
-			thread.start_new_thread(self.__explode, ("klaatu", 3))
-	"""		
-
-	"""
-
-	move to bomb bostale class?
-	and chekc for collission right before call??
-
-	"""
-	"""
-	def __explode(self, msg, delay):
-
-		time.sleep(delay)
-		
-		b = self.__bomb
-		#b.set_sprite(b.get_sprite_explosion())
-
-		s_b_expl = b.get_sprite_explosion()
-		#bsprite = b.get_sprite()
-		scalesize = 50
-		for i in range(0,3):
-			time.sleep(0.02)
-			b.set_sprite(pygame.transform.smoothscale(s_b_expl, (scalesize *i, scalesize *i)))
-			rect = b.get_rect();
-			b.set_rect(rect.move((scalesize / 5) *-1 , (scalesize/5) *-1)) # move bomb explosion as it expands
-
-
-		b.get_rect().inflate(30, 30)
-		print "  > BOOOM!!"
-		# ENEMY HIT?
-		if self.__enemy.get_rect().colliderect(self.__bomb.get_rect()):
-			print " > HIT!"
-			self.__enemy.do_damage(b.get_damage())
-		else:
-			print " - MISS"
-
-		# PLAYER HIT?
-		if self.__player.get_rect().colliderect(self.__bomb.get_rect()):
-			print " you where hit!"
-			self.__player.do_damage(b.get_damage())
-		else:
-			print "the bomb missed you"
-
-		time.sleep(2)
-		self.__bomb_flag = False
-
-	"""
-
-	def __move_object(self, obj, x, y):
-		"""
-		move obj to absolute position (x, y)
-		"""
-		w 		= obj.get_rect().width
-		h 		= obj.get_rect().height
-
-		# edit the rectangle
-		rect 	= pygame.Rect((0,0), (w, h))
-		rect 	= rect.move((x, y))
-
-		obj.set_rect(rect)
-		return obj
 
 	def __input_movement(self, key, gameobject):
 		"""
 		moves gameobject according to input movement
 		return movement direction as list [X, Y]
+		:param key: the pressed key
+		:param gameobject: the gameobject to move
+		:return: movement as tuple (x_movement, y_movement)
 		"""
-
 		rect 		= gameobject.get_rect()
 		mov_speed 	= gameobject.get_speed()
 		ddir 		= 0.7 # diagonal direction: factor multiplied to distance on diagonal movement
@@ -326,6 +235,8 @@ class GameEngine:
 			inner function
 			get X-axis movement from key
 			if no movement was found, 0 is returned
+			:param key: pressed key
+			:return: movement of X-axis
 			"""
 			if key[left]:
 				dist = rect.left # distance to wall
@@ -348,6 +259,8 @@ class GameEngine:
 			inner function
 			get Y-axis movement from key
 			if no movement was found, 0 is returned
+			:param key: pressed key
+			:return: movement of Y-axis
 			"""
 			if key[up]:
 				dist = rect.top # distance to wall
@@ -380,6 +293,7 @@ class GameEngine:
 		"""
 		gets current key event slow delay and interval
 		sets keys to instant repeat again after used
+		:return:
 		"""
 		pygame.key.set_repeat(60000,60000)
 		pygame.key.set_repeat(21,21)
