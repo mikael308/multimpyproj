@@ -1,4 +1,4 @@
-from GameObject import GameObject
+from gameobject import GameObject
 
 
 class Attachable(GameObject):
