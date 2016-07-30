@@ -15,7 +15,7 @@ class Player(Attachable):
 	# this current health value
 	__health 	= 0
 	# defines this movement speed
-	__speed		= 10
+	__speed		= 0
 
 	def __init__(self, name, health):
 		src = resource.get_imagesrc("player")
