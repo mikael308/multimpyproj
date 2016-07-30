@@ -2,6 +2,7 @@
 import pygame, thread, time
 import resource
 from settings import controls
+from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
 from infopanel import InfoPanel
 
@@ -122,6 +123,9 @@ class GameEngine:
 		"""
 		rect = gameobj.get_rect()
 		gameobj.set_rect(rect.move(movs[0], movs[1]))
+
+		if isinstance(gameobj, Attachable) and gameobj.has_attached():
+			GameEngine.__move_gameobj(gameobj.get_attached(), movs)
 
 		return gameobj
 
