@@ -62,3 +62,12 @@ class Player(Attachable):
 		"""
 		return self.__health > 0
 
+	def damage(self, damage):
+		"""
+		damage this player by param value
+		:param damage: value to damage this player
+		:return:
+		"""
+		hp = self.get_health()
+		self.set_health(hp - damage)
+
