@@ -3,6 +3,7 @@ import pygame, thread, time
 import resource
 from settings import controls
 from gameobjects.cpu import CPU
+from infopanel import InfoPanel
 
 
 class GameEngine:
@@ -22,6 +23,7 @@ class GameEngine:
 
 	# users gameobject
 	__player 			= None
+	__panel				= None
 	# contain current games CPUs
 	__cpus				= []
 	# contain current games Packets
@@ -135,6 +137,7 @@ class GameEngine:
 		background 		= GameEngine.loadImage("background")
 		enemyImage		= GameEngine.loadImage("enemy")
 		health_icon 	= GameEngine.loadImage("health")
+		self.__panel = InfoPanel(self.__player)
 
 		
 		#en 				= Enemy("tom", 10, enemyImage, 2, 3)
@@ -182,6 +185,7 @@ class GameEngine:
 
 		self.__display(self.__player)
 
+		self.__screen.blit(self.__panel.render(), (10,10))
 
 	def __display(self, gameobject):
 		"""
