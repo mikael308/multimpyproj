@@ -23,6 +23,7 @@ class GameEngine:
 
 	# users gameobject
 	__player 			= None
+	__background		= None
 	__panel				= None
 	# contain current games CPUs
 	__cpus				= []
@@ -137,6 +138,7 @@ class GameEngine:
 		background 		= GameEngine.loadImage("background")
 		enemyImage		= GameEngine.loadImage("enemy")
 		health_icon 	= GameEngine.loadImage("health")
+		self.__background 		= GameEngine.load_image("background")
 		self.__panel = InfoPanel(self.__player)
 
 		
