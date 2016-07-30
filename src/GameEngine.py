@@ -169,6 +169,8 @@ class GameEngine:
 		self.__destruct()
 
 	def __display_all_current(self):
+		self.__screen.blit(self.__background, (0, 0))
+
 		for i in self.__cpus:
 			self.__display(i)
 
