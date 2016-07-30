@@ -17,7 +17,7 @@ class Player(Attachable):
 	# defines this movement speed
 	__speed		= 0
 
-	def __init__(self, name, health):
+	def __init__(self, name, health, speed):
 		src = resource.get_imagesrc("player")
 		img 	= pygame.image.load(src)
 		GameObject.__init__(self, img)
@@ -25,6 +25,7 @@ class Player(Attachable):
 		self.__name 	= name
 		self.__health 	= health
 
+		self.__speed	= speed
 
 	def set_health(self, health):
 		"""
