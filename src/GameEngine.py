@@ -65,8 +65,8 @@ class GameEngine:
 		self.__player = player
 
 	@staticmethod
-	def loadImage(imgId):
-		return pygame.image.load(resource.get_imagesrc(imgId))
+	def load_image(img_id):
+		return pygame.image.load(resource.get_imagesrc(img_id))
 
 	def __handle_event(self, event):
 		"""
