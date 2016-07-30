@@ -298,11 +298,12 @@ class GameEngine:
 			else:
 				return 0
 
+		# get left and right movements
 		mov_x = __get_mov_x(key)
 		mov_y = __get_mov_y(key)
 
-		# (up left) |  (up right)
 		if mov_x != 0 and mov_y != 0:
+			# if diagonally movement
 			if mov_x > 1:
 				mov_x *= ddir
 			if mov_y > 1:
