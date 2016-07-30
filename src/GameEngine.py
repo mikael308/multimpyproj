@@ -24,7 +24,7 @@ class GameEngine:
 	__enemy				= None
 
 	# contain current games CPUs
-	__cpus				= {}
+	__cpus				= []
 	# contain current games Packets
 	__packets			= {}
 
