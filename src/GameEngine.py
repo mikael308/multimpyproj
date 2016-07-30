@@ -189,6 +189,29 @@ class GameEngine:
 		"""
 		self.__screen.blit(gameobject.get_sprite(), gameobject.get_rect())
 
+	def __setup_gameobjects(self):
+		max = resource.get_value("max")
+		min = resource.get_value("min")
+
+		num = resource.get_value("n_cpus")
+
+		vals = []
+		while len(vals) < num:
+			v = randint(min, max)
+			if vals.count(v) == 0:
+				vals.append(v)
+				cpu = CPU(v)
+				cpu.set_pos(400, 75 * len(vals) + 10)
+				self.__cpus.append(cpu)
+
+		src = resource.get_imagesrc("health")
+		self.__health_icon = pygame.image.load(src)
+
+		for i in range(0, resource.get_value("buf_size_start")):
+			self.__add_packet()
+
+		self.__player.set_pos(100, 100)
+
 	def __validate_endstate(self):
 		"""
 		start endsequence according to this current endstate
