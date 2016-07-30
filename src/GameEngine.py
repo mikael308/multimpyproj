@@ -99,7 +99,6 @@ class GameEngine:
 				x = movs[0]
 				y = movs[1]
 				
-				#check if x and y is bigger than distance between gameobj and screensize
 				self.__player = GameEngine.__move_gameobj(self.__player, movs)
 
 		elif event.type == pygame.KEYUP:
