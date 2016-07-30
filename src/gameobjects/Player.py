@@ -36,7 +36,7 @@ class Player(Attachable):
 
 	def set_speed(self, speed):
 		"""
-		get this speed value
+		set this speed value
 		"""
 		self.__speed = speed
 
