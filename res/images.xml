@@ -5,5 +5,6 @@
 	<image name="player">player.bmp</image>
 	<image name="enemy">enemy.bmp</image>
 	<image name="health">health.bmp</image>
+	<image name="cpu">cpu.bmp</image>
 </images>
 
