@@ -97,9 +97,7 @@ class GameEngine:
 				## MOVEMENT
 				##################
 				movs = self.__input_movement(key, self.__player)
-				x = movs[0]
-				y = movs[1]
-				
+
 				self.__player = GameEngine.__move_gameobj(self.__player, movs)
 
 		elif event.type == pygame.KEYUP:
