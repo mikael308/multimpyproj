@@ -43,7 +43,7 @@ class GameEngine:
 		self.__screen  	= pygame.display.set_mode(size)
 		
 		pygame.display.set_caption(self.__game_title)
-		pygame.display.set_icon(GameEngine.loadImage("icon"))
+		pygame.display.set_icon(GameEngine.load_image("icon"))
 
 		pygame.font.init()
 
