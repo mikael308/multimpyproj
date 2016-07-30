@@ -88,11 +88,6 @@ class GameEngine:
 				self.__end_state = 2	
 
 			elif key[controls.key_action]:
-				print "actionkey"
-				pos = self.__player.get_centerpos()
-				
-				self.__plant_bomb(pos)
-				
 			else:
 				##################
 				## MOVEMENT
