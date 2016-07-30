@@ -160,14 +160,11 @@ class GameEngine:
 		while self.__game_loop:
 			for event in pygame.event.get():
 				self.__handle_event(event)
-			
-			# display
-			screen.blit(self.__player.get_sprite(), self.__player.get_rect())
-			self.__screen.blit(background, (0, 0))
 
-			if self.__bomb_flag:
-				b = self.__bomb
-				self.__screen.blit(b.get_sprite(), b.get_rect())
+
+
+			# DISPLAY
+			self.__display_all_current()
 
 			pygame.display.update()
 			clock.tick(self.__FPS)
