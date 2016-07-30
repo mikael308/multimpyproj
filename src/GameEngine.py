@@ -45,6 +45,10 @@ class GameEngine:
 		pygame.font.init()
 
 	def __destruct(self):
+		"""
+		destructs this gameengine
+		:return:
+		"""
 		pygame.font.quit()
 		pygame.quit()
 
