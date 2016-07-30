@@ -40,6 +40,14 @@ class Player(Attachable):
 		"""
 		self.__speed = speed
 
+	def set_score(self, score):
+		"""
+		set this score
+		:param score: new score value
+		:return:
+		"""
+		self.__score = score
+
 	def get_name(self):
 		"""
 		get this name
@@ -57,6 +65,9 @@ class Player(Attachable):
 		get current speed
 		"""
 		return self.__speed
+
+	def get_score(self):
+		return self.__score
 
 	def is_alive(self):
 		"""
