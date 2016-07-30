@@ -1,5 +1,5 @@
 import resource, pygame
-from Attachable import Attachable
+from attachable import Attachable
 
 
 class Player(Attachable):
