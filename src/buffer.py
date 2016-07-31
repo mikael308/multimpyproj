@@ -24,6 +24,12 @@ class Buffer:
         """
         return self.__capacity
 
+    def __getitem__(self, item):
+        if item >= self.__capacity:
+            raise IndexError("index [" + str(item) + "] out bounds, buffer capacity: " + str(self.__capacity))
+
+        return self.__elements.get(item, None)
+
     def __len__(self):
         return len(self.__elements)
 
