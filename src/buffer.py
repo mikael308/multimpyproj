@@ -63,9 +63,8 @@ class Buffer:
         :param elem: element to delete
         :return: True if element was deleted
         """
-        for item in self.__elements.items():
-            key = item[0]
-            value = item[1]
+        for key, value in self.__elements.items():
+
             if value == elem:
                 del self.__elements[key]
 
