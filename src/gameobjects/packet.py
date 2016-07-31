@@ -29,6 +29,9 @@ class Packet(GameObject):
 
         self.__val = val
 
+    def __str__(self):
+        return str(self.get_val())
+
     def get_val(self):
         """
         get this value
