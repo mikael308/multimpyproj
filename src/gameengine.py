@@ -165,7 +165,7 @@ class GameEngine:
 		"""
 		pygame.init()
 
-		self.__background 		= GameEngine.load_image("background")
+		self.__background = GameEngine.load_image("background")
 		self.__panel = InfoPanel(self.__player)
 
 		self.__setup_gameobjects()
