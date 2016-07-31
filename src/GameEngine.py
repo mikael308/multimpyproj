@@ -191,6 +191,9 @@ class GameEngine:
 			clock.tick(self.__FPS)
 
 		# ending gameplay
+			if not self.__player.is_alive():
+				self.__game_loop = False
+
 		# ! GAME LOOP ###################################
 
 		self.__update_endstate()
