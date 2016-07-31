@@ -2,7 +2,8 @@
 
 	metadata containing controls used in game
 	
-	@author Mikael Holmbom
+	:author: Mikael Holmbom
+	:ver: 1.0
 """
 import pygame
 
