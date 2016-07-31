@@ -67,7 +67,10 @@ def get_value(res_id):
 	for child in root:
 		# if resource is found
 		if child.attrib[attr_key] == res_id:
-			return int(child.text)
+			try:
+				return int(child.text)
+			except ValueError:
+				return float(child.text)
 
 	return res_notfound_val
 
