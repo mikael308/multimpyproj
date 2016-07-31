@@ -19,9 +19,6 @@ class GameEngine:
 	__screen 			= None
 	__FPS				= resource.get_value("fps")
 
-	__bomb_flag 		= False
-	__bomb 				= None
-
 	# users gameobject
 	__player 			= None
 	__background		= None
