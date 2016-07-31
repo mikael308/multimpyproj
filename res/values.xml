@@ -6,5 +6,6 @@
 	<value name="n_cpus">4</value>
 	<value name="packets_buf_max_size">8</value>
 	<value name="buf_size_start">4</value>
+	<value name="player_mov_speed">20</value>
 </values>
 
