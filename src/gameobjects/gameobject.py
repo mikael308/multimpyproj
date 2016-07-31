@@ -44,6 +44,16 @@ class GameObject:
 		mod_rect 	= self.get_rect().move((x, y))
 		self.set_rect(mod_rect)
 
+	def set_pos(self,x, y):
+		"""
+		set object to absolute position
+		:param x: x-axis position
+		:param y: y-axis position
+		:return:
+		"""
+		self.__rect.x = x
+		self.__rect.y = y
+
 	def get_sprite(self):
 		"""
 		get current sprite\n
