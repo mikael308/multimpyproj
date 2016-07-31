@@ -29,6 +29,22 @@ class Buffer:
 
     def __contains__(self, item):
         return self.__elements.__contains__(item)
+    def __str__(self):
+        l = self.__elements.items()
+        l.sort()
+
+        s = "[ "
+        i = 0
+        for e in l:
+            i += 1
+            s += str(e[0]) + ":" + str(e[1])
+            if i < len(self.__elements):
+                s += ", "
+        s += " ]"
+        s += "{" + str(self.__capacity) + "}"
+
+        return s
+
     def get_size(self):
         """
         get size of this Buffer, that is current amount of elements
