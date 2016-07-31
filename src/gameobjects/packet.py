@@ -11,7 +11,7 @@ class Packet(GameObject):
     """
 
     # TEXT SURFACE
-    __text_color = 0, 0, 0 # black
+    __text_color = 0, 0, 0  # black
     __text_size = 30
 
     # this packet value
