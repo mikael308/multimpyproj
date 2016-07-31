@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 
 
 # path to resource data
-resdir = "res/"
+resdir = "../res/"
 # resourcefiles containing data
 resfile_string 	= "strings.xml"
 resfile_dimen 	= "dimens.xml"
