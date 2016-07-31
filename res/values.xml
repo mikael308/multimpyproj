@@ -7,5 +7,11 @@
 	<value name="packets_buf_max_size">8</value>
 	<value name="buf_size_start">4</value>
 	<value name="player_mov_speed">20</value>
+	<!-- 	the points needed to level up the first time
+		will be changed during game by the factor  -->
+	<value name="points_exp_level_up_start">10</value>
+	<!--	the factor to experience needed to level up to the next level 
+	-->
+	<value name="points_exp_needed_factor">1.8</value>
 </values>
 
