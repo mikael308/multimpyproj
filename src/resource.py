@@ -57,6 +57,7 @@ def get_dimen(resId):
 
 	return res_notfound_val
 
+
 def get_value(res_id):
 	attr_key = "name"
 	res_notfound_val = None
