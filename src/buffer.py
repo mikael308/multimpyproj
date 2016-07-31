@@ -37,9 +37,7 @@ class Buffer:
         :param item: item to determine index
         :return: the index of item, if item is not found None is returned
         """
-        for e in self.__elements.items():
-            key = e[0]
-            value = e[1]
+        for key, value in self.__elements.items():
             if value == item:
                 return key
 
