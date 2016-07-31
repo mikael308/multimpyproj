@@ -8,7 +8,6 @@ class Buffer:
 
     __elements      = {}
     __capacity      = 0
-    __size          = 0
 
     __idx           = 0
 
@@ -30,7 +29,7 @@ class Buffer:
         get size of this Buffer, that is current amount of elements
         :return:
         """
-        return self.__size
+        return len(self.__elements)
 
     def index(self, item):
         """
@@ -56,7 +55,6 @@ class Buffer:
 
             if not self.__elements.has_key(idx):
                 self.__elements[idx] = item
-                self.__size += 1
                 return True
 
         return False
@@ -73,7 +71,6 @@ class Buffer:
             if value == elem:
                 del self.__elements[key]
 
-                self.__size -= 1
                 return True
 
         return False
@@ -83,11 +80,13 @@ class Buffer:
         determine if this Buffer is empty, that is has 0 elements
         :return: True if empty
         """
-        return self.__size == 0
+        return self.get_size() == 0
 
     def is_full(self):
         """
         determine if this Buffer is full, that is reached its max capacity
         :return:
         """
-        return self.__size == self.__capacity
+        return self.get_size() == self.__capacity
+
+
