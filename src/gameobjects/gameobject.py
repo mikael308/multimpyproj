@@ -34,7 +34,7 @@ class GameObject:
 		"""
 		self.__rect = rect
 
-	def set_pos(self, x, y):
+	def move_pos(self, x, y):
 		"""
 		set current position\n
 		:param x: new X-axis position
