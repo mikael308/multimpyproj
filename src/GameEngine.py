@@ -177,7 +177,7 @@ class GameEngine:
 		self.__game_loop = True
 	
 		clock = pygame.time.Clock()
-		# GAME LOOP
+		# GAME LOOP ####################################
 		while self.__game_loop:
 			for event in pygame.event.get():
 				self.__handle_event(event)
@@ -190,8 +190,8 @@ class GameEngine:
 			pygame.display.update()
 			clock.tick(self.__FPS)
 
-		# ! GAME LOOP
 		# ending gameplay
+		# ! GAME LOOP ###################################
 
 		self.__update_endstate()
 		self.__validate_endstate()
