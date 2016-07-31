@@ -10,10 +10,13 @@ class Buffer:
     __capacity      = 0
 
     __idx           = 0
+    __idx_hashkey   = 3
 
     def __init__(self, capacity):
         if capacity <= 0:
             raise ValueError("buffer capacity must be a positive number")
+        if capacity == 3:
+            self.__idx_hashkey = 7
 
         self.__capacity = capacity
 
@@ -71,6 +74,11 @@ class Buffer:
             if value == item:
                 return key
 
+    def __incr_idx(self):
+        self.__idx += self.__idx_hashkey
+        self.__idx %= self.__capacity
+        return self.__idx
+
     def add(self, item):
         """
         add item to this Buffer
@@ -80,6 +88,7 @@ class Buffer:
         if self.get_size() < self.__capacity:
             for i in range(0, self.__capacity):
 
+                idx = self.__incr_idx()
 
                 if not self.__elements.has_key(idx):
                     self.__elements[idx] = item
