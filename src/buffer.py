@@ -77,13 +77,13 @@ class Buffer:
         :param item: item to add
         :return: True if item was added
         """
-        for i in range(0, self.__capacity):
-            idx = self.__idx % self.__capacity
-            self.__idx += 1
+        if self.get_size() < self.__capacity:
+            for i in range(0, self.__capacity):
 
-            if not self.__elements.has_key(idx):
-                self.__elements[idx] = item
-                return True
+
+                if not self.__elements.has_key(idx):
+                    self.__elements[idx] = item
+                    return True
 
         return False
 
