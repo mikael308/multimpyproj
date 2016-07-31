@@ -27,6 +27,8 @@ class Buffer:
     def __len__(self):
         return len(self.__elements)
 
+    def __contains__(self, item):
+        return self.__elements.__contains__(item)
     def get_size(self):
         """
         get size of this Buffer, that is current amount of elements
