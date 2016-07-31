@@ -1,5 +1,4 @@
-import pygame, thread, time
-import resource
+import pygame, resource
 from random import randint
 from settings import controls
 from gameobjects.attachable import Attachable
