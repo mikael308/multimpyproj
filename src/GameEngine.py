@@ -224,6 +224,10 @@ class GameEngine:
 		self.__screen.blit(gameobject.get_sprite(), gameobject.get_rect())
 
 	def __setup_gameobjects(self):
+		"""
+		setup gameobjects
+		:return:
+		"""
 		max = resource.get_value("max")
 		min = resource.get_value("min")
 
