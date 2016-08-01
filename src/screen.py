@@ -24,7 +24,7 @@ class Screen:
         self.__cpus             = cpus
         self.__packets          = packets
 
-        self.__infopanel = InfoPanel(player)
+        self.__infopanel        = InfoPanel(player)
 
         self.__background = pygame.image.load(resource.get_imagesrc("background"))
 
