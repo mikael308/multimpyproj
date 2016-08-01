@@ -154,7 +154,7 @@ class GameEngine:
 	def run(self):
 		"""
 		start this gameengines gameloop\n
-		prior -- player must be defined
+		prior -- player must be defined, see add_player(self)
 		:return:
 		"""
 		pygame.init()
