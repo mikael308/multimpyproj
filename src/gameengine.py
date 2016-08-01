@@ -422,3 +422,11 @@ class GameEngine:
 		:return:
 		"""
 		self.__player.damage(1)
+
+	def __packet_timeout(self, packet):
+		"""
+		simulates the effect of timeout of packet
+		:param packet:
+		:return:
+		"""
+		self.__player.mod_score(-1)
