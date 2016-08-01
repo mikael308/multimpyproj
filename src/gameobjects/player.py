@@ -67,6 +67,10 @@ class Player(Attachable):
 		return self.__speed
 
 	def get_score(self):
+		"""
+		get this current score
+		:return:
+		"""
 		return self.__score
 
 	def is_alive(self):
