@@ -41,6 +41,18 @@ class Screen:
         """
         self.__main_surface.blit(obj.get_sprite(), obj.get_rect())
 
+    def update(self):
+        """
+        update the objects displayed on screens
+        :return:
+        """
+        x = self.__buf_margin_left
+        for p in self.__buf:
+
+            idx = self.__buf.index(p)
+            y = self.__buf_margin_bottom - (self.__buf_margin_dist * idx)
+            p.set_pos(x, y)
+
     def render(self):
         """
         display all current objects on current screen
