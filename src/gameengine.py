@@ -416,3 +416,9 @@ class GameEngine:
 				else:
 					self.__player.mod_score(-1)
 
+	def __buffer_overflow(self):
+		"""
+		simulates the effect of a buffer overflow
+		:return:
+		"""
+		self.__player.damage(1)
