@@ -16,7 +16,7 @@ class Screen:
     __cpus          = None
     __packets       = None
 
-    __background    = None
+    __background    = pygame.image.load(resource.get_imagesrc("background"))
 
     def __init__(self, size, player, cpus, packets):
         self.__main_surface     = pygame.display.set_mode(size)
