@@ -245,7 +245,6 @@ class GameEngine:
 		vals = tools.unique_vals(num, packet_val_min, packet_val_max)
 		for val in vals:
 			cpu = CPU(val)
-			cpu.set_pos(400, 75 * len(vals) + 10)
 			self.__cpus.append(cpu)
 
 		src = resource.get_imagesrc("health")
