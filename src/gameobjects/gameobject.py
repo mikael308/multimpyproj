@@ -1,6 +1,5 @@
 
 
-
 class GameObject:
 	"""
 	graphic object used in gameplay
