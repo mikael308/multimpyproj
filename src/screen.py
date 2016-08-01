@@ -26,7 +26,6 @@ class Screen:
 
         self.__infopanel        = InfoPanel(player)
 
-        self.__background = pygame.image.load(resource.get_imagesrc("background"))
 
     def __blit(self, obj):
         """
