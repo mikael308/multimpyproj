@@ -34,3 +34,6 @@ class CPU(GameObject):
         :return: this value
         """
         return self.__val
+
+    def __str__(self):
+        return "CPU(" + str(self.get_val()) + ")"
