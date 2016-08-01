@@ -220,7 +220,7 @@ class GameEngine:
 		for i in range(0, resource.get_value("buf_size_start")):
 			self.__add_packet()
 
-		self.__player.set_pos(100, 100)
+		self.__player.set_pos(resource.get_value("player_startpoint_x"), resource.get_value("player_startpoint_y"))
 
 	def __validate_endstate(self):
 		"""
