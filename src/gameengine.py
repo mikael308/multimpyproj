@@ -125,7 +125,7 @@ class GameEngine:
 					self.__release_packet()
 
 				else:
-					for p in self.__packets.values():
+					for p in self.__packets:
 						pr = p.get_rect()
 						plr = self.__player.get_rect()
 						if pr.colliderect(plr):
