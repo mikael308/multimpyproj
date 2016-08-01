@@ -98,7 +98,7 @@ class GameEngine:
 
 			if key[pygame.K_p]:
 				print "my packets"
-				for p in self.__packets.values():
+				for p in self.__packets:
 					print " * " + str(p.get_val())
 			# ! DEBUG
 			####################################################
