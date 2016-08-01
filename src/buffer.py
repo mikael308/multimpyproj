@@ -20,13 +20,6 @@ class Buffer:
 
         self.__capacity = capacity
 
-    def get_capacity(self):
-        """
-        get the capacity of this Buffer
-        :return:
-        """
-        return self.__capacity
-
     def __getitem__(self, item):
         if item >= self.__capacity:
             raise IndexError("index [" + str(item) + "] out bounds, buffer capacity: " + str(self.__capacity))
@@ -60,6 +53,13 @@ class Buffer:
         s += "{" + str(self.__capacity) + "}"
 
         return s
+
+    def get_capacity(self):
+        """
+        get the capacity of this Buffer
+        :return:
+        """
+        return self.__capacity
 
     def get_size(self):
         """
