@@ -4,7 +4,7 @@ from settings import controls
 from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
 from gameobjects.packet import Packet
-from infopanel import InfoPanel
+from screen import Screen
 
 
 class GameEngine:
@@ -21,8 +21,6 @@ class GameEngine:
 
 	# users gameobject
 	__player 			= None
-	__background		= None
-	__panel				= None
 	# contain current games CPUs
 	__cpus				= []
 	# contain current games Packets
@@ -35,11 +33,7 @@ class GameEngine:
 		initialize gameengine\n
 		defines screen and init pygame
 		"""
-		
-		size 			= (resource.get_dimen("main_window_size_width"),
-						   resource.get_dimen("main_window_size_height"))
-		self.__screen  	= pygame.display.set_mode(size)
-		
+
 		pygame.display.set_caption(self.__game_title)
 		pygame.display.set_icon(GameEngine.load_image("icon"))
 
@@ -165,9 +159,10 @@ class GameEngine:
 		"""
 		pygame.init()
 
-		self.__background = GameEngine.load_image("background")
-		self.__panel = InfoPanel(self.__player)
+		size = (resource.get_dimen("main_window_size_width"),
+				resource.get_dimen("main_window_size_height"))
 
+		self.__screen = Screen(size, self.__player, self.__buf, self.__cpus, self.__packets)
 		self.__setup_gameobjects()
 
 		# set key press repeat instantly as standard
@@ -183,16 +178,12 @@ class GameEngine:
 				self.__handle_event(event)
 
 
-
-			# DISPLAY
-			self.__display_all_current()
-
-			pygame.display.update()
 			clock.tick(self.__FPS)
 
 		# ending gameplay
 			if not self.__player.is_alive():
 				self.__game_loop = False
+			self.__screen.render()
 
 		# ! GAME LOOP ###################################
 
@@ -200,31 +191,6 @@ class GameEngine:
 		self.__validate_endstate()
 
 		self.__destruct()
-
-	def __display_all_current(self):
-		"""
-		display all current gameobjects on current screen
-		:return:
-		"""
-		self.__screen.blit(self.__background, (0, 0))
-
-		for i in self.__cpus:
-			self.__display(i)
-
-		for p in self.__packets.values():
-			self.__display(p)
-
-		self.__display(self.__player)
-
-		self.__screen.blit(self.__panel.render(), (10,10))
-
-	def __display(self, gameobject):
-		"""
-		displays gameobject on current screen
-		:param gameobject: gameobject to display
-		:return:
-		"""
-		self.__screen.blit(gameobject.get_sprite(), gameobject.get_rect())
 
 	def __setup_gameobjects(self):
 		"""
