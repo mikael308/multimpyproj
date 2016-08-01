@@ -2,4 +2,11 @@
 <dimens>
 	<dimen name="main_window_size_height">500</dimen>
 	<dimen name="main_window_size_width">500</dimen>
+	<dimen name="buf_margin_top">450</dimen>
+	<dimen name="buf_margin_dist">50</dimen>
+	<dimen name="buf_margin_left">20</dimen>
+	<dimen name="cpu_margin_left">400</dimen>
+	<dimen name="cpu_margin_top">100</dimen>
+	<dimen name="cpu_margin_dist">75</dimen>
+
 </dimens>
