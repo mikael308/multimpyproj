@@ -18,6 +18,7 @@ class GameEngine:
 
 	__game_title 		= resource.get_string("game_title")
 	__screen 			= None
+	__clock				= None
 	__FPS				= resource.get_value("fps")
 
 	# users gameobject
@@ -173,8 +174,8 @@ class GameEngine:
 		pygame.key.set_repeat(21,21)
 
 		self.__game_loop = True
-	
-		clock = pygame.time.Clock()
+		self.__clock = pygame.time.Clock()
+		self.__time = 0
 		# GAME LOOP ####################################
 		while self.__game_loop:
 			for event in pygame.event.get():
