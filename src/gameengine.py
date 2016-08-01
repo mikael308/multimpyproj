@@ -347,4 +347,18 @@ class GameEngine:
 		self.__buf.delete(packet)
 		self.__player.attach(packet)
 
+	def __release_packet(self):
+		"""
+		player releases the attached packet
+		:return:
+		"""
+		attobj = self.__player.get_attached()
+		self.__player.detach()
+		for cpu in self.__cpus:
+			if attobj.get_rect().colliderect(cpu.get_rect()):
+				self.__packets.remove(attobj)
+				if attobj.get_val() == cpu.get_val():
+					self.__player.mod_score(1)
+				else:
+					self.__player.mod_score(-1)
 
