@@ -51,7 +51,7 @@ class Screen:
         for i in self.__cpus:
             self.__blit(i)
 
-        for p in self.__packets.values():
+        for p in self.__packets:
             self.__blit(p)
 
         self.__blit(self.__player)
