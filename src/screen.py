@@ -19,9 +19,13 @@ class Screen:
 
     __background    = pygame.image.load(resource.get_imagesrc("background"))
 
-    __buf_margin_left       = 20
-    __buf_margin_bottom     = 400
-    __buf_margin_dist       = 50
+    __buf_margin_left       = resource.get_dimen("buf_margin_left")
+    __buf_margin_top        = resource.get_dimen("buf_margin_top")
+    __buf_margin_dist       = resource.get_dimen("buf_margin_dist")
+
+    __cpu_margin_left       = resource.get_dimen("cpu_margin_left")
+    __cpu_margin_top        = resource.get_dimen("cpu_margin_top")
+    __cpu_margin_dist       = resource.get_dimen("cpu_margin_dist")
 
     def __init__(self, size):
         self.__main_surface     = pygame.display.set_mode(size)
