@@ -18,6 +18,10 @@ class GameEngine:
 
 	__game_title 		= resource.get_string("game_title")
 	__screen 			= None
+
+	## GAMELOGIC
+	####################
+	# time
 	__clock				= None
 	__FPS				= resource.get_value("fps")
 	__holdtime			= 1000 / __FPS
@@ -25,6 +29,9 @@ class GameEngine:
 	__timespan_add_packet_factor_decr_factor = resource.get_value("timespan_add_packet_factor_decr_factor")
 
 
+
+	## GAMEOBJECTS
+	###################
 	# users gameobject
 	__player 			= None
 	__points_to_next_level = resource.get_value("points_exp_level_up_start")
