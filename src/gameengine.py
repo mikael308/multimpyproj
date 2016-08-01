@@ -338,4 +338,13 @@ class GameEngine:
 		self.__packets[p.get_id()] = p
 
 
+	def __grab_packet(self, packet):
+		"""
+		player grabs a packet
+		:param packet:
+		:return:
+		"""
+		self.__buf.delete(packet)
+		self.__player.attach(packet)
+
 
