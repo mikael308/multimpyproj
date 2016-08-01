@@ -98,6 +98,11 @@ class GameEngine:
 
 			###############################################
 			# DEBUG
+			if key[pygame.K_a]:
+				print "add packet!"
+				self.__add_packet()
+			if key[pygame.K_b]:
+				print "buf:" + str(self.__buf)
 			if key[pygame.K_k]:
 				print "kill player by 1"
 				self.__player.damage(1)
