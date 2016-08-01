@@ -122,22 +122,14 @@ class GameEngine:
 			elif key[controls.key_action]:
 
 				if self.__player.has_attached():
-					attobj = self.__player.get_attached()
-					self.__player.detach()
-					for cpu in self.__cpus:
-						if attobj.get_rect().colliderect(cpu.get_rect()):
-							del self.__packets[attobj.get_id()]
-							if attobj.get_val() == cpu.get_val():
-								self.__player.mod_score(1)
-							else:
-								self.__player.mod_score(-1)
+					self.__release_packet()
 
 				else:
 					for p in self.__packets.values():
-						pp = p.get_rect().center[1]
-						plp = self.__player.get_rect().center[1]
-						if pp - 20 < plp and plp < pp + 20:
-							self.__player.attach(p)
+						pr = p.get_rect()
+						plr = self.__player.get_rect()
+						if pr.colliderect(plr):
+							self.__grab_packet(p)
 
 			else:
 				##################
