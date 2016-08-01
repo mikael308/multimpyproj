@@ -365,16 +365,18 @@ class GameEngine:
 		pygame.key.set_repeat(60000,60000)
 		pygame.key.set_repeat(21,21)
 
-	def __add_packet(self):
+	def __generate_packet(self):
+		"""
+		generates a packet with value from current cpus
+		:return:
+		"""
 		n_cpu = len(self.__cpus)
 		val_idx = randint(0, n_cpu - 1)
 		val = self.__cpus[val_idx].get_val()
-
 		p = Packet(val)
-		y = 400 - (50 * len(self.__packets))
-		p.set_pos(20, y)
 
-		self.__packets[p.get_id()] = p
+		return p
+
 
 
 	def __grab_packet(self, packet):
