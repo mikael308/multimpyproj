@@ -23,9 +23,12 @@ class Attachable(GameObject):
         """
         attach object to this object\n
         :param gameobj: the object to attach
-        :return:
+        :return: True if object was attached correct; False if this already had attached object in prior of call
         """
+        if self.has_attached():
+            return False
         self.__attached_obj = gameobj
+        return self.has_attached()
 
     def detach(self):
         """
