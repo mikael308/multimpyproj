@@ -1,4 +1,4 @@
-import id
+
 
 
 class GameObject:
@@ -9,8 +9,6 @@ class GameObject:
 	ver 1.0
 	"""
 
-	# this unique id
-	__id 		= ""
 	# this current sprite
 	__sprite	= None
 	# this current rectangle
@@ -18,7 +16,6 @@ class GameObject:
 
 	def __init__(self, sprite):
 		# add args sprite and rect
-		self.__id = id.get_id()
 		self.__sprite 	= sprite
 		self.__rect 	= sprite.get_rect()
 
