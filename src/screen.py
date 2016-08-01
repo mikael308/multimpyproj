@@ -23,12 +23,8 @@ class Screen:
     __buf_margin_bottom     = 400
     __buf_margin_dist       = 50
 
-    def __init__(self, size, player, buf, cpus, packets):
+    def __init__(self, size):
         self.__main_surface     = pygame.display.set_mode(size)
-        self.__player           = player
-        self.__buf              = buf
-        self.__cpus             = cpus
-        self.__packets          = packets
 
         self.__infopanel        = InfoPanel(player)
 
