@@ -89,7 +89,7 @@ class Buffer:
         :param item: item to add
         :return: True if item was added
         """
-        if self.get_size() < self.__capacity:
+        if not self.is_full():
             for i in range(0, self.__capacity):
 
                 idx = self.__incr_idx()
