@@ -78,7 +78,7 @@ class Buffer:
             if value == item:
                 return key
 
-    def __incr_idx(self):
+    def __next_hash(self):
         self.__idx += self.__idx_hashkey
         self.__idx %= self.__capacity
         return self.__idx
@@ -91,8 +91,7 @@ class Buffer:
         """
         if not self.is_full():
             for i in range(0, self.__capacity):
-
-                idx = self.__incr_idx()
+                idx = self.__next_hash()
 
                 if not self.__elements.has_key(idx):
                     self.__elements[idx] = item
