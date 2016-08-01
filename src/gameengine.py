@@ -20,9 +20,16 @@ class GameEngine:
 	__screen 			= None
 	__clock				= None
 	__FPS				= resource.get_value("fps")
+	__holdtime			= 1000 / __FPS
+	__timespan_add_packet = resource.get_value("timespan_add_packet_start")
+	__timespan_add_packet_factor_decr_factor = resource.get_value("timespan_add_packet_factor_decr_factor")
+
 
 	# users gameobject
 	__player 			= None
+	__points_to_next_level = resource.get_value("points_exp_level_up_start")
+	__points_exp_needed_factor = resource.get_value("points_exp_needed_factor")
+
 	# contain current games CPUs
 	__cpus				= []
 	# contain current games Packets
@@ -195,6 +202,34 @@ class GameEngine:
 		self.__validate_endstate()
 
 		self.__destruct()
+
+	def __gamelogic(self):
+		# delay framerate
+		self.__time += self.__clock.tick(self.__FPS)
+
+		# if player reaches x scores:
+		# 	* player level up
+		# 	* increase the next amount of scores to level up again
+		# 	* decrease timespan between every new added packet
+		if self.__player.get_score() >= self.__points_to_next_level:
+			self.__points_to_next_level *= self.__points_exp_needed_factor
+			self.__timespan_add_packet *= self.__timespan_add_packet_factor_decr_factor
+
+			print " ********** lvl up"
+			print "\tpoints need next lvl : " + str(self.__points_to_next_level)
+			print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
+
+
+		# spawn new packets every x second
+		if self.__time % self.__timespan_add_packet < self.__holdtime:
+			print "add packet according to time"
+			self.__add_packet()
+
+			print " ==== " + str(self.__time / 1000) + "s"
+			print "      rest : " + str()
+
+		if not self.__player.is_alive():
+			self.__game_loop = False
 
 	def __setup_gameobjects(self):
 		"""
