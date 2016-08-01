@@ -192,12 +192,8 @@ class GameEngine:
 			for event in pygame.event.get():
 				self.__handle_event(event)
 
+			self.__gamelogic()
 
-			clock.tick(self.__FPS)
-
-		# ending gameplay
-			if not self.__player.is_alive():
-				self.__game_loop = False
 			self.__screen.render()
 
 		# ! GAME LOOP ###################################
