@@ -30,7 +30,6 @@ class Screen:
     def __init__(self, size):
         self.__main_surface     = pygame.display.set_mode(size)
 
-        self.__infopanel        = InfoPanel(player)
 
 
     def __blit(self, obj):
