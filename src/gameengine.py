@@ -197,14 +197,14 @@ class GameEngine:
 		setup gameobjects
 		:return:
 		"""
-		max = resource.get_value("max")
-		min = resource.get_value("min")
+		packet_val_max = resource.get_value("packet_val_max")
+		packet_val_min = resource.get_value("packet_val_min")
 
 		num = resource.get_value("n_cpus")
 
 		vals = []
 		while len(vals) < num:
-			v = randint(min, max)
+			v = randint(packet_val_min, packet_val_max)
 			if vals.count(v) == 0:
 				vals.append(v)
 				cpu = CPU(v)
