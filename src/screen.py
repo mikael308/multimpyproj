@@ -13,14 +13,20 @@ class Screen:
     __infopanel     = None
 
     __player        = None
+    __buf           = None
     __cpus          = None
     __packets       = None
 
     __background    = pygame.image.load(resource.get_imagesrc("background"))
 
-    def __init__(self, size, player, cpus, packets):
+    __buf_margin_left       = 20
+    __buf_margin_bottom     = 400
+    __buf_margin_dist       = 50
+
+    def __init__(self, size, player, buf, cpus, packets):
         self.__main_surface     = pygame.display.set_mode(size)
         self.__player           = player
+        self.__buf              = buf
         self.__cpus             = cpus
         self.__packets          = packets
 
