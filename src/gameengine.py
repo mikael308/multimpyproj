@@ -5,6 +5,7 @@ from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
 from gameobjects.packet import Packet
 from screen import Screen
+from buffer import Buffer
 
 
 class GameEngine:
@@ -27,6 +28,8 @@ class GameEngine:
 
 	__end_state			= 0
 	__packets			= []
+	__buf_capacity 		= resource.get_value("buf_capacity")
+	__buf				= Buffer(__buf_capacity)
 
 	def __init__(self):
 		"""
