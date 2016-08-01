@@ -127,5 +127,3 @@ class Buffer:
         :return:
         """
         return self.get_size() == self.__capacity
-
-
