@@ -377,7 +377,20 @@ class GameEngine:
 
 		return p
 
+	def __add_packet(self):
+		"""
+		generates a new packet and adds it to game:\n
+		if buffer is full -> buffer overflow\n
+		else add packet to buffer
+		:return:
+		"""
+		p = self.__generate_packet()
 
+		if self.__buf.add(p):
+			self.__packets.append(p)
+
+		else:
+			self.__buffer_overflow()
 
 	def __grab_packet(self, packet):
 		"""
