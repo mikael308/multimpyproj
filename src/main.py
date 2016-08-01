@@ -6,9 +6,8 @@
 	author: Mikael Holmbom
 	ver 1.0
 """
-from GameEngine import GameEngine
-from gameobjects import Player
-
+from gameengine import GameEngine
+from gameobjects.player import Player
 
 player	= Player.Player("mikael", 3)
 
