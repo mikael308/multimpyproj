@@ -387,6 +387,7 @@ class GameEngine:
 		p = self.__generate_packet()
 
 		if self.__buf.add(p):
+			self.__screen.update()
 			self.__packets.append(p)
 
 		else:
