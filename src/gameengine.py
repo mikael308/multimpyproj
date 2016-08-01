@@ -1,4 +1,4 @@
-import pygame, resource
+import pygame, resource, tools
 from random import randint
 from settings import controls
 from gameobjects.attachable import Attachable
@@ -241,14 +241,12 @@ class GameEngine:
 
 		num = resource.get_value("n_cpus")
 
-		vals = []
-		while len(vals) < num:
-			v = randint(packet_val_min, packet_val_max)
-			if vals.count(v) == 0:
-				vals.append(v)
-				cpu = CPU(v)
-				cpu.set_pos(400, 75 * len(vals) + 10)
-				self.__cpus.append(cpu)
+		# generates cpus with unique values
+		vals = tools.unique_vals(num, packet_val_min, packet_val_max)
+		for val in vals:
+			cpu = CPU(val)
+			cpu.set_pos(400, 75 * len(vals) + 10)
+			self.__cpus.append(cpu)
 
 		src = resource.get_imagesrc("health")
 		self.__health_icon = pygame.image.load(src)
