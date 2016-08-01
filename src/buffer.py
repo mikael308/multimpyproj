@@ -41,6 +41,10 @@ class Buffer:
 
     def __contains__(self, item):
         return self.__elements.__contains__(item)
+
+    def __delitem__(self, key):
+        del self.__elements[key]
+
     def __str__(self):
         l = self.__elements.items()
         l.sort()
