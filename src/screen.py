@@ -30,6 +30,15 @@ class Screen:
     def __init__(self, size):
         self.__main_surface     = pygame.display.set_mode(size)
 
+    def set_cpus(self, cpus):
+        """
+        set this pointer to cpus to display
+        :param cpus:
+        :return:
+        """
+        self.__cpus = cpus
+        return self
+
 
 
     def __blit(self, obj):
