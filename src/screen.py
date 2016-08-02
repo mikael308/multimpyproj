@@ -110,7 +110,7 @@ class Screen:
         for p in self.__buf:
 
             idx = self.__buf.index(p)
-            y = self.__buf_margin_bottom - (self.__buf_margin_dist * idx)
+            y = self.__buf_margin_top + (self.__buf_margin_dist * idx)
             p.set_pos(x, y)
 
     def render(self):
