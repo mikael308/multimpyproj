@@ -293,7 +293,7 @@ add_player(Player)
                   </y:StyleProperties>
                   <y:State autoResize="true" closed="false" closedHeight="80.0" closedWidth="100.0"/>
                   <y:Insets bottom="15" bottomF="15.0" left="15" leftF="15.0" right="15" rightF="15.0" top="15" topF="15.0"/>
-                  <y:BorderInsets bottom="49" bottomF="48.702412802381104" left="0" leftF="0.0" right="26" rightF="25.593264248704486" top="17" topF="17.316062176165815"/>
+                  <y:BorderInsets bottom="56" bottomF="56.04181520948066" left="0" leftF="0.0" right="26" rightF="25.593264248704486" top="17" topF="17.316062176165815"/>
                 </y:GenericGroupNode>
                 <y:GenericGroupNode configuration="com.yworks.bpmn.Artifact.withShadow">
                   <y:Geometry height="55.0" width="85.0" x="-93.6010362694301" y="350.5582901554403"/>
@@ -325,7 +325,7 @@ add_player(Player)
               <data key="d4"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="121.40081236897277" width="100.0" x="336.5932642487045" y="136.01139896373058"/>
+                  <y:Geometry height="121.40081236897277" width="100.0" x="336.5932642487045" y="71.7575129533679"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="83.57421875" x="8.212890625" y="3.0">Attachable<y:LabelModel>
@@ -370,7 +370,7 @@ add_player(Player)
               <data key="d4"/>
               <data key="d6">
                 <y:UMLClassNode>
-                  <y:Geometry height="28.0" width="100.0" x="336.5932642487045" y="313.5672165737935"/>
+                  <y:Geometry height="28.0" width="100.0" x="336.5932642487045" y="248.22781416669392"/>
                   <y:Fill color="#FFCC00" transparent="false"/>
                   <y:BorderStyle color="#000000" type="line" width="1.0"/>
                   <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="50.45849609375" x="24.770751953125" y="3.0">Player<y:LabelModel>
@@ -570,19 +570,6 @@ add_player(Player)
         </node>
       </graph>
     </node>
-    <edge id="n1::n1::e0" source="n1::n1::n0" target="n1::n1::n1">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="231.49740932642476" y="196.71180514821697"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
     <edge id="n1::e0" source="n1::n0" target="n1::n1::n1">
       <data key="d8"/>
       <data key="d10">
@@ -633,18 +620,7 @@ add_player(Player)
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n1::e1" source="n1::n1::n2" target="n1::n1::n0">
-      <data key="d8"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
-          <y:LineStyle color="#000000" type="line" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="n1::n1::e2" source="n1::n1::n3" target="n1::n1::n1">
+    <edge id="n1::n1::e0" source="n1::n1::n2" target="n1::n1::n1">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -657,7 +633,20 @@ add_player(Player)
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="n1::n1::e3" source="n1::n1::n4" target="n1::n1::n1">
+    <edge id="n1::n1::e1" source="n1::n1::n3" target="n1::n1::n1">
+      <data key="d8"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="231.49740932642476" y="262.2278141666939"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n1::n1::e2" source="n1::n1::n4" target="n1::n1::n1">
       <data key="d8"/>
       <data key="d10">
         <y:PolyLineEdge>
@@ -711,7 +700,6 @@ add_player(Player)
     </edge>
     <edge id="n1::e2" source="n1::n0" target="n1::n5">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -723,12 +711,23 @@ add_player(Player)
     </edge>
     <edge id="n1::e3" source="n1::n5" target="n1::n4">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="n1::n1::e3" source="n1::n1::n2" target="n1::n1::n0">
+      <data key="d8"/>
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>

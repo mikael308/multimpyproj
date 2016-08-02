@@ -1,7 +1,6 @@
-from gameobject import GameObject
 
 
-class Attachable(GameObject):
+class Attachable:
     """
     defines object ability to attach and detach other objects\n
 
@@ -12,12 +11,10 @@ class Attachable(GameObject):
     # the attached object
     __attached_obj = None
 
-    def __init__(self, sprite):
+    def __init__(self):
         """
 
-        :param sprite:
         """
-        GameObject.__init__(self, sprite)
 
     def attach(self, gameobj):
         """
