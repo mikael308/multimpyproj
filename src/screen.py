@@ -4,7 +4,16 @@ from infopanel import InfoPanel
 
 class Screen:
     """
-    
+
+    # typical usecase:
+    * __init__()
+    * set_  objects
+    * setup()
+    * 1. [update the games objects]
+    * 2. if new objects in buffer -> update()
+    * 3. render()
+    * -  goto 1.
+
     :author: Mikael Holmbom
     :ver: 1.0
     """
