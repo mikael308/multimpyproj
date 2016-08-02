@@ -17,6 +17,8 @@ class Screen:
     __cpus          = None
     __packets       = None
 
+    __buffer_background = None
+
     __background    = pygame.image.load(resource.get_imagesrc("background"))
 
     __buf_margin_left       = resource.get_dimen("buf_margin_left")
