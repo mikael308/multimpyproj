@@ -25,6 +25,9 @@ class Screen:
     __buf_margin_top        = resource.get_dimen("buf_margin_top")
     __buf_margin_dist       = resource.get_dimen("buf_margin_dist")
 
+    __buf_background_x      = __buf_margin_left - resource.get_dimen("buf_margin_background_w")
+    __buf_background_y      = __buf_margin_top - resource.get_dimen("buf_margin_background_h")
+
     __cpu_margin_left       = resource.get_dimen("cpu_margin_left")
     __cpu_margin_top        = resource.get_dimen("cpu_margin_top")
     __cpu_margin_dist       = resource.get_dimen("cpu_margin_dist")
