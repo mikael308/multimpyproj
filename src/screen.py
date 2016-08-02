@@ -72,7 +72,26 @@ class Screen:
         self.__packets = packets
         return self
 
+    def setup(self):
+        """
+        initialize values for all the objects in this screen
+        :return:
+        """
+        buf_bg_w = 250
+        buf_bg_h = (self.__buf_margin_dist * resource.get_value("buf_capacity")) + (2 * resource.get_dimen("buf_margin_background_h"))
 
+        self.__buffer_background = pygame.Surface((buf_bg_w, buf_bg_h))
+        self.__buffer_background.fill((230, 0, 0))
+
+        if self.__player:
+            self.__infopanel = InfoPanel(self.__player)
+
+        for i in range(0, len(self.__cpus)):
+            x = self.__cpu_margin_left
+            y = self.__cpu_margin_top + self.__cpu_margin_dist * i
+            self.__cpus[i].set_pos(x, y)
+
+        self.update()
 
     def __blit(self, obj):
         """
