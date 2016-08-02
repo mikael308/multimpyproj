@@ -29,8 +29,6 @@ class GameEngine:
 	__timespan_add_packet = resource.get_value("timespan_add_packet_start")
 	__timespan_add_packet_factor_decr_factor = resource.get_value("timespan_add_packet_factor_decr_factor")
 
-
-
 	## GAMEOBJECTS
 	###################
 	# users gameobject
@@ -52,7 +50,6 @@ class GameEngine:
 		initialize gameengine\n
 		defines screen and init pygame
 		"""
-
 		pygame.display.set_caption(self.__game_title)
 		pygame.display.set_icon(GameEngine.load_image("icon"))
 
@@ -94,7 +91,6 @@ class GameEngine:
 				# quit gameloop
 				self.__game_loop = False
 				self.__end_state = 2	
-
 
 			###############################################
 			# DEBUG
@@ -242,7 +238,6 @@ class GameEngine:
 			print "\tpoints need next lvl : " + str(self.__points_to_next_level)
 			print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
 
-
 		# spawn new packets every x second
 		if self.__time % self.__timespan_add_packet < self.__holdtime:
 			print "add packet according to time"
@@ -280,7 +275,6 @@ class GameEngine:
 		start endsequence according to this current endstate
 		:return:
 		"""
-
 		es = self.__end_state
 		if es 		== -1:
 			print "ERROR"
@@ -295,7 +289,6 @@ class GameEngine:
 		if not self.__player.is_alive():
 			self.__end_state = 0
 
-
 	def __input_movement(self, key, gameobject):
 		"""
 		moves gameobject according to input movement
@@ -306,7 +299,7 @@ class GameEngine:
 		"""
 		rect 		= gameobject.get_rect()
 		mov_speed 	= gameobject.get_speed()
-		ddir 		= 0.7 # diagonal direction: factor multiplied to distance on diagonal movement
+		ddir 		= 0.7  # diagonal direction: factor multiplied to distance on diagonal movement
 
 		left 	= controls.key_mov_left
 		right 	= controls.key_mov_right
@@ -329,7 +322,7 @@ class GameEngine:
 					return mov_speed * -1
 
 			elif key[right]:
-				dist = self.__screen.get_width() - rect.right # distance to wall
+				dist = self.__screen.get_width() - rect.right  # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
@@ -346,13 +339,13 @@ class GameEngine:
 			:return: movement of Y-axis
 			"""
 			if key[up]:
-				dist = rect.top # distance to wall
+				dist = rect.top  # distance to wall
 				if dist < mov_speed:
 					return dist * -1
 				else:
 					return mov_speed * -1
 			elif key[down]:
-				dist = self.__screen.get_height() - rect.bottom # distance to wall
+				dist = self.__screen.get_height() - rect.bottom  # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
