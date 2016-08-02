@@ -39,6 +39,16 @@ class Screen:
         self.__cpus = cpus
         return self
 
+    def set_packets(self, packets):
+        """
+        set this pointer to packets to display
+        :param packets:
+        :type packets: Packet
+        :return:
+        """
+        self.__packets = packets
+        return self
+
 
 
     def __blit(self, obj):
