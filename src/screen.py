@@ -123,6 +123,9 @@ class Screen:
         """
         self.__main_surface.blit(self.__background, (0, 0))
 
+
+        self.__main_surface.blit(self.__buffer_background, (self.__buf_background_x, self.__buf_background_y))
+
         for i in self.__cpus:
             self.__blit(i)
 
