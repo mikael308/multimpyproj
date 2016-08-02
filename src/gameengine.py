@@ -177,8 +177,14 @@ class GameEngine:
 		size = (resource.get_dimen("main_window_size_width"),
 				resource.get_dimen("main_window_size_height"))
 
-		self.__screen = Screen(size, self.__player, self.__buf, self.__cpus, self.__packets)
 		self.__setup_gameobjects()
+		self.__screen = Screen(size)
+		self.__screen\
+			.set_player(self.__player)\
+			.set_buffer(self.__buf)\
+			.set_cpus(self.__cpus) \
+			.set_packets(self.__packets)
+		self.__screen.setup()
 
 		# set key press repeat instantly as standard
 		flag_key_repeat_inst = True
