@@ -5,6 +5,8 @@
 	<dimen name="buf_margin_top">450</dimen>
 	<dimen name="buf_margin_dist">50</dimen>
 	<dimen name="buf_margin_left">20</dimen>
+	<dimen name="buf_margin_background_w">10</dimen>
+	<dimen name="buf_margin_background_h">10</dimen>
 	<dimen name="cpu_margin_left">400</dimen>
 	<dimen name="cpu_margin_top">100</dimen>
 	<dimen name="cpu_margin_dist">75</dimen>
