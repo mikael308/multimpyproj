@@ -30,6 +30,16 @@ class Screen:
     def __init__(self, size):
         self.__main_surface     = pygame.display.set_mode(size)
 
+    def set_buffer(self, buffer):
+        """
+        set this pointer to buffer to display
+        :param buffer:
+        :type buffer: Buffer
+        :return:
+        """
+        self.__buf = buffer
+        return self
+
     def set_cpus(self, cpus):
         """
         set this pointer to cpus to display
