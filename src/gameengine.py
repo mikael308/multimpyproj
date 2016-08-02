@@ -223,6 +223,10 @@ class GameEngine:
 		self.__destruct()
 
 	def __gamelogic(self):
+		"""
+		gamelogic defined
+		:return:
+		"""
 		# delay framerate
 		self.__time += self.__clock.tick(self.__FPS)
 
