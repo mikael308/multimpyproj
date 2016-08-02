@@ -1,4 +1,4 @@
-import pygame, resource, tools
+import pygame, resource, tools, traceback
 from random import randint
 from settings import controls
 from gameobjects.attachable import Attachable
@@ -10,8 +10,9 @@ from buffer import Buffer
 
 class GameEngine:
 	"""
-	gameengine for game
-	gameloop: @see run(self)
+	gameengine for game\n
+	To run this, see run(self)\n
+	gameloop: @see start(self)
 
 	@author Mikael Holmbom
 	"""
@@ -71,7 +72,6 @@ class GameEngine:
 		:param player: the player of this game\n
 		:return:
 		"""
-
 		self.__player = player
 
 	@staticmethod
@@ -170,6 +170,19 @@ class GameEngine:
 		"""
 		start this gameengines gameloop\n
 		prior -- player must be defined, see add_player(self)
+		:return:
+		"""
+		try:
+			self.__start()
+
+		except Exception as e:
+			traceback.print_exc()
+		finally:
+			self.__destruct()
+
+	def __start(self):
+		"""
+		the startpoint of this gameengine
 		:return:
 		"""
 		pygame.init()
