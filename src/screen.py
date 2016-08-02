@@ -54,6 +54,7 @@ class Screen:
         """
         set this pointer to cpus to display
         :param cpus:
+        :type cpus: CPU
         :return:
         """
         self.__cpus = cpus
