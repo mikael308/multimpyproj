@@ -30,6 +30,16 @@ class Screen:
     def __init__(self, size):
         self.__main_surface     = pygame.display.set_mode(size)
 
+    def set_player(self, player):
+        """
+        set this pointer to player to display
+        :param player:
+        :type player: Player
+        :return:
+        """
+        self.__player = player
+        return self
+
     def set_buffer(self, buffer):
         """
         set this pointer to buffer to display
