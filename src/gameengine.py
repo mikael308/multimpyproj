@@ -270,9 +270,6 @@ class GameEngine:
 			cpu = CPU(val)
 			self.__cpus.append(cpu)
 
-		src = resource.get_imagesrc("health")
-		self.__health_icon = pygame.image.load(src)
-
 		for i in range(0, resource.get_value("buf_size_start")):
 			self.__add_packet()
 
