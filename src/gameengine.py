@@ -262,10 +262,10 @@ class GameEngine:
 		packet_val_max = resource.get_value("packet_val_max")
 		packet_val_min = resource.get_value("packet_val_min")
 
-		num = resource.get_value("n_cpus")
+		n_cpus = resource.get_value("n_cpus")
 
 		# generates cpus with unique values
-		vals = tools.unique_vals(num, packet_val_min, packet_val_max)
+		vals = tools.unique_vals(n_cpus, packet_val_min, packet_val_max)
 		for val in vals:
 			cpu = CPU(val)
 			self.__cpus.append(cpu)
