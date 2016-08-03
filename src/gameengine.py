@@ -200,62 +200,6 @@ class GameEngine:
 
 		return gameobj
 
-	def run(self):
-		"""
-		start this gameengines gameloop\n
-		prior -- player must be defined, see add_player(self)
-		:return:
-		"""
-		try:
-			self.__start()
-
-		except Exception as e:
-			traceback.print_exc()
-		finally:
-			self.__destruct()
-
-	def __start(self):
-		"""
-		the startpoint of this gameengine
-		:return:
-		"""
-		pygame.init()
-
-		size = (resource.get_dimen("main_window_size_width"),
-				resource.get_dimen("main_window_size_height"))
-
-		self.__setup_gameobjects()
-		self.__screen = Screen(size)
-		self.__screen\
-			.set_player(self.__player)\
-			.set_buffer(self.__buf)\
-			.set_cpus(self.__cpus) \
-			.set_packets(self.__packets)
-		self.__screen.setup()
-
-		# set key press repeat instantly as standard
-		flag_key_repeat_inst = True
-		pygame.key.set_repeat(21,21)
-
-		self.__game_loop = True
-		self.__clock = pygame.time.Clock()
-		self.__time = 0
-		# GAME LOOP ####################################
-		while self.__game_loop:
-			for event in pygame.event.get():
-				self.__handle_event(event)
-
-			self.__gamelogic()
-
-			self.__screen.render()
-
-		# ! GAME LOOP ###################################
-
-		self.__update_endstate()
-		self.__validate_endstate()
-
-		self.__destruct()
-
 	def __gamelogic(self):
 		"""
 		gamelogic defined
