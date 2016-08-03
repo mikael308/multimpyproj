@@ -3,8 +3,8 @@ handling string resource data from xml file
 resourcefile is defined in var resourcefile
 to get string from resourcefile, use getString(resId) function
 
-author Mikael Holmbom
-ver 1.0
+:author: Mikael Holmbom
+:version: 1.0
 """
 import xml.etree.ElementTree as ET
 
