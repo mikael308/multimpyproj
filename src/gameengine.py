@@ -463,7 +463,7 @@ class GameEngine:
 				if attobj.get_val() == cpu.get_val():
 					self.__score()
 				else:
-					self.__player.mod_score(-1)
+					self.__wrong_cpu()
 
 	def __buffer_overflow(self):
 		"""
