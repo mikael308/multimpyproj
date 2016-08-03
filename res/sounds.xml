@@ -3,5 +3,6 @@
 	<sound name="wrong_cpu"></sound>
 	<sound name="level_up"></sound>
 	<sound name="score"></sound>
+	<sound name="buffer_overflow"></sound>
 
 </sounds>
