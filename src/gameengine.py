@@ -149,7 +149,7 @@ class GameEngine:
 
 			if key[pygame.K_s]:
 				print "SCORE!!!"
-				self.__player.mod_score(1)
+				self.__score()
 
 			if key[pygame.K_p]:
 				print "my packets"
@@ -466,7 +466,7 @@ class GameEngine:
 			if attobj.get_rect().colliderect(cpu.get_rect()):
 				self.__packets.remove(attobj)
 				if attobj.get_val() == cpu.get_val():
-					self.__player.mod_score(1)
+					self.__score()
 				else:
 					self.__player.mod_score(-1)
 
