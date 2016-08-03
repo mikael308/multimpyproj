@@ -22,7 +22,7 @@ class SoundEngine:
         res = resource.get_soundsrc()
 
         for key, val in res:
-            filename = res.get_rootdir() + val
+            filename = str(res.get_rootdir()) + str(val)
             self.__sounds[key] = pygame.mixer.Sound(filename)
 
     def close(self):
