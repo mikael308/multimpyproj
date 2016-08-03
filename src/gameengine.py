@@ -273,12 +273,7 @@ class GameEngine:
 		# 	* increase the next amount of scores to level up again
 		# 	* decrease timespan between every new added packet
 		if self.__player.get_score() >= self.__points_to_next_level:
-			self.__points_to_next_level *= self.__points_exp_needed_factor
-			self.__timespan_add_packet *= self.__timespan_add_packet_factor_decr_factor
-
-			print " ********** lvl up"
-			print "\tpoints need next lvl : " + str(self.__points_to_next_level)
-			print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
+			self.__level_up()
 
 		# spawn new packets every x second
 		if self.__time % self.__timespan_add_packet < self.__holdtime:
