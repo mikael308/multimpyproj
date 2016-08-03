@@ -19,6 +19,8 @@ class Player(GameObject, Attachable):
 	__speed		= 0
 	# this current score
 	__score 	= 0
+	# this current level
+	__level		= 0
 
 	def __init__(self, name, health, speed):
 		src = resource.get_imagesrc("player")
