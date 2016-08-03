@@ -33,7 +33,7 @@ class Buffer:
         return self.__elements.itervalues()
 
     def __contains__(self, item):
-        return self.__elements.__contains__(item)
+        return item in self.__elements.values()
 
     def __delitem__(self, key):
         del self.__elements[key]
