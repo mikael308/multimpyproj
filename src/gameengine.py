@@ -498,3 +498,16 @@ class GameEngine:
 		self.__output.wrong_cpu()
 
 		self.__player.mod_score(-1)
+
+	def __level_up(self):
+		self.__output.level_up()
+
+		self.__points_to_next_level *= self.__points_exp_needed_factor
+		self.__timespan_add_packet *= self.__timespan_add_packet_factor_decr_factor
+		self.__player.mod_level(1)
+
+		print " ********** lvl up"
+		print "\tpoints need next lvl : " + str(self.__points_to_next_level)
+		print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
+		print "\tplayer level         : " + str(self.__player.get_level())
+
