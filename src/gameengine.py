@@ -1,6 +1,6 @@
 import pygame, resource, tools, traceback
 from random import randint
-from settings import controls
+from settings import controls, settings
 from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
 from gameobjects.packet import Packet
@@ -157,6 +157,9 @@ class GameEngine:
 					print " * " + str(p.get_val())
 			# ! DEBUG
 			####################################################
+			elif key[pygame.K_m]:
+				settings.switch_soundfx_enabled()
+
 			elif key[controls.key_action]:
 
 				if self.__player.has_attached():
