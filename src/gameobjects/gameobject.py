@@ -69,10 +69,3 @@ class GameObject:
 		:return: current position
 		"""
 		return self.get_rect().center
-
-	def get_id(self):
-		"""
-		get this id
-		:return:
-		"""
-		return self.__id
