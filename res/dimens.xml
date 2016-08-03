@@ -2,10 +2,10 @@
 <dimens>
 	<dimen name="main_window_size_height">600</dimen>
 	<dimen name="main_window_size_width">500</dimen>
-	<dimen name="buf_margin_top">450</dimen>
 	<dimen name="infopanel_x">10</dimen>
 	<dimen name="infopanel_y">10</dimen>
 	<dimen name="infopanel_textsize">40</dimen>
+	<dimen name="buf_margin_top">70</dimen>
 	<dimen name="buf_margin_dist">50</dimen>
 	<dimen name="buf_margin_left">20</dimen>
 	<dimen name="buf_margin_background_w">10</dimen>
