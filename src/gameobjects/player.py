@@ -112,3 +112,14 @@ class Player(GameObject, Attachable):
 		"""
 		s = self.get_score()
 		self.set_score(s + diff)
+
+	def mod_level(self, diff):
+		"""
+		modify current level
+		:param diff: modifying term\n
+		increase level: positive integer param\n
+		decrease level: negative integer param
+		:type diff: int
+		:return:
+		"""
+		self.__level += diff
