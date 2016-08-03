@@ -51,6 +51,9 @@ class InfoPanel:
 
         panel.blit(text.render(text_val, 0, text_color), (x, y))
 
+        x += 50
+        text_val = str(self.__player.get_level())
+        panel.blit(text.render(text_val, 0, text_color), (x, y))
 
         return panel
 
