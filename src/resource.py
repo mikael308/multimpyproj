@@ -96,3 +96,25 @@ def get_imagesrc(res_id):
 			return resdir + root.attrib["rootdir"] + child.text
 
 	return res_notfound_val
+
+
+def get_soundsrc(res_id):
+	"""
+	get the filepath to sound of name param
+	:param res_id: resource id as of attribute name in resource file
+	:return: sound source from resources, if resource not found: None is returned
+	"""
+	attr_key = "name"
+	res_notfound_val = None
+
+	tree = ET.parse(resdir + resfile_sound)
+	root = tree.getroot()
+
+	for child in root:
+		# if resource is found
+		if child.attrib[attr_key] == res_id:
+			return resdir + root.attrib["rootdir"] + child.text
+
+	return res_notfound_val
+
+
