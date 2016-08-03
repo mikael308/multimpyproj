@@ -52,14 +52,11 @@ class GameEngine:
 		pygame.display.set_caption(self.__game_title)
 		pygame.display.set_icon(GameEngine.load_image("icon"))
 
-		pygame.font.init()
-
 	def __destruct(self):
 		"""
 		destructs this gameengine
 		:return:
 		"""
-		pygame.font.quit()
 		pygame.quit()
 
 	def add_player(self, player):

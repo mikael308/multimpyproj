@@ -44,6 +44,8 @@ class Screen:
 
     def __init__(self, size):
         self.__main_surface     = pygame.display.set_mode(size)
+        pygame.font.init()
+
     def close(self):
         pygame.font.quit()
 
