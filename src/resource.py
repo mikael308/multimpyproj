@@ -7,6 +7,7 @@ to get string from resourcefile, use getString(resId) function
 :version: 1.0
 """
 import xml.etree.ElementTree as ET
+from resourceaccessitem import ResourceAccessObject
 
 
 # path to resource data
@@ -116,5 +117,27 @@ def get_soundsrc(res_id):
 			return resdir + root.attrib["rootdir"] + child.text
 
 	return res_notfound_val
+
+
+def get_soundsrc():
+	"""
+	reads all data from sounds resourcefile into a ResourceAccessObject
+	:return: image source from resources, if resource not found:
+	:returns ResourceAccessObject: containing all values from sound resourcefile
+	"""
+	attr_key = "name"
+
+	tree = ET.parse(resdir + resfile_sound)
+	root = tree.getroot()
+
+	rao = ResourceAccessObject()
+	rao.set_rootdir( resdir+ root.attrib["rootdir"])
+
+	for child in root:
+		key = child.attrib[attr_key]
+		val = child.text
+		rao.add_value(child.attrib[attr_key], child.text)
+	return rao
+
 
 
