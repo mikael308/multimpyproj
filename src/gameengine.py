@@ -71,6 +71,7 @@ class GameEngine:
 
 		except Exception as e:
 			traceback.print_exc()
+		finally:
 			self.__destruct()
 
 	def __start(self):
