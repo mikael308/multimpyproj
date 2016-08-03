@@ -485,6 +485,15 @@ class GameEngine:
 		"""
 		self.__player.mod_score(-1)
 
+	def __score(self):
+		"""
+
+		:return:
+		"""
+		self.__output.score()
+
+		self.__player.mod_score(1)
+
 	def __wrong_cpu(self):
 		self.__output.wrong_cpu()
 
