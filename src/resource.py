@@ -16,12 +16,13 @@ resfile_string 	= "strings.xml"
 resfile_dimen 	= "dimens.xml"
 resfile_img		= "images.xml"
 resfile_val		= "values.xml"
+resfile_sound	= "sounds.xml"
 
 
-def get_string(resId):
+def get_string(res_id):
 	"""
 	get string from resource
-	:param resId: resource id as of attribute name in resource file
+	:param res_id: resource id as of attribute name in resource file
 	:return: textvalue from resources, if resource not found: empty string is returned
 	"""
 	attr_key = "name"
@@ -32,16 +33,16 @@ def get_string(resId):
 
 	for child in root:
 		# if resource is found
-		if child.attrib[attr_key] == resId:
+		if child.attrib[attr_key] == res_id:
 			return child.text
 
 	return res_notfound_val
 
 
-def get_dimen(resId):
+def get_dimen(res_id):
 	"""
 	get resource dimension of name param
-	:param resId: resource id as of attribute name in resource file
+	:param res_id: resource id as of attribute name in resource file
 	:return: dimension from resources, if resource not found: None is returned
 	"""
 	attr_key = "name"
@@ -52,7 +53,7 @@ def get_dimen(resId):
 
 	for child in root:
 		# if resource is found
-		if child.attrib[attr_key] == resId:
+		if child.attrib[attr_key] == res_id:
 			return int(child.text)
 
 	return res_notfound_val
@@ -76,10 +77,10 @@ def get_value(res_id):
 	return res_notfound_val
 
 
-def get_imagesrc(resId):
+def get_imagesrc(res_id):
 	"""
 	get filepath of image of name param
-	:param resId: resource id as of attribute name in resource file
+	:param res_id: resource id as of attribute name in resource file
 	:return: image source from resources, if resource not found: None is returned
 	"""
 	attr_key = "name"
@@ -90,7 +91,7 @@ def get_imagesrc(resId):
 
 	for child in root:
 		# if resource is found
-		if child.attrib[attr_key] == resId:
+		if child.attrib[attr_key] == res_id:
 
 			return resdir + root.attrib["rootdir"] + child.text
 
