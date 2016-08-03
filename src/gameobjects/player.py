@@ -108,6 +108,7 @@ class Player(GameObject, Attachable):
 		:param diff: modifying term\n
 		increase score: positive integer param\n
 		decrease score: negative integer param
+		:type diff: int
 		:return:
 		"""
 		s = self.get_score()
