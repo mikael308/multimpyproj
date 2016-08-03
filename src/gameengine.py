@@ -4,7 +4,7 @@ from settings import controls
 from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
 from gameobjects.packet import Packet
-from screen import Screen
+from output import Output
 import game_objects
 
 
@@ -18,7 +18,7 @@ class GameEngine:
 	"""
 
 	__game_title 		= resource.get_string("game_title")
-	__screen 			= None
+	__output 			= None
 
 	## GAMELOGIC
 	####################
@@ -87,17 +87,8 @@ class GameEngine:
 		"""
 		pygame.init()
 
-		size = (resource.get_dimen("main_window_size_width"),
-				resource.get_dimen("main_window_size_height"))
-
 		self.__setup_gameobjects()
-		self.__screen = Screen(size)
-		self.__screen\
-			.set_player(self.__player)\
-			.set_buffer(self.__buf)\
-			.set_cpus(self.__cpus) \
-			.set_packets(self.__packets)
-		self.__screen.setup()
+		self.__output = Output()
 
 		# set key press repeat instantly as standard
 		flag_key_repeat_inst = True
@@ -113,7 +104,7 @@ class GameEngine:
 
 			self.__gamelogic()
 
-			self.__screen.render()
+			self.__output.render()
 
 		# ! GAME LOOP ###################################
 
@@ -373,7 +364,7 @@ class GameEngine:
 					return mov_speed * -1
 
 			elif key[right]:
-				dist = self.__screen.get_width() - rect.right  # distance to wall
+				dist = self.__output.get_screen().get_width() - rect.right  # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
@@ -396,7 +387,7 @@ class GameEngine:
 				else:
 					return mov_speed * -1
 			elif key[down]:
-				dist = self.__screen.get_height() - rect.bottom  # distance to wall
+				dist = self.__output.get_screen().get_height() - rect.bottom  # distance to wall
 				if dist < mov_speed:
 					return dist
 				else:
@@ -448,8 +439,8 @@ class GameEngine:
 		p = self.__generate_packet()
 
 		if self.__buf.add(p):
-			if self.__screen:
-				self.__screen.update()
+			if self.__output:
+				self.__output.update()
 			self.__packets.append(p)
 
 		else:
