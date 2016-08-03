@@ -1,4 +1,5 @@
 import resource, pygame
+import game_objects
 from infopanel import InfoPanel
 
 
@@ -22,10 +23,10 @@ class Screen:
     __main_surface  = None
     __infopanel     = None
 
-    __player        = None
-    __buf           = None
-    __cpus          = None
-    __packets       = None
+    __player        = game_objects.get_player()
+    __buf           = game_objects.get_buf()
+    __cpus          = game_objects.get_cpus()
+    __packets       = game_objects.get_packets()
 
     __buffer_background = None
 
@@ -101,7 +102,7 @@ class Screen:
         self.__buffer_background.fill((230, 0, 0))
 
         if self.__player:
-            self.__infopanel = InfoPanel(self.__player)
+            self.__infopanel = InfoPanel()
 
         for i in range(0, len(self.__cpus)):
             x = self.__cpu_margin_left

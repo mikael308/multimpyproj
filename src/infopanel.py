@@ -1,4 +1,5 @@
 import pygame, resource
+import game_objects
 
 
 class InfoPanel:
@@ -10,7 +11,7 @@ class InfoPanel:
     """
 
     """ this player to display in panel    """
-    __player        = None
+    __player        = game_objects.get_player()
     """ icons representing health points """
     __health_icon   = None
 
@@ -18,8 +19,7 @@ class InfoPanel:
     __text_color    = (0, 0, 0)
     __startpoint    = resource.get_dimen("infopanel_x"), resource.get_dimen("infopanel_y")
 
-    def __init__(self, player,text_size=40, text_color=(0, 0, 0)):
-        self.__player = player
+    def __init__(self, text_size=resource.get_dimen("infopanel_textsize"), text_color=(0, 0, 0)):
 
         src = resource.get_imagesrc("health")
         self.__health_icon = pygame.image.load(src)

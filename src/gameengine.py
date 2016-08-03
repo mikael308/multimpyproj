@@ -5,7 +5,7 @@ from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
 from gameobjects.packet import Packet
 from screen import Screen
-from buffer import Buffer
+import game_objects
 
 
 class GameEngine:
@@ -32,17 +32,17 @@ class GameEngine:
 	## GAMEOBJECTS
 	###################
 	# users gameobject
-	__player 			= None
+	__player 			= game_objects.get_player()
 	__points_to_next_level = resource.get_value("points_exp_level_up_start")
 	__points_exp_needed_factor = resource.get_value("points_exp_needed_factor")
 
 	# contain current games CPUs
-	__cpus				= []
+	__cpus				= game_objects.get_cpus()
 	# contain current games Packets
 
 	__end_state			= 0
-	__packets			= []
-	__buf				= Buffer(resource.get_value("buf_capacity"))
+	__packets			= game_objects.get_packets()
+	__buf				= game_objects.get_buf()
 
 	def __init__(self):
 		"""
