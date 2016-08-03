@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sounds rootdir="soundfx/">
+	<sound name="wrong_cpu"></sound>
+	<sound name="level_up"></sound>
+	<sound name="score"></sound>
+
+</sounds>
