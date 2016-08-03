@@ -46,11 +46,15 @@ class InfoPanel:
         text = pygame.font.SysFont("player_score_label", text_size)
         text_val = str(self.__player.get_score())
 
+        # SCORE
+        ######################
         if x < self.__startpoint[0] + 90:
             x = self.__startpoint[0] + 90
 
         panel.blit(text.render(text_val, 0, text_color), (x, y))
 
+        # LEVEL
+        ######################
         x += 50
         text_val = str(self.__player.get_level())
         panel.blit(text.render(text_val, 0, text_color), (x, y))
