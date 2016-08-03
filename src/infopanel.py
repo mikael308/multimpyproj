@@ -36,20 +36,21 @@ class InfoPanel:
         panel.convert_alpha(panel)
 
         y = self.__startpoint[1]
-        w = self.__startpoint[0]
+        x = self.__startpoint[0]
         for i in range(0, self.__player.get_health()):
-            panel.blit(self.__health_icon, (w, self.__startpoint[1]))
-            w += 30
+            panel.blit(self.__health_icon, (x, self.__startpoint[1]))
+            x += 30
 
         text_size = 40
         text_color = 0, 0, 0
         text = pygame.font.SysFont("player_score_label", text_size)
         text_val = str(self.__player.get_score())
 
-        if w < self.__startpoint[0] + 90:
-            w = self.__startpoint[0] + 90
+        if x < self.__startpoint[0] + 90:
+            x = self.__startpoint[0] + 90
 
-        panel.blit(text.render(text_val, 0, text_color), (w, y))
+        panel.blit(text.render(text_val, 0, text_color), (x, y))
+
 
         return panel
 
