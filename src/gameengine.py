@@ -91,6 +91,7 @@ class GameEngine:
 		self.__game_loop = True
 		self.__clock = pygame.time.Clock()
 		self.__time = 0
+
 		# GAME LOOP ####################################
 		while self.__game_loop:
 			for event in pygame.event.get():
@@ -104,7 +105,6 @@ class GameEngine:
 
 		self.__update_endstate()
 		self.__validate_endstate()
-
 
 	@staticmethod
 	def load_image(img_id):
@@ -170,7 +170,6 @@ class GameEngine:
 				## MOVEMENT
 				##################
 				movs = self.__input_movement(key, self.__player)
-
 				self.__player = GameEngine.__move_gameobj(self.__player, movs)
 
 		elif event.type == pygame.KEYUP:
