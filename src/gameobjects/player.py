@@ -76,6 +76,13 @@ class Player(GameObject, Attachable):
 		"""
 		return self.__score
 
+	def get_level(self):
+		"""
+		get this current level
+		:return: this level
+		"""
+		return self.__level
+
 	def is_alive(self):
 		"""
 		determines if this instance is alive
