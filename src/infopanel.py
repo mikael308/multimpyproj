@@ -16,7 +16,7 @@ class InfoPanel:
 
     __text_size     = 0
     __text_color    = (0, 0, 0)
-    __startpoint    = 10,10
+    __startpoint    = resource.get_dimen("infopanel_x"), resource.get_dimen("infopanel_y")
 
     def __init__(self, player,text_size=40, text_color=(0, 0, 0)):
         self.__player = player
