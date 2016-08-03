@@ -79,3 +79,10 @@ class Output:
         :return:
         """
         self.__soundengine.play("wrong_cpu")
+
+    def buffer_overflow(self):
+        """
+        outputs buffer overflow
+        :return:
+        """
+        self.__soundengine.play("buffer_overflow")
