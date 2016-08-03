@@ -111,7 +111,6 @@ class GameEngine:
 		self.__update_endstate()
 		self.__validate_endstate()
 
-		self.__destruct()
 
 	@staticmethod
 	def load_image(img_id):
