@@ -41,9 +41,8 @@ class InfoPanel:
             panel.blit(self.__health_icon, (x, self.__startpoint[1]))
             x += 30
 
-        text_size = 40
         text_color = 0, 0, 0
-        text = pygame.font.SysFont("player_score_label", text_size)
+        text = pygame.font.SysFont("player_score_label", self.__text_size)
         text_val = str(self.__player.get_score())
 
         # SCORE
