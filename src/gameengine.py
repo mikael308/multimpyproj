@@ -189,6 +189,7 @@ class GameEngine:
 		:param gameobj:
 		:param movs: movs[0] - X -> positive:right, negative:left\n
 		movs[1] - Y -> positive:down, negative:up
+		:type movs: list
 		:return: edited gameobj with new position
 		"""
 		rect = gameobj.get_rect()
