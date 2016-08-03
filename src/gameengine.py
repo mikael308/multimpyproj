@@ -410,6 +410,8 @@ class GameEngine:
 		simulates the effect of a buffer overflow
 		:return:
 		"""
+		self.__output.buffer_overflow()
+
 		self.__player.damage(1)
 
 	def __packet_timeout(self, packet):
