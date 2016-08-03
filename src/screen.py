@@ -5,7 +5,8 @@ from infopanel import InfoPanel
 class Screen:
     """
 
-    # typical usecase:
+    :Example:
+    typical usecase:
     * __init__()
     * set_  objects
     * setup()
