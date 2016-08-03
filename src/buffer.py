@@ -124,6 +124,6 @@ class Buffer:
     def is_full(self):
         """
         determine if this Buffer is full, that is reached its max capacity
-        :return:
+        :return: True if there is no elements in this buffer
         """
         return self.get_size() == self.__capacity
