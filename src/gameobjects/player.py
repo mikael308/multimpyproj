@@ -54,18 +54,21 @@ class Player(GameObject, Attachable):
 	def get_name(self):
 		"""
 		get this name
+		:return: name attr
 		"""
 		return self.__name
 
 	def get_health(self):
 		"""
 		get current health
+		:return: health attr
 		"""
 		return self.__health
 
 	def get_speed(self):
 		"""
 		get current speed
+		:return: speed attr
 		"""
 		return self.__speed
 
@@ -86,6 +89,7 @@ class Player(GameObject, Attachable):
 	def is_alive(self):
 		"""
 		determines if this instance is alive
+		:return: True if players health is > 0
 		"""
 		return self.__health > 0
 
