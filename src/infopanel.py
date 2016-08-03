@@ -35,6 +35,7 @@ class InfoPanel:
         panel.convert_alpha(panel)
         panel.convert_alpha(panel)
 
+        y = self.__startpoint[1]
         w = self.__startpoint[0]
         for i in range(0, self.__player.get_health()):
             panel.blit(self.__health_icon, (w, self.__startpoint[1]))
@@ -48,7 +49,7 @@ class InfoPanel:
         if w < self.__startpoint[0] + 90:
             w = self.__startpoint[0] + 90
 
-        panel.blit(text.render(text_val, 0, text_color), (w, self.__startpoint[1]))
+        panel.blit(text.render(text_val, 0, text_color), (w, y))
 
         return panel
 
