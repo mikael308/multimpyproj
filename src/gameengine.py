@@ -14,7 +14,8 @@ class GameEngine:
 	To run this, see run(self)\n
 	gameloop: @see start(self)
 
-	@author Mikael Holmbom
+	:author: Mikael Holmbom
+	:version: 1.0
 	"""
 
 	__game_title 		= resource.get_string("game_title")
