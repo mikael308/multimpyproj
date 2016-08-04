@@ -171,8 +171,9 @@ class GameEngine:
 				##################
 				## MOVEMENT
 				##################
-				x, y = self.__parse_movement_event(key, self.__player)
-
+				x, y = self.__parse_movement_event(key)
+				x *= self.__player.get_speed()
+				y *= self.__player.get_speed()
 				## COLLISION WITH WALL
 				if x < 0:  # left
 					dist = self.__player.get_rect().left
