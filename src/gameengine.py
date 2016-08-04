@@ -423,6 +423,10 @@ class GameEngine:
 		self.__player.mod_score(1)
 
 	def __wrong_cpu(self):
+		"""
+		simulates the effect adding the wrong packet to wrong cpu
+		:return:
+		"""
 		self.__output.wrong_cpu()
 
 		self.__restore_memento()
