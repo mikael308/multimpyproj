@@ -7,6 +7,10 @@ class Output:
     """
     facade object handling all output
 
+    See
+        * screen
+        * soundengine
+
     :author: Mikael Holmbom
     :version: 1.0
     """
