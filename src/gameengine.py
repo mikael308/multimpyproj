@@ -432,6 +432,10 @@ class GameEngine:
 		self.__restore_memento()
 
 	def __level_up(self):
+		"""
+		simulates the effect of player level up
+		:return:
+		"""
 		self.__output.level_up()
 
 		self.__points_to_next_level *= self.__points_exp_needed_factor
