@@ -171,7 +171,7 @@ class GameEngine:
 				##################
 				## MOVEMENT
 				##################
-				movs = self.__input_movement(key, self.__player)
+				movs = self.__parse_movement_event(key, self.__player)
 				self.__player = GameEngine.__move_gameobj(self.__player, movs)
 
 		elif event.type == pygame.KEYUP:
@@ -266,7 +266,7 @@ class GameEngine:
 		if not self.__player.is_alive():
 			self.__end_state = 0
 
-	def __input_movement(self, key, gameobject):
+	def __parse_movement_event(self, key, gameobject):
 		"""
 		moves gameobject according to input movement
 		return movement direction as list [X, Y]
