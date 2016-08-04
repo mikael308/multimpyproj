@@ -45,6 +45,8 @@ class GameEngine:
 	__packets			= game_objects.get_packets()
 	__buf				= game_objects.get_buf()
 
+	__memento			= None
+
 	def __init__(self):
 		"""
 		initialize gameengine\n
@@ -231,6 +233,7 @@ class GameEngine:
 		setup gameobjects
 		:return:
 		"""
+
 		packet_val_max = resource.get_value("packet_val_max")
 		packet_val_min = resource.get_value("packet_val_min")
 
@@ -448,3 +451,34 @@ class GameEngine:
 		print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
 		print "\tplayer level         : " + str(self.__player.get_level())
 
+	def __create_memento(self):
+		"""
+		create memento of this gameengine current state\n
+		:See: __restore_memento(self)
+		:return:
+		"""
+		class Memento:
+			points_to_next_level 	= 0
+			timespan_add_packet 	= 0
+			player_score 			= 0
+			player_level			= 0
+
+		mem = Memento()
+		mem.points_to_next_level 	= self.__points_to_next_level
+		mem.timespan_add_packet		= self.__timespan_add_packet
+		mem.player_score 			= self.__player.get_score()
+		mem.player_level			= self.__player.get_level()
+		self.__memento = mem
+
+	def __restore_memento(self):
+		"""
+		restore gameengine from last created memento\n
+		:See: __create_memento(self)
+		:return:
+		"""
+		self.__points_to_next_level 	= self.__memento.points_to_next_level
+		self.__timespan_add_packet		= self.__memento.timespan_add_packet
+		if self.__player.get_score() > self.__memento.player_score:
+			self.__player.set_score(self.__memento.player_score)
+		if self.__player.get_level() > self.__memento.player_level:
+			self.__player.set_score(self.__memento.player_level)
