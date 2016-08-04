@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sounds rootdir="soundfx/">
-	<sound name="wrong_cpu"></sound>
-	<sound name="level_up"></sound>
-	<sound name="score"></sound>
-	<sound name="buffer_overflow"></sound>
+	<sound name="wrong_cpu">46501__phreaksaccount__welder1.ogg</sound>
+	<sound name="level_up">46485__phreaksaccount__comms3.ogg</sound>
+	<sound name="score">319334__kurck__plop.ogg</sound>
+	<sound name="buffer_overflow">244113__jobro__alarm-1.ogg</sound>
 
 </sounds>
