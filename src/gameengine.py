@@ -233,7 +233,8 @@ class GameEngine:
 		setup gameobjects
 		:return:
 		"""
-
+		self.__create_memento()
+		
 		packet_val_max = resource.get_value("packet_val_max")
 		packet_val_min = resource.get_value("packet_val_min")
 
@@ -438,6 +439,7 @@ class GameEngine:
 		self.__output.wrong_cpu()
 
 		self.__player.mod_score(-1)
+		self.__restore_memento()
 
 	def __level_up(self):
 		self.__output.level_up()
@@ -445,6 +447,8 @@ class GameEngine:
 		self.__points_to_next_level *= self.__points_exp_needed_factor
 		self.__timespan_add_packet *= self.__timespan_add_packet_factor_decr_factor
 		self.__player.mod_level(1)
+
+		self.__create_memento()
 
 		print " ********** lvl up"
 		print "\tpoints need next lvl : " + str(self.__points_to_next_level)
