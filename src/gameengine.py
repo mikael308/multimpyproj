@@ -171,8 +171,29 @@ class GameEngine:
 				##################
 				## MOVEMENT
 				##################
-				movs = self.__parse_movement_event(key, self.__player)
-				self.__player = GameEngine.__move_gameobj(self.__player, movs)
+				x, y = self.__parse_movement_event(key, self.__player)
+
+				## COLLISION WITH WALL
+				if x < 0:  # left
+					dist = self.__player.get_rect().left
+					if dist + x < 0:
+						x = dist * -1
+				elif x > 0:  # right
+					dist = self.__output.get_screen().get_width() - self.__player.get_rect().right
+					if x > dist:
+						x = dist
+
+				if y < 0:  # up
+					dist = self.__player.get_rect().top
+					if dist + y < 0:
+						y = dist * -1
+				elif y > 0:  # down
+					dist = self.__output.get_screen().get_height() - self.__player.get_rect().bottom
+					if y > dist:
+						y = dist
+
+
+				self.__player = GameEngine.__move_gameobj(self.__player, (x,y))
 
 		elif event.type == pygame.KEYUP:
 			key = pygame.key.get_pressed()
@@ -268,13 +289,12 @@ class GameEngine:
 
 	def __parse_movement_event(self, key, gameobject):
 		"""
-		moves gameobject according to input movement
+		moves gameobject according to input event
 		return movement direction as list [X, Y]
 		:param key: the pressed key
 		:param gameobject: the gameobject to move
 		:return: movement as tuple (x_movement, y_movement)
 		"""
-		rect 		= gameobject.get_rect()
 		mov_speed 	= gameobject.get_speed()
 		ddir 		= 0.7  # diagonal direction: factor multiplied to distance on diagonal movement
 
