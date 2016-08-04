@@ -287,15 +287,14 @@ class GameEngine:
 		if not self.__player.is_alive():
 			self.__end_state = 0
 
-	def __parse_movement_event(self, key, gameobject):
+	def __parse_movement_event(self, key):
 		"""
-		moves gameobject according to input event
-		return movement direction as list [X, Y]
+		parses key event as movement\n
+		:Example: if the returned tuple[0] is positive, this movement is a positive movement on the x-axis
 		:param key: the pressed key
-		:param gameobject: the gameobject to move
 		:return: movement as tuple (x_movement, y_movement)
+		:returns: tuple
 		"""
-		mov_speed 	= gameobject.get_speed()
 		ddir 		= 0.7  # diagonal direction: factor multiplied to distance on diagonal movement
 
 		left 	= controls.key_mov_left
@@ -303,63 +302,31 @@ class GameEngine:
 		up 		= controls.key_mov_up
 		down 	= controls.key_mov_down
 
-		def __get_mov_x(key):
+		def __get_mov(key, neg_dir, pos_dir):
 			"""
-			inner function
-			get X-axis movement from key
-			if no movement was found, 0 is returned
+			inner function;
+			determine if key pressed compares with the negative or positive key-value according to wanted axis\n
+			if no movement was found, 0 is returned\n
+			:Example: in X-axis -> neg_dir=left, pos_dir=right\n
 			:param key: pressed key
-			:return: movement of X-axis
+			:param neg_dir: key that generates negative values
+			:param pos_dir: key that generates positive values
+			:return: movement in one axis
 			"""
-			if key[left]:
-				dist = rect.left # distance to wall
-				if dist < mov_speed:
-					return dist * -1
-				else:
-					return mov_speed * -1
-
-			elif key[right]:
-				dist = self.__output.get_screen().get_width() - rect.right  # distance to wall
-				if dist < mov_speed:
-					return dist
-				else:
-					return mov_speed
+			if key[neg_dir]:
+				return  -1.0
+			elif key[pos_dir]:
+				return 1.0
 			else:
 				return 0
 
-		def __get_mov_y(key):
-			"""
-			inner function
-			get Y-axis movement from key
-			if no movement was found, 0 is returned
-			:param key: pressed key
-			:return: movement of Y-axis
-			"""
-			if key[up]:
-				dist = rect.top  # distance to wall
-				if dist < mov_speed:
-					return dist * -1
-				else:
-					return mov_speed * -1
-			elif key[down]:
-				dist = self.__output.get_screen().get_height() - rect.bottom  # distance to wall
-				if dist < mov_speed:
-					return dist
-				else:
-					return mov_speed
-			else:
-				return 0
+		mov_x = __get_mov(key, left, right)
+		mov_y = __get_mov(key, up, down)
 
-		# get left and right movements
-		mov_x = __get_mov_x(key)
-		mov_y = __get_mov_y(key)
-
-		if mov_x != 0 and mov_y != 0:
+		if mov_x is not 0 and mov_y is not 0:
 			# if diagonally movement
-			if mov_x > 1:
-				mov_x *= ddir
-			if mov_y > 1:
-				mov_y *= ddir
+			mov_x *= ddir
+			mov_y *= ddir
 
 		return mov_x, mov_y
 
