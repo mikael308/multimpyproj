@@ -415,7 +415,7 @@ class GameEngine:
 
 	def __score(self):
 		"""
-
+		simulates the effect of getting +1 score
 		:return:
 		"""
 		self.__output.score()
