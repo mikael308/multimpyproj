@@ -234,7 +234,7 @@ class GameEngine:
 		:return:
 		"""
 		self.__create_memento()
-		
+
 		packet_val_max = resource.get_value("packet_val_max")
 		packet_val_min = resource.get_value("packet_val_min")
 
@@ -438,7 +438,6 @@ class GameEngine:
 	def __wrong_cpu(self):
 		self.__output.wrong_cpu()
 
-		self.__player.mod_score(-1)
 		self.__restore_memento()
 
 	def __level_up(self):
