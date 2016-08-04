@@ -210,11 +210,7 @@ class GameEngine:
 		# delay framerate
 		self.__time += self.__clock.tick(self.__FPS)
 
-		# if player reaches x scores:
-		# 	* player level up
-		# 	* increase the next amount of scores to level up again
-		# 	* decrease timespan between every new added packet
-		if self.__player.get_score() >= self.__points_to_next_level:
+		while self.__player.get_score() >= self.__points_to_next_level:
 			self.__level_up()
 
 		# spawn new packets every x second
