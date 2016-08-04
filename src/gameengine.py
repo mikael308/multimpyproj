@@ -174,22 +174,23 @@ class GameEngine:
 				x, y = self.__parse_movement_event(key)
 				x *= self.__player.get_speed()
 				y *= self.__player.get_speed()
+				prect = self.__player.get_rect()
 				## COLLISION WITH WALL
 				if x < 0:  # left
-					dist = self.__player.get_rect().left
+					dist = prect.left
 					if dist + x < 0:
 						x = dist * -1
 				elif x > 0:  # right
-					dist = self.__output.get_screen().get_width() - self.__player.get_rect().right
+					dist = self.__output.get_screen().get_width() - prect.right
 					if x > dist:
 						x = dist
 
 				if y < 0:  # up
-					dist = self.__player.get_rect().top
+					dist = prect.top
 					if dist + y < 0:
 						y = dist * -1
 				elif y > 0:  # down
-					dist = self.__output.get_screen().get_height() - self.__player.get_rect().bottom
+					dist = self.__output.get_screen().get_height() - prect.bottom
 					if y > dist:
 						y = dist
 
