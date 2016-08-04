@@ -51,6 +51,14 @@ class Player(GameObject, Attachable):
 		"""
 		self.__score = score
 
+	def set_level(self, level):
+		"""
+		set this level
+		:param level:  new level value
+		:return:
+		"""
+		self.__level = level
+
 	def get_name(self):
 		"""
 		get this name
