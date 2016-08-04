@@ -404,6 +404,7 @@ class GameEngine:
 					self.__score()
 				else:
 					self.__wrong_cpu()
+				return
 
 	def __buffer_overflow(self):
 		"""
