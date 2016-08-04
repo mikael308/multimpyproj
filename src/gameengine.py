@@ -116,9 +116,10 @@ class GameEngine:
 		"""
 		handles incoming event
 		:param event: the event to handle
+		:type event: pygame.event.Event
 		:return:
 		"""
-		
+
 		if event.type == pygame.QUIT:
 			self.__destruct()
 
