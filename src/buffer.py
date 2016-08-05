@@ -43,9 +43,8 @@ class Buffer:
         l.sort()
 
         s = "[ "
-        i = 0
-        for e in l:
-            i += 1
+
+        for i, e in enumerate(l):
             s += str(e[0]) + ":" + str(e[1])
             if i < len(self.__elements):
                 s += ", "
