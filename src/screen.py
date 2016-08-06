@@ -50,45 +50,6 @@ class Screen:
     def close(self):
         pygame.font.quit()
 
-    def set_player(self, player):
-        """
-        set this pointer to player to display
-        :param player:
-        :type player: Player
-        :return:
-        """
-        self.__player = player
-        return self
-
-    def set_buffer(self, buffer):
-        """
-        set this pointer to buffer to display
-        :param buffer:
-        :type buffer: Buffer
-        :return:
-        """
-        self.__buf = buffer
-        return self
-
-    def set_cpus(self, cpus):
-        """
-        set this pointer to cpus to display
-        :param cpus:
-        :type cpus: CPU
-        :return:
-        """
-        self.__cpus = cpus
-        return self
-
-    def set_packets(self, packets):
-        """
-        set this pointer to packets to display
-        :param packets:
-        :type packets: Packet
-        :return:
-        """
-        self.__packets = packets
-        return self
 
     def setup(self):
         """
