@@ -115,14 +115,16 @@ class Player(GameObject, Attachable):
 		Attachable.move_pos(self, x, y)
 
 
-	def damage(self, damage):
+	def mod_health(self, diff):
 		"""
-		damage this player by param value
-		:param damage: value to damage this player
 		:return:
+		modify current health\n
+		:param diff: modifying term: increase health: positive integer param, decrease health: negative integer param\n
+		:type diff: int
 		"""
 		h = self.get_health()
-		self.set_health(h - damage)
+		self.set_health(h + diff)
+		return self.get_health()
 
 	def mod_score(self, diff):
 		"""
@@ -142,5 +144,6 @@ class Player(GameObject, Attachable):
 		:type diff: int
 		:return: level value after modification
 		"""
-		self.__level += diff
+		level = self.get_level()
+		self.set_level(level + diff)
 		return self.get_level()
