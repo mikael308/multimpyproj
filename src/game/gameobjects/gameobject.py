@@ -23,7 +23,10 @@ class GameObject(Sprite):
 
 	def set_rect(self, rect):
 		"""
-		set current rectangle
+		set this rect\n
+		:param rect: new rect\n
+		:type rect: pygame.Rect
+		:return: None
 		"""
 		self.__rect = rect
 
