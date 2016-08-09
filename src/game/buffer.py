@@ -6,7 +6,7 @@ class Buffer:
     :ver: 1.0
     """
 
-    __elements      = {}
+    __elements      = None
     __capacity      = 0
 
     __idx           = 0
@@ -19,6 +19,7 @@ class Buffer:
             self.__idx_hashkey = 7
 
         self.__capacity = capacity
+        self.__elements = {}
 
     def __getitem__(self, item):
         if item >= self.__capacity:
