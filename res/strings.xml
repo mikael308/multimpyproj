@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <strings>
 	<string name="game_title">multimproj</string>
-	<string name="klaatu">klaatu verada nikto</string>
 	<string name="btn_start_text">start</string>
 	<string name="btn_info_text">info</string>
 	<string name="btn_exit_text">exit</string>
