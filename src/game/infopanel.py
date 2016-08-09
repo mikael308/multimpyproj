@@ -41,6 +41,8 @@ class InfoPanel:
         """
         panel = pygame.Surface((200, 50), pygame.SRCALPHA, 32)
         panel.convert_alpha(panel)
+        if self.__player is None:
+        	return panel
 
         y = self.__startpoint[1]
         x = self.__startpoint[0]
