@@ -32,12 +32,18 @@ class Player(GameObject, Attachable):
 	def set_health(self, health):
 		"""
 		set current health
+		:param health:
+		:type health: int
+		:return:
 		"""
 		self.__health = health
 
 	def set_speed(self, speed):
 		"""
 		set this speed value
+		:param speed: new speed value
+		:type speed: int
+		:return:
 		"""
 		self.__speed = speed
 
@@ -45,6 +51,7 @@ class Player(GameObject, Attachable):
 		"""
 		set this score
 		:param score: new score value
+		:type score: int
 		:return:
 		"""
 		self.__score = score
@@ -75,7 +82,7 @@ class Player(GameObject, Attachable):
 	def get_score(self):
 		"""
 		get this current score
-		:return:
+		:return: current score attr
 		"""
 		return self.__score
 
