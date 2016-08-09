@@ -9,21 +9,22 @@ class GameObject(Sprite):
 	ver 1.0
 	"""
 
-	# this current sprite
-	__sprite	= None
-	# this current rectangle
+	# this image
+	__image		= None
+	# this pygame.Rect
 	__rect		= None
 
-	def __init__(self, sprite):
+	def __init__(self, img):
 		# add args sprite and rect
-		self.__sprite 	= sprite
-		self.__rect 	= sprite.get_rect()
+		Sprite.__init__(self)
 
 	def set_sprite(self, sprite):
 		"""
 		set current sprite
 		"""
 		self.__sprite = sprite
+		self.__image 	= img
+		self.set_rect(img.get_rect())
 
 	def set_rect(self, rect):
 		"""
