@@ -51,8 +51,8 @@ class GameObject(Sprite):
 		:type y: int
 		:return: None
 		"""
-		self.__rect.x = x
-		self.__rect.y = y
+		self.get_rect().x = x
+		self.get_rect().y = y
 
 	def get_image(self):
 		"""
