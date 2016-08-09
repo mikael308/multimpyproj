@@ -1,10 +1,10 @@
-import pygame, resource, tools, traceback
+import pygame, resource, src.tools as tools, traceback
 from random import randint
-from settings import controls, settings
+from src.settings import controls , settings
 from gameobjects.attachable import Attachable
 from gameobjects.cpu import CPU
 from gameobjects.packet import Packet
-from output import Output
+from src.output import Output
 import game_objects
 
 
@@ -195,7 +195,8 @@ class GameEngine:
 					if y > dist:
 						y = dist
 
-
+				print "pl pos : " + str(self.__player.get_rect().x) + ", " + str(self.__player.get_rect().y)
+				print "move player: " + str(x) + ", " + str(y)
 				self.__player = GameEngine.__move_gameobj(self.__player, (x,y))
 
 		elif event.type == pygame.KEYUP:
