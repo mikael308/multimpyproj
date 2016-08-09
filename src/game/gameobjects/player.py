@@ -102,6 +102,19 @@ class Player(GameObject, Attachable):
 		"""
 		return self.__health > 0
 
+	def move_pos(self, x, y):
+		"""
+		move current position\n
+		:param x: X-axis direction\n
+		:type x: int
+		:param y: Y-axis direction\n
+		:type y: int
+		:return: None
+		"""
+		GameObject.move_pos(self, x, y)
+		Attachable.move_pos(self, x, y)
+
+
 	def damage(self, damage):
 		"""
 		damage this player by param value
