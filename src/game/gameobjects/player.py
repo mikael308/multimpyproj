@@ -114,7 +114,6 @@ class Player(GameObject, Attachable):
 		GameObject.move_pos(self, x, y)
 		Attachable.move_pos(self, x, y)
 
-
 	def mod_health(self, diff):
 		"""
 		modify current health\n
