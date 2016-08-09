@@ -28,7 +28,7 @@ class SoundController:
     def close(self):
         """
         close this and release resources
-        :return:
+        :return: None
         """
         pygame.mixer.quit()
 
@@ -39,7 +39,7 @@ class SoundController:
         settings soundfx must be enabled to successfully play
         :param id:
         :type id: string
-        :return:
+        :return: None
         """
         if settings.is_soundfx_enabled():
             self.__sounds[id].play()
