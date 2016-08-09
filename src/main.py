@@ -6,7 +6,7 @@
 	author: Mikael Holmbom
 	ver 1.0
 """
-from gameengine import GameEngine
+from game.gameengine import GameEngine
 
 ge = GameEngine()
 ge.run()
