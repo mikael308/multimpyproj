@@ -136,10 +136,8 @@ class Player(GameObject, Attachable):
 
 	def mod_level(self, diff):
 		"""
-		modify current level
-		:param diff: modifying term\n
-		increase level: positive integer param\n
-		decrease level: negative integer param
+		modify current level\n
+		:param diff: modifying term: increase level: positive integer param: decrease level: negative integer param
 		:type diff: int
 		:return:
 		"""
