@@ -7,5 +7,6 @@
 	<image name="health">health.bmp</image>
 	<image name="cpu">cpu.bmp</image>
 	<image name="packet">packet.bmp</image>
+	<image name="button">button.bmp</image>
 </images>
 
