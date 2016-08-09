@@ -1,14 +1,15 @@
 import pygame
 import resource
-from settings import settings
+from src.settings import settings
 
 
-class SoundEngine:
+class SoundController:
     """
     facade controlling sounds\n
     reads soundfiles from resourcefile: sounds.xml\n
-    * use play(self, id) to play sound with id as matching attribute name from resource item
-    * close() to release resource\n
+        * use play(self, id) to play sound with id as matching attribute name from resource item
+        * close() to release resource\n
+
     :author: Mikael Holmbom
     :version: 1.0
     """
