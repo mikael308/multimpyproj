@@ -3,5 +3,6 @@
 	<string name="game_title">multimproj</string>
 	<string name="klaatu">klaatu verada nikto</string>
 	<string name="btn_start_text">start</string>
+	<string name="btn_info_text">info</string>
 
 </strings>
