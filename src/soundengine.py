@@ -21,9 +21,8 @@ class SoundEngine:
 
         res = resource.get_soundsrc()
 
-        for key, val in res:
-            filename = str(res.get_rootdir()) + str(val)
-            self.__sounds[key] = pygame.mixer.Sound(filename)
+        for name, soundsrc in res.iteritems():
+            self.__sounds[name] = pygame.mixer.Sound(soundsrc)
 
     def close(self):
         """
