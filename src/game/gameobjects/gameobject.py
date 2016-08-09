@@ -52,12 +52,12 @@ class GameObject(Sprite):
 		self.__rect.x = x
 		self.__rect.y = y
 
-	def get_sprite(self):
+	def get_image(self):
 		"""
-		get current sprite\n
+		get this image
 		:return:
 		"""
-		return self.__sprite
+		return self.__image
 
 	def get_rect(self):
 		"""
