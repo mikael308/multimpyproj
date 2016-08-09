@@ -14,7 +14,7 @@ class SoundController:
     :version: 1.0
     """
 
-    # collection of sounds from resource file
+    # dictionary of sounds from resource file
     __sounds = {}
 
     def __init__(self):
