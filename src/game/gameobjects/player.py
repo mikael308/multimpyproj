@@ -107,8 +107,8 @@ class Player(GameObject, Attachable):
 		:param damage: value to damage this player
 		:return:
 		"""
-		hp = self.get_health()
-		self.set_health(hp - damage)
+		h = self.get_health()
+		self.set_health(h - damage)
 
 	def mod_score(self, diff):
 		"""
