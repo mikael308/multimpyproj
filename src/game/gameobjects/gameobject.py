@@ -18,11 +18,6 @@ class GameObject(Sprite):
 		# add args sprite and rect
 		Sprite.__init__(self)
 
-	def set_sprite(self, sprite):
-		"""
-		set current sprite
-		"""
-		self.__sprite = sprite
 		self.__image 	= img
 		self.set_rect(img.get_rect())
 
