@@ -46,8 +46,10 @@ class GameObject(Sprite):
 		"""
 		set object to absolute position
 		:param x: x-axis position
+		:type x: int
 		:param y: y-axis position
-		:return:
+		:type y: int
+		:return: None
 		"""
 		self.__rect.x = x
 		self.__rect.y = y
