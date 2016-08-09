@@ -1,6 +1,6 @@
 import resource, pygame
-import src.game.game_objects as game_objects
-from src.game.infopanel import InfoPanel
+import game_objects
+from infopanel import InfoPanel
 
 
 class Screen:
