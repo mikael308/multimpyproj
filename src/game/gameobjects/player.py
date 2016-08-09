@@ -12,8 +12,6 @@ class Player(GameObject, Attachable):
 	:version: 1.0
 	"""
 
-	# name of this player
-	__name 		= ""
 	# this current health value
 	__health 	= 0
 	# defines this movement speed
@@ -23,12 +21,11 @@ class Player(GameObject, Attachable):
 	# this current level
 	__level		= 0
 
-	def __init__(self, name, health, speed):
+	def __init__(self,  health, speed):
 		src = resource.get_imagesrc("player")
 		img 	= pygame.image.load(src)
 		GameObject.__init__(self, img)
 
-		self.__name 	= name
 		self.__health 	= health
 		self.__speed	= speed
 
@@ -56,16 +53,10 @@ class Player(GameObject, Attachable):
 		"""
 		set this level
 		:param level:  new level value
+		:type level: int
 		:return:
 		"""
 		self.__level = level
-
-	def get_name(self):
-		"""
-		get this name
-		:return: name attr
-		"""
-		return self.__name
 
 	def get_health(self):
 		"""
