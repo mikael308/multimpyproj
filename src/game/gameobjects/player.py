@@ -6,10 +6,10 @@ from gameobject import GameObject
 
 class Player(GameObject, Attachable):
 	"""
-		defines the player
+	defines the player of the game\n
 
-		author Mikael Holmbom
-		ver 1.0
+	:author: Mikael Holmbom
+	:version: 1.0
 	"""
 
 	# name of this player
