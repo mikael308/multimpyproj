@@ -140,6 +140,7 @@ class Player(GameObject, Attachable):
 		modify current level\n
 		:param diff: modifying term: increase level: positive integer param: decrease level: negative integer param
 		:type diff: int
-		:return:
+		:return: level value after modification
 		"""
 		self.__level += diff
+		return self.get_level()
