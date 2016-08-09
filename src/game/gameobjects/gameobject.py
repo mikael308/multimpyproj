@@ -67,7 +67,8 @@ class GameObject(Sprite):
 
 	def get_pos(self):
 		"""
-		get this current center position
-		:return: current position
+		get this current center position\n
+		:return: current position\n
+		:returns: [x-position, y-position]
 		"""
 		return self.get_rect().center
