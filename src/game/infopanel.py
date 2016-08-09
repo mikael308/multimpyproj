@@ -26,6 +26,14 @@ class InfoPanel:
         self.__text_size    = text_size
         self.__text_color   = text_color
 
+    def set_player(self, player):
+	"""
+	set this player as source of panels data to output
+	:return: this InfoPanel
+	"""
+        self.__player = player
+	return self
+
     def render(self):
         """
         render this panel
