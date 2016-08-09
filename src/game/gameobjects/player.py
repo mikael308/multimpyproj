@@ -117,10 +117,10 @@ class Player(GameObject, Attachable):
 
 	def mod_health(self, diff):
 		"""
-		:return:
 		modify current health\n
 		:param diff: modifying term: increase health: positive integer param, decrease health: negative integer param\n
 		:type diff: int
+		:return: health after modification
 		"""
 		h = self.get_health()
 		self.set_health(h + diff)
