@@ -32,10 +32,12 @@ class GameObject(Sprite):
 
 	def move_pos(self, x, y):
 		"""
-		set current position\n
-		:param x: new X-axis position
-		:param y: new Y-axis position
-		:return:
+		move current position\n
+		:param x: X-axis direction\n
+		:type x: int
+		:param y: Y-axis direction\n
+		:type y: int
+		:return: None
 		"""
 		mod_rect 	= self.get_rect().move((x, y))
 		self.set_rect(mod_rect)
