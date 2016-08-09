@@ -1,4 +1,5 @@
-import pygame, resource
+import pygame
+import src.resource as resource
 
 
 class InfoPanel:
