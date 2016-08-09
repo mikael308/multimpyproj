@@ -1,6 +1,7 @@
+from pygame.sprite import Sprite
 
 
-class GameObject:
+class GameObject(Sprite):
 	"""
 	graphic object used in gameplay
 
