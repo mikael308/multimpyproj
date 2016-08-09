@@ -37,7 +37,7 @@ class GameObject(Sprite):
 		mod_rect 	= self.get_rect().move((x, y))
 		self.set_rect(mod_rect)
 
-	def set_pos(self,x, y):
+	def set_pos(self, x, y):
 		"""
 		set object to absolute position
 		:param x: x-axis position
