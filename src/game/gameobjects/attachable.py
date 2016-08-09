@@ -16,6 +16,16 @@ class Attachable:
 
         """
 
+    def move_pos(self, x, y):
+        """
+        move current position\n
+        :param x: X-axis direction
+        :param y: Y-axis direction
+        :return:
+        """
+        if self.has_attached():
+            self.get_attached().move_pos(x, y)
+
     def attach(self, gameobj):
         """
         attach object to this object\n
