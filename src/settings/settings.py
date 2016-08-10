@@ -4,11 +4,11 @@ settings access functions
 :author: Mikael Holmbom
 :version: 1.0
 """
-import src.resource
+import src.resource.resource as resource
 
 __soundfx_enabled = True
 
-__FPS = src.resource.get_value("fps")
+__FPS = resource.get_value("fps")
 __holdtime = 1000 / __FPS
 
 def is_soundfx_enabled():

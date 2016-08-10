@@ -1,4 +1,4 @@
-import src.resource as resource
+import src.resource.resource as resource
 import pygame
 from attachable import Attachable
 from gameobject import GameObject

@@ -1,5 +1,5 @@
 import pygame
-import src.resource as resource
+import src.resource.resource as resource
 from src.settings import settings
 
 

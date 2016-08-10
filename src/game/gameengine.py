@@ -1,4 +1,5 @@
 import pygame, resource, src.tools as tools, traceback
+import pygame
 from random import randint
 from src.settings import controls , settings
 from gameobjects.attachable import Attachable

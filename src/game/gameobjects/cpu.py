@@ -1,4 +1,5 @@
-import resource, pygame
+import src.resource.resource as resource
+import pygame
 from gameobject import GameObject
 
 
