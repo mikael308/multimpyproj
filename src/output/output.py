@@ -1,6 +1,6 @@
 import resource
-from soundengine import SoundEngine
 from screen import Screen
+from sound_controller import SoundController
 
 
 class Output:
@@ -9,13 +9,13 @@ class Output:
 
     See
         * screen
-        * soundengine
+        * SoundController - audiovisual output
 
     :author: Mikael Holmbom
     :version: 1.0
     """
 
-    __soundengine       = None
+    __soundcontroller   = None
     __screen            = None
 
     def __init__(self):
@@ -25,22 +25,21 @@ class Output:
         self.__screen = Screen(size)
         self.__screen.setup()
 
-        self.__soundengine = SoundEngine()
-
     def close(self):
         """
         closes this resource
         :return:
         """
         self.__screen.close()
-        self.__soundengine.close()
+        self.get_soundcontroller().close()
 
-    def get_soundengine(self):
+    def get_soundcontroller(self):
         """
         get soundengine
-        :return:
+        :return: this SoundController instance
+        :returns: SoundController
         """
-        return self.__soundengine
+        return self.__soundcontroller
 
     def get_screen(self):
         """
@@ -55,6 +54,15 @@ class Output:
         :return:
         """
         self.__screen.render()
+
+    def _set_soundcontroller(self, soundcontroller):
+        """
+        set this soundcontroller
+        :param soundcontroller: new SoundController instance
+        :type soundcontroller: SoundController
+        :return: None
+        """
+        self.__soundcontroller = soundcontroller
 
     def level_up(self):
         """
