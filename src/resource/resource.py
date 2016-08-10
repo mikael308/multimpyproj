@@ -1,13 +1,14 @@
 """
 handling string resource data from xml file
 resourcefile is defined in var resourcefile
-to get string from resourcefile, use getString(resId) function
+to get string from resourcefile, use getString(resId) function\n
 
 :author: Mikael Holmbom
 :version: 1.0
 """
 import xml.etree.ElementTree as ET
 from font_resource import FontResource
+from color_resource import ColorResource
 
 
 # path to resource data
@@ -19,6 +20,7 @@ resfile_img		= "images.xml"
 resfile_val		= "values.xml"
 resfile_sound	= "sounds.xml"
 resfile_font	= "fonts.xml"
+resfile_color	= "colors.xml"
 
 
 def get_string(res_id):
@@ -162,5 +164,23 @@ def get_font(res_id):
 			name = child.text
 			size = int(child.attrib["size"])
 			return FontResource(name, size)
+
+	return res_notfound_val
+
+
+def get_color(res_id):
+	attr_key = "name"
+	res_notfound_val = None
+
+	tree = ET.parse(resdir + resfile_color)
+	root = tree.getroot()
+
+	for child in root:
+		# if resource is found
+		if child.attrib[attr_key] == res_id:
+			r = int(child.attrib["r"])
+			g = int(child.attrib["g"])
+			b = int(child.attrib["b"])
+			return ColorResource(r, g, b)
 
 	return res_notfound_val
