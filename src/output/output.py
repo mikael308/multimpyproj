@@ -29,7 +29,7 @@ class Output:
     def close(self):
         """
         closes this resource
-        :return:
+        :return: None
         """
         self.__screen.close()
         self.get_soundcontroller().close()
