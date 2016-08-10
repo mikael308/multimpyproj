@@ -1,3 +1,4 @@
+import pygame
 import src.resource as resource
 from sound_controller import SoundController
 
@@ -55,6 +56,7 @@ class Output:
         :return:
         """
         self.__screen.render()
+        pygame.display.update()
 
     def _set_soundcontroller(self, soundcontroller):
         """
