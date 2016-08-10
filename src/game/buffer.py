@@ -50,7 +50,7 @@ class Buffer:
             if i < len(self.__elements):
                 s += ", "
         s += " ]"
-        s += "{" + str(self.__capacity) + "}"
+        s += "{" + str(self.get_size()) + "/" + str(self.__capacity) + "}"
 
         return s
 
