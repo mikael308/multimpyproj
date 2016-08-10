@@ -1,5 +1,5 @@
-import resource
 from screen import Screen
+import src.resource as resource
 from sound_controller import SoundController
 
 
