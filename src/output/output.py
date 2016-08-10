@@ -45,7 +45,7 @@ class Output:
     def get_screen(self):
         """
         get the screen
-        :return:
+        :return: this Screen instance
         """
         return self.__screen
 
