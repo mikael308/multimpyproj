@@ -13,5 +13,10 @@
 	<dimen name="cpu_margin_left">400</dimen>
 	<dimen name="cpu_margin_top">100</dimen>
 	<dimen name="cpu_margin_dist">75</dimen>
+	<dimen name="info_article_margin_top">20</dimen>
+	<dimen name="info_article_margin_right">20</dimen>
+	<dimen name="info_article_margin_bottom">20</dimen>
+	<dimen name="info_article_margin_left">20</dimen>
+
 
 </dimens>
