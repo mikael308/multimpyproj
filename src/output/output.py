@@ -6,9 +6,8 @@ from sound_controller import SoundController
 class Output:
     """
     facade object handling all output
-
-    See
-        * screen
+    contain parts:
+        * Screen - visual output
         * SoundController - audiovisual output
 
     :author: Mikael Holmbom
