@@ -7,6 +7,7 @@ to get string from resourcefile, use getString(resId) function
 :version: 1.0
 """
 import xml.etree.ElementTree as ET
+from font_resource import FontResource
 
 
 # path to resource data
@@ -17,6 +18,7 @@ resfile_dimen 	= "dimens.xml"
 resfile_img		= "images.xml"
 resfile_val		= "values.xml"
 resfile_sound	= "sounds.xml"
+resfile_font	= "fonts.xml"
 
 
 def get_string(res_id):
@@ -141,4 +143,24 @@ def get_soundsrc():
 	return paths
 
 
+def get_font(res_id):
+	"""
+	get font from resource file
+	:param res_id: name of the font to access
+	:return: font, if resource not found -> None
+	:returns: src.resource.FontResource
+	"""
+	attr_key = "name"
+	res_notfound_val = None
 
+	tree = ET.parse(resdir + resfile_font)
+	root = tree.getroot()
+
+	for child in root:
+		# if resource is found
+		if child.attrib[attr_key] == res_id:
+			name = child.text
+			size = int(child.attrib["size"])
+			return FontResource(name, size)
+
+	return res_notfound_val
