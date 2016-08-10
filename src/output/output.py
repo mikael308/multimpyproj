@@ -1,4 +1,3 @@
-from screen import Screen
 import src.resource as resource
 from sound_controller import SoundController
 
@@ -14,15 +13,18 @@ class Output:
     :version: 1.0
     """
 
+    __screen_size       = (0, 0)
+
     __soundcontroller   = None
     __screen            = None
 
     def __init__(self):
-        size = (resource.get_dimen("main_window_size_width"),
-                resource.get_dimen("main_window_size_height"))
-
-        self.__screen = Screen(size)
-        self.__screen.setup()
+        """
+        set the size of this screen\n
+        initiates a SoundController
+        """
+        self.__screen_size = (resource.get_dimen("main_window_size_width"),
+                              resource.get_dimen("main_window_size_height"))
 
     def close(self):
         """
