@@ -56,13 +56,6 @@ class Output:
         """
         self.__screen.render()
 
-    def update(self):
-        """
-        updates output
-        :return:
-        """
-        self.__screen.update()
-
     def level_up(self):
         """
         outputs level up
