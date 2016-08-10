@@ -62,31 +62,3 @@ class Output:
         :return: None
         """
         self.__soundcontroller = soundcontroller
-
-    def level_up(self):
-        """
-        outputs level up
-        :return:
-        """
-        self.__soundengine.play("level_up")
-
-    def score(self):
-        """
-        outputs score
-        :return:
-        """
-        self.__soundengine.play("score")
-
-    def wrong_cpu(self):
-        """
-        outputs wrong cpu
-        :return:
-        """
-        self.__soundengine.play("wrong_cpu")
-
-    def buffer_overflow(self):
-        """
-        outputs buffer overflow
-        :return:
-        """
-        self.__soundengine.play("buffer_overflow")
