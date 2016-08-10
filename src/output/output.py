@@ -74,3 +74,10 @@ class Output:
         """
         self.get_screen().setup()
 
+    def update(self):
+        """
+        updates output
+        :return:
+        """
+        self.__screen.update()
+
