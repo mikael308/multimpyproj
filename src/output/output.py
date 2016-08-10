@@ -66,3 +66,11 @@ class Output:
         :return: None
         """
         self.__soundcontroller = soundcontroller
+
+    def setup(self):
+        """
+
+        :return:
+        """
+        self.get_screen().setup()
+
