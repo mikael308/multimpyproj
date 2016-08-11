@@ -58,6 +58,15 @@ class Output:
         self.__screen.render()
         pygame.display.update()
 
+    def _set_screen(self, screen):
+        """
+        set this screen
+        :param screen: new Screen instance
+        :type screen: Screen
+        :return:
+        """
+        self.__screen = screen
+
     def _set_soundcontroller(self, soundcontroller):
         """
         set this soundcontroller
