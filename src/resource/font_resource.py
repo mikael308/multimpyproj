@@ -8,8 +8,8 @@ class FontResource:
     :version: 1.0
     """
 
-    name        = ""
-    size        = 0
+    name            = ""
+    size            = 0
     style_bold      = False
     style_italic    = False
 
