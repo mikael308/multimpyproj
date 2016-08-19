@@ -10,6 +10,8 @@ class FontResource:
 
     name        = ""
     size        = 0
+    style_bold      = False
+    style_italic    = False
 
     def __init__(self, name, size):
         """
