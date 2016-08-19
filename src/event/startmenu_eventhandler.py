@@ -28,18 +28,15 @@ class StartMenuEventHandler(EventHandler):
             elif key[pygame.K_ESCAPE]:
                 interf.get_engine().shutdown()
 
-            elif key[pygame.K_s]:
-                for b in interf.get_output().get_btns():
-                    if b.get_id() == "START":
-                        b.click()
-            elif key[pygame.K_i]:
-                for b in interf.get_output().get_btns():
-                   if b.get_id() == "INFO":
-                        b.click()
-            elif key[pygame.K_e]:
-                for b in interf.get_output().get_btns():
-                    if b.get_id() == "EXIT":
-                        b.click()
+            if pygame.key.get_mods() & pygame.KMOD_ALT:
+                if key[pygame.K_s]:
+                    interf.get_output().get_btns()["START"].click()
+
+                elif key[pygame.K_i]:
+                    interf.get_output().get_btns()["INFO"].click()
+
+                elif key[pygame.K_e]:
+                    interf.get_output().get_btns()["EXIT"].click()
 
         elif event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
