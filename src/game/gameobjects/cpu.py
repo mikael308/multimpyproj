@@ -15,9 +15,11 @@ class CPU(GameObject):
     __text_size = 30
 
     # this value
-    __val = 0
+    __adress = 0
 
-    def __init__(self, val):
+
+    def __init__(self, adress):
+        self.__adress = adress
         src = resource.get_imagesrc("cpu")
         img = pygame.image.load(src)
         text = pygame.font.SysFont("val_label", self.__text_size)
@@ -27,14 +29,12 @@ class CPU(GameObject):
 
         GameObject.__init__(self, img)
 
-        self.__val = val
-
-    def get_val(self):
+    def get_adress(self):
         """
         get this value
         :return: this value
         """
-        return self.__val
+        return self.__adress
 
     def __str__(self):
-        return "CPU(" + str(self.get_val()) + ")"
+        return "CPU(" + str(self.get_adress()) + ")"
