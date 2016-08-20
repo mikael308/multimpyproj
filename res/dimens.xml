@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dimens>
-	<dimen name="main_window_size_height">600</dimen>
-	<dimen name="main_window_size_width">500</dimen>
-	<dimen name="infopanel_x">10</dimen>
-	<dimen name="infopanel_y">10</dimen>
-	<dimen name="infopanel_textsize">40</dimen>
-	<dimen name="buf_margin_top">70</dimen>
-	<dimen name="buf_margin_dist">50</dimen>
-	<dimen name="buf_margin_left">20</dimen>
-	<dimen name="buf_margin_background_w">10</dimen>
-	<dimen name="buf_margin_background_h">10</dimen>
-	<dimen name="cpu_margin_left">400</dimen>
-	<dimen name="cpu_margin_top">100</dimen>
-	<dimen name="cpu_margin_dist">75</dimen>
-	<dimen name="info_article_margin_top">20</dimen>
-	<dimen name="info_article_margin_right">20</dimen>
-	<dimen name="info_article_margin_bottom">20</dimen>
-	<dimen name="info_article_margin_left">20</dimen>
-
+	<dimen name="main_window" width="1000" height="600" />
+	<dimen name="infopanel" width="250" height="40" x="5" y="5" dist="30"/>
+	<dimen name="buf_background" x="20" y="150" dist="30" />
+	<dimen name="buf_background_padd" left="20" right="30" top="30" bottom="20" />
+	<dimen name="cpu" radius="50" left="800" dist="150" border="5" />
+	<dimen name="info_article_padd" top="25" right="20" bottom="20" left="20" linespacing="3" />
+	<dimen name="info_article_controls" x="10" y="10" />
+	<dimen name="info_article_gameinfo" x="500" y="10" />
 
 </dimens>
