@@ -99,3 +99,17 @@ class GameObject(Sprite):
 		:returns: [x-position, y-position]
 		"""
 		return self.get_rect().center
+
+	def get_width(self):
+		"""
+		get this visual width\n
+		:return:
+		"""
+		return self.__image.get_width()
+
+	def get_height(self):
+		"""
+		get this visual height\n
+		:return:
+		"""
+		return self.__image.get_height()
