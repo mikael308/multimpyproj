@@ -9,17 +9,22 @@ class GameObject(Sprite):
 	ver 1.0
 	"""
 
+	__dimen  	= None
 	# this image
 	__image		= None
 	# this pygame.Rect
 	__rect		= None
 
-	def __init__(self, img):
+	def __init__(self, img, dimen):
 		# add args sprite and rect
 		Sprite.__init__(self)
 
+		self.__dimen 	= dimen
 		self.__image 	= img
 		self.set_rect(img.get_rect())
+
+		if dimen.x is not None and dimen.y is not None:
+			self.set_pos(dimen.x, dimen.y)
 
 	def set_rect(self, rect):
 		"""
@@ -54,12 +59,22 @@ class GameObject(Sprite):
 		self.get_rect().x = x
 		self.get_rect().y = y
 
+		self.__dimen.x = x
+		self.__dimen.y = y
+
 	def get_image(self):
 		"""
 		get this image
 		:return:
 		"""
 		return self.__image
+
+	def get_dimen(self):
+		"""
+		get this dimension\n
+		:return: this instance dimension
+		"""
+		return self.__dimen
 
 	def get_rect(self):
 		"""
