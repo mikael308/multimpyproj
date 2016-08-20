@@ -2,7 +2,6 @@
 <images rootdir="./img/">
 	<image name="icon">icon.bmp</image>
 	<image name="background">background.bmp</image>
-	<image name="player">player.bmp</image>
 	<image name="enemy">enemy.bmp</image>
 	<image name="cpu">cpu.bmp</image>
 	<image name="packet">packet.bmp</image>
