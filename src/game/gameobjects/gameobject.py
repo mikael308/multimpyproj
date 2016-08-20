@@ -31,9 +31,11 @@ class GameObject(Sprite):
 		set this rect\n
 		:param rect: new rect\n
 		:type rect: pygame.Rect
-		:return: None
+		:return: self
 		"""
 		self.__rect = rect
+		return self
+
 
 	def move_pos(self, x, y):
 		"""
