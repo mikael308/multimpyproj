@@ -22,9 +22,10 @@ class Player(GameObject, Attachable):
 	__level		= 0
 
 	def __init__(self):
+		dimen = resource.get_dimen("player")
 		src = resource.get_imagesrc("player")
 		img 	= pygame.image.load(src)
-		GameObject.__init__(self, img)
+		GameObject.__init__(self, img, dimen)
 
 		self.__health 	= resource.get_value("player_hp_start")
 		self.__speed	= resource.get_value("player_mov_speed")
