@@ -136,3 +136,11 @@ class Packet(GameObject):
         :return: this value
         """
         return self.__receiver
+
+    def valid_checksum(self):
+	"""
+	determine if this checksum is valid as: checksum = receiver AND sender\n
+	:return: True if checksum is valid
+	"""
+        return self.get_checksum() == self.get_receiver() & self.get_sender()
+
