@@ -15,6 +15,11 @@ class Packet(GameObject):
     __text_color = 0, 0, 0  # black
     __text_size = 30
 
+    __border_color  = resource.get_color("packet_border").rgb()
+
+    __packet_padd_dimen = resource.get_dimen("packet_padd")
+    __border_dimen = resource.get_dimen("packet_border")
+
     # this packet value
     __val = 0
 
@@ -30,6 +35,28 @@ class Packet(GameObject):
         GameObject.__init__(self, img, dimen)
 
         self.__val = val
+
+    def __blit_borders(self):
+	"""
+	blit borders to this image surface\n
+	used as part of __init__\n
+	:return: None
+	"""
+        dimen           = self.get_dimen()
+        img             = self.get_image()
+        border_size     = self.__border_dimen.size
+        border_color    = self.__border_color
+        border_vert = pygame.Surface((border_size, dimen.height))
+        border_hori = pygame.Surface((dimen.width, border_size))
+        border_vert.fill(border_color)
+        border_hori.fill(border_color)
+
+        pygame.draw.lines(img, border_color, False,
+                          ((0, 0),
+                           (dimen.width-border_size, 0),
+                           (dimen.width-border_size, dimen.height-border_size),
+                           (0, dimen.height-border_size),
+                           (0, 0)), border_size)
 
     def __str__(self):
         return str(self.get_val())
