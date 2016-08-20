@@ -21,13 +21,13 @@ class Player(GameObject, Attachable):
 	# this current level
 	__level		= 0
 
-	def __init__(self,  health, speed):
+	def __init__(self):
 		src = resource.get_imagesrc("player")
 		img 	= pygame.image.load(src)
 		GameObject.__init__(self, img)
 
-		self.__health 	= health
-		self.__speed	= speed
+		self.__health 	= resource.get_value("player_hp_start")
+		self.__speed	= resource.get_value("player_mov_speed")
 
 	def set_health(self, health):
 		"""
