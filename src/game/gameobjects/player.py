@@ -23,8 +23,9 @@ class Player(GameObject, Attachable):
 
 	def __init__(self):
 		dimen = resource.get_dimen("player")
-		src = resource.get_imagesrc("player")
-		img 	= pygame.image.load(src)
+		img = pygame.Surface(dimen.wh())
+		color = resource.get_color("player")
+		img.fill(color.rgb())
 		GameObject.__init__(self, img, dimen)
 
 		self.__health 	= resource.get_value("player_hp_start")
