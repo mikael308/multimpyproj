@@ -19,6 +19,7 @@ class Packet(GameObject):
     __val = 0
 
     def __init__(self, val):
+        dimen = resource.get_dimen("packet")
         src = resource.get_imagesrc("packet")
         img = pygame.image.load(src)
 
@@ -26,7 +27,7 @@ class Packet(GameObject):
         text_val = str(bin(val))
 
         img.blit(text.render(text_val, 0, self.__text_color), (120, 5))
-        GameObject.__init__(self, img)
+        GameObject.__init__(self, img, dimen)
 
         self.__val = val
 
