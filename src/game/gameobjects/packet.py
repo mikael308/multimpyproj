@@ -49,6 +49,9 @@ class Packet(GameObject):
         self.__separator = pygame.Surface((self.__border_dimen.size, dimen.height))
         self.__separator.fill(self.__border_color)
 
+	self.__blit_adress()
+	self.__blit_borders()
+
     def __blit_adress(self):
 	"""
 	blit the adresses to the current image\n
