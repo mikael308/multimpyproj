@@ -25,6 +25,7 @@ def switch_soundfx_enabled():
     switch the value of setting: soundfx enabled\n
     :return:
     """
+    global __soundfx_enabled
     __soundfx_enabled = not is_soundfx_enabled()
     print "soundfx is " + str(__soundfx_enabled)
 
