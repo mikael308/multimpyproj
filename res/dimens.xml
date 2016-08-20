@@ -11,6 +11,7 @@
 	<dimen name="packet" width="500" height="80" dist="20" />
 	<dimen name="packet_border" size="2" />
 	<dimen name="packet_padd" left="15" right="15" />
+	<dimen name="health" width="20" height="20" dist="10" />
 	<dimen name="buf_background" x="20" y="150" dist="30" />
 	<dimen name="buf_background_padd" left="20" right="30" top="30" bottom="20" />
 	<dimen name="cpu" radius="50" left="800" dist="150" border="5" />
