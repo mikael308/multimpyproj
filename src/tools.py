@@ -21,3 +21,18 @@ def unique_vals(n, min_val, max_val):
             vals.append(v)
 
     return vals
+
+def sep_first_word(text):
+    """
+    separate the first word from the rest of the string\n
+    :param text: the textstring to separate first word from
+    :type text: str
+    :return: tuple containing of first element: the first word, second element contains the rest of the text
+    """
+    delim = " "
+    for i, c in enumerate(text):
+        if delim.__contains__(c):
+            i +=1
+            return (text[:i], text[i:])
+    return (text, "")
+
