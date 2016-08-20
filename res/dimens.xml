@@ -8,6 +8,9 @@
 	<!-- the game model gamefield: dimension in game is scaled after this -->
 	<dimen name="gamescreen" width="1000" height="600" />
 	<dimen name="infopanel" width="250" height="40" x="5" y="5" dist="30"/>
+	<dimen name="packet" width="500" height="80" dist="20" />
+	<dimen name="packet_border" size="2" />
+	<dimen name="packet_padd" left="15" right="15" />
 	<dimen name="buf_background" x="20" y="150" dist="30" />
 	<dimen name="buf_background_padd" left="20" right="30" top="30" bottom="20" />
 	<dimen name="cpu" radius="50" left="800" dist="150" border="5" />
