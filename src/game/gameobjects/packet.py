@@ -13,7 +13,6 @@ class Packet(GameObject):
 
     # TEXT SURFACE
     __text_color = 0, 0, 0  # black
-    __text_size = 30
 
     __border_color  = resource.get_color("packet_border").rgb()
 
@@ -41,21 +40,6 @@ class Packet(GameObject):
         src = resource.get_imagesrc("packet")
         img = pygame.image.load(src)
 
-        text = pygame.font.SysFont("val_label", self.__text_size)
-    def __blit_content(self, content):
-	"""
-	blit content to this surface\n
-	used as part of __init__\n
-	:param content: the content to blit
-	:return: None
-	"""
-        font_res    = resource.get_font("packet")
-        text        = pygame.font.SysFont(font_res.name, font_res.size)
-        dimen       = self.get_dimen()
-        img         = self.get_image()
-        n_content   = len(content)
-        padd_right  = self.__packet_padd_dimen.right
-
         GameObject.__init__(self, img, dimen)
 
         self.__sender = sender
@@ -65,6 +49,22 @@ class Packet(GameObject):
         self.__separator = pygame.Surface((self.__border_dimen.size, dimen.height))
         self.__separator.fill(self.__border_color)
 
+    def __blit_adress(self):
+	"""
+	blit the adresses to the current image\n
+	used as part of __init__\n
+	:return: None
+	"""	
+        str_sender      = str(bin(self.__sender))
+        str_receiver    = str(bin(self.__receiver))
+        str_checksum    = str(bin(self.__checksum))
+
+        dimen   = self.get_dimen()
+        img     = self.get_image()
+        adresses = str(bin(self.__sender)),\
+                   str(bin(self.__receiver)),\
+                   str(bin(self.__checksum))
+        self.__blit_content(adresses)
 
     def __blit_content(self, content):
 	"""
