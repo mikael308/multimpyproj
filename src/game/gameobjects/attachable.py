@@ -40,13 +40,14 @@ class Attachable:
     def detach(self):
         """
         detach the current attach object\n
-        :return: True if there was a prior attached object that now is removed
+        :return: the attached object, None if this does not have a attached object
         """
         if self.__attached_obj is None:
-            return False
+            return None
         else:
+            tmp_obj = self.get_attached()
             self.__attached_obj = None
-            return not self.has_attached()
+            return tmp_obj
 
     def get_attached(self):
         """
