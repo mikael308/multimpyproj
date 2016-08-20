@@ -1,6 +1,7 @@
 import src.resource.resource as resource
 import pygame
 from gameobject import GameObject
+from math import pi
 
 
 class CPU(GameObject):
@@ -12,21 +13,31 @@ class CPU(GameObject):
 
     # TEXT SURFACE
     __text_color = 0, 0, 0 # black
-    __text_size = 30
+
+    __font_res      = None
 
     # this value
     __adress = 0
 
 
     def __init__(self, adress):
-        dimen = resource.get_dimen("cpu")
         self.__adress = adress
-        src = resource.get_imagesrc("cpu")
-        img = pygame.image.load(src)
-        text = pygame.font.SysFont("val_label", self.__text_size)
-        text_val = str(val)
+        dimen = resource.get_dimen("cpu")
+        r = dimen.radius
 
-        img.blit(text.render(text_val, 0, self.__text_color), (10, 5))
+        # create surface
+        col_fill = resource.get_color("cpu_fill").rgb()
+        col_bord = resource.get_color("cpu_border").rgb()
+        self.__font_res = resource.get_font("cpu")
+
+        img = pygame.Surface((dimen.diameter(), dimen.diameter()), pygame.SRCALPHA, 32)
+        img.convert_alpha(img)
+        pygame.draw.circle(img, col_fill, (r, r), r)
+        pygame.draw.arc(img, col_bord, img.get_rect(), 3*2/pi, 2*2 / pi, 5)
+
+        # add the address on the surface
+        self.__blit_adress(img, dimen)
+
         GameObject.__init__(self, img, dimen)
 
     def __blit_adress(self, surf, dimen):
