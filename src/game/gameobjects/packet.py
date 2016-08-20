@@ -25,7 +25,8 @@ class Packet(GameObject):
     __sender        = 0
     __checksum      = 0
 
- 
+    __separator     = None
+
     def __init__(self, sender, receiver, checksum):
         """
 
@@ -60,6 +61,9 @@ class Packet(GameObject):
         self.__sender = sender
         self.__receiver = receiver
         self.__checksum = checksum
+
+        self.__separator = pygame.Surface((self.__border_dimen.size, dimen.height))
+        self.__separator.fill(self.__border_color)
 
 
     def __blit_content(self, content):
