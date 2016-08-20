@@ -21,16 +21,26 @@ class Packet(GameObject):
     __border_dimen = resource.get_dimen("packet_border")
 
     # this packet value
-    __val = 0
+    __receiver      = 0
+    __sender        = 0
+    __checksum      = 0
 
-    def __init__(self, val):
+ 
+    def __init__(self, sender, receiver, checksum):
+        """
+
+        :param sender:
+        :type sender: int
+        :param receiver:
+        :type receiver: int
+        :param checksum:
+        :type checksum: int
+        """
         dimen = resource.get_dimen("packet")
         src = resource.get_imagesrc("packet")
         img = pygame.image.load(src)
 
         text = pygame.font.SysFont("val_label", self.__text_size)
-        text_val = str(bin(val))
-
     def __blit_content(self, content):
 	"""
 	blit content to this surface\n
@@ -45,10 +55,12 @@ class Packet(GameObject):
         n_content   = len(content)
         padd_right  = self.__packet_padd_dimen.right
 
-        img.blit(text.render(text_val, 0, self.__text_color), (120, 5))
         GameObject.__init__(self, img, dimen)
 
-        self.__val = val
+        self.__sender = sender
+        self.__receiver = receiver
+        self.__checksum = checksum
+
 
     def __blit_content(self, content):
 	"""
@@ -98,11 +110,25 @@ class Packet(GameObject):
                            (0, 0)), border_size)
 
     def __str__(self):
-        return str(self.get_val())
+        return "[ sender:" + str(self.get_sender()) + " | " + "receiver:" + str(self.get_receiver()) + " | " + "checksum:" + str(self.get_checksum()) + " ]"
 
-    def get_val(self):
+    def get_checksum(self):
         """
-        get this value
-        :return: this packet value
+        get this checksum value\n
+        :return:
         """
-        return self.__val
+        return self.__checksum
+
+    def get_sender(self):
+        """
+        get this sender value\n
+        :return:
+        """
+        return self.__sender
+
+    def get_receiver(self):
+        """
+        get this receiver value\n
+        :return: this value
+        """
+        return self.__receiver
