@@ -31,6 +31,20 @@ class Packet(GameObject):
         text = pygame.font.SysFont("val_label", self.__text_size)
         text_val = str(bin(val))
 
+    def __blit_content(self, content):
+	"""
+	blit content to this surface\n
+	used as part of __init__\n
+	:param content: the content to blit
+	:return: None
+	"""
+        font_res    = resource.get_font("packet")
+        text        = pygame.font.SysFont(font_res.name, font_res.size)
+        dimen       = self.get_dimen()
+        img         = self.get_image()
+        n_content   = len(content)
+        padd_right  = self.__packet_padd_dimen.right
+
         img.blit(text.render(text_val, 0, self.__text_color), (120, 5))
         GameObject.__init__(self, img, dimen)
 
