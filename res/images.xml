@@ -2,7 +2,6 @@
 <images rootdir="./img/">
 	<image name="icon">icon.bmp</image>
 	<image name="background">background.bmp</image>
-	<image name="enemy">enemy.bmp</image>
 	<image name="button">button.png</image>
 	<image name="health">health.png</image>
 </images>
