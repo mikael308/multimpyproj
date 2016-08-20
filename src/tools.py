@@ -9,6 +9,11 @@ def unique_vals(n, min_val, max_val):
     :param max_val: maximum value of the elements in list
     :return: list of unique values
     """
+    if min_val > max_val:
+        raise ValueError("min_val > max_val parameters not aloud")
+    if n > (1 + max_val - min_val):
+        raise ValueError("Not possible to produce " + str(n) + " unique values within span " + str(min_val) + ".." + str(max_val))
+
     vals = []
     while len(vals) < n:
         v = randint(min_val, max_val)
