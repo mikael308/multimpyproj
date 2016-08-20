@@ -36,6 +36,14 @@ class GameObject(Sprite):
 		self.__rect = rect
 		return self
 
+	def _set_image(self, img):
+		"""
+		set this image\n
+		:param img: new image
+		:return: self
+		"""
+		self.__image = img
+		return self
 
 	def move_pos(self, x, y):
 		"""
