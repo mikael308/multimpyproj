@@ -29,6 +29,22 @@ class CPU(GameObject):
 
         GameObject.__init__(self, img)
 
+    def __blit_adress(self, surf, dimen):
+	"""
+	blit the current address to param surf\n
+	:param surf: the surface to blit
+	:param dimen: the dimension blit
+	"""
+        text_val = str(self.get_adress())
+        text_font = pygame.font.SysFont(self.__font_res.name, self.__font_res.size)
+
+        text_surf = text_font.render(text_val, 0, self.__text_color)
+        text_size = text_font.size(text_val)
+        x = (dimen.radius) - (text_size[0] / 2)
+        y = (dimen.radius) - (text_size[1] / 2)
+
+        surf.blit(text_surf, (x, y))
+
     def get_adress(self):
         """
         get this value
