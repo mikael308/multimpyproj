@@ -27,7 +27,6 @@ def switch_soundfx_enabled():
     """
     global __soundfx_enabled
     __soundfx_enabled = not is_soundfx_enabled()
-    print "soundfx is " + str(__soundfx_enabled)
 
 
 def get_FPS():
