@@ -13,6 +13,10 @@ __holdtime = 1000 / __FPS
 
 
 def is_soundfx_enabled():
+    """
+    determine if sound effects is enabled
+    :return:
+    """
     return __soundfx_enabled
 
 
