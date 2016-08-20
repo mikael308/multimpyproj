@@ -3,7 +3,7 @@ from random import randint
 
 def unique_vals(n, min_val, max_val):
     """
-    generates a list of unique values
+    generates a list of unique values\n
     :param n: number of elements in list
     :param min_val: minimum value of the elements in list
     :param max_val: maximum value of the elements in list
