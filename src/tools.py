@@ -22,6 +22,45 @@ def unique_vals(n, min_val, max_val):
 
     return vals
 
+
+def divide_to_rows(max_width, text):
+    """
+    divide a text into rows as elements in tuple,
+     the max length of each element string is param max_width.
+     Wordwrap is used accept when a word exceeds the max_width.\n
+    :param max_width: the maximum length of characters in each row
+    :param max_width: int
+    :param text: text to divide
+    :type text: str
+    :return:
+    """
+    if max_width is not int:
+        ValueError("max_width argument must be int")
+    rows = []
+    if max_width <= 0:
+        return rows
+    row = ""
+    rest = str(text)
+    while rest is not None and len(rest) > 0:
+        first, rest = sep_first_word(rest)
+
+        if len(row + first) < max_width:
+            row += first
+            if rest is not None and len(row + rest) < max_width:
+                rows.append(row + rest)
+                break
+        else:
+            rows.append(row)
+            row = ""
+            if len(first) >= max_width:
+                rows.append(first[:max_width])
+                rest = first[max_width:] + rest
+            else:
+                rest = first + rest
+
+    return rows
+
+
 def sep_first_word(text):
     """
     separate the first word from the rest of the string\n
