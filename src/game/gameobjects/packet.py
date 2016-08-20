@@ -37,8 +37,8 @@ class Packet(GameObject):
         :type checksum: int
         """
         dimen = resource.get_dimen("packet")
-        src = resource.get_imagesrc("packet")
-        img = pygame.image.load(src)
+        img = pygame.Surface(dimen.wh())
+        img.fill(resource.get_color("packet").rgb())
 
         GameObject.__init__(self, img, dimen)
 
