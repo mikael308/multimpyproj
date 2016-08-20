@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dimens>
 	<dimen name="main_window" width="1000" height="600" />
+	<!-- the actual game size, all gameobjects dimens are set relative to this -->
+	<dimen name="gamefield" width="1000" height="1200" />
+	<!-- the actual game view screen -->
+	<dimen name="gamefieldscreen" width="480" height="576" />
+	<!-- the game model gamefield: dimension in game is scaled after this -->
+	<dimen name="gamescreen" width="1000" height="600" />
 	<dimen name="infopanel" width="250" height="40" x="5" y="5" dist="30"/>
 	<dimen name="buf_background" x="20" y="150" dist="30" />
 	<dimen name="buf_background_padd" left="20" right="30" top="30" bottom="20" />
