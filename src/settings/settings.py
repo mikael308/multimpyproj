@@ -6,7 +6,7 @@ settings access functions\n
 """
 import src.resource.resource as resource
 
-__soundfx_enabled = True
+__soundfx_enabled = False
 
 __FPS = resource.get_value("fps")
 __holdtime = 1000 / __FPS
