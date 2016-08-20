@@ -172,15 +172,42 @@ def get_color(res_id):
 	attr_key = "name"
 	res_notfound_val = None
 
+	def valid_rgb(val):
+		"""
+		determine if val is valid rgb value
+		:param val:
+		:return:
+		"""
+		if isinstance(val, int) and \
+			 0 <= int(val) <=255:
+			return True
+
+		return False
+
 	tree = ET.parse(resdir + resfile_color)
 	root = tree.getroot()
+	key_red 	= "r"
+	key_green 	= "g"
+	key_blue 	= "b"
+	key_ref 	= "ref"
 
 	for child in root:
 		# if resource is found
 		if child.attrib[attr_key] == res_id:
-			r = int(child.attrib["r"])
-			g = int(child.attrib["g"])
-			b = int(child.attrib["b"])
-			return ColorResource(r, g, b)
+			attr = child.attrib
+			# color is a reference to other color
+			if key_ref in attr:
+				return get_color(attr[key_ref])
+			# color has a RGB value
+			elif key_red in attr \
+					and key_green in attr \
+					and key_blue in attr:
+				rgb = [int(attr[key_red]), int(attr[key_green]), int(attr[key_blue])]
+
+				if valid_rgb(rgb[0]) \
+					and valid_rgb(rgb[1]) \
+					and valid_rgb(rgb[2]):
+
+					return ColorResource(rgb[0], rgb[1], rgb[2])
 
 	return res_notfound_val
