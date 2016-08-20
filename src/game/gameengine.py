@@ -2,12 +2,13 @@ import pygame, resource, src.tools as tools, traceback
 import pygame
 from random import randint
 from src.settings import controls , settings
-from gameobjects.attachable import Attachable
-from gameobjects.cpu import CPU
-from gameobjects.packet import Packet
 from src.output import Output
 import game_objects
 
+from src.view.game.gameobjects.cpu import CPU
+from src.view.game.gameobjects.packet import Packet
+from src.view.game.gameobjects.player import Player
+from src.view.game.gameobjects.trash import Trash
 
 class GameEngine:
 	"""
