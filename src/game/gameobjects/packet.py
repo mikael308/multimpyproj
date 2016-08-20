@@ -50,6 +50,31 @@ class Packet(GameObject):
 
         self.__val = val
 
+    def __blit_content(self, content):
+	"""
+	blit content to this surface\n
+	used as part of __init__
+	:param content: the content to blit
+	:return: None
+	"""
+        font_res    = resource.get_font("packet")
+        text        = pygame.font.SysFont(font_res.name, font_res.size)
+        dimen       = self.get_dimen()
+        img         = self.get_image()
+        n_content   = len(content)
+        padd_right  = self.__packet_padd_dimen.right
+
+        y = (dimen.height / 2) - (font_res.size / 2)  # set to mid
+        for i, data in enumerate(content):
+            text_surf = text.render(data, 0, self.__text_color)
+            width = text.size(data)[0]
+            idx = i + 1
+            end_line = ((dimen.width / n_content) * idx)
+            img.blit(self.__separator, (end_line, 0))
+
+            x = end_line - width - padd_right
+            img.blit(text_surf, (x, y))
+
     def __blit_borders(self):
 	"""
 	blit borders to this image surface\n
