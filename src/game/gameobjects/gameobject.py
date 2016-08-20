@@ -98,7 +98,7 @@ class GameObject(Sprite):
 		:return: current position\n
 		:returns: [x-position, y-position]
 		"""
-		return self.get_rect().center
+		return self.get_rect().x, self.get_rect().y
 
 	def get_width(self):
 		"""
