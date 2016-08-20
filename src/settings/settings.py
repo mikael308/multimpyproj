@@ -11,6 +11,7 @@ __soundfx_enabled = False
 __FPS = resource.get_value("fps")
 __holdtime = 1000 / __FPS
 
+
 def is_soundfx_enabled():
     return __soundfx_enabled
 
