@@ -19,6 +19,7 @@ class CPU(GameObject):
 
 
     def __init__(self, adress):
+        dimen = resource.get_dimen("cpu")
         self.__adress = adress
         src = resource.get_imagesrc("cpu")
         img = pygame.image.load(src)
@@ -26,8 +27,7 @@ class CPU(GameObject):
         text_val = str(val)
 
         img.blit(text.render(text_val, 0, self.__text_color), (10, 5))
-
-        GameObject.__init__(self, img)
+        GameObject.__init__(self, img, dimen)
 
     def __blit_adress(self, surf, dimen):
 	"""
