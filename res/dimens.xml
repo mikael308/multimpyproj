@@ -19,5 +19,6 @@
 	<dimen name="info_article_padd" top="25" right="20" bottom="20" left="20" linespacing="3" />
 	<dimen name="info_article_controls" x="10" y="10" />
 	<dimen name="info_article_gameinfo" x="500" y="10" />
+	<dimen name="trash" width="100" height="100" x="800" y="900" />
 
 </dimens>
