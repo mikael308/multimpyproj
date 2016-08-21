@@ -95,11 +95,11 @@ class Packet(GameObject):
             img.blit(text_surf, (x, y))
 
     def __blit_borders(self):
-	"""
-	blit borders to this image surface\n
-	used as part of __init__\n
-	:return: None
-	"""
+        """
+        blit borders to this image surface\n
+        used as part of __init__\n
+        :return: None
+        """
         dimen           = self.get_dimen()
         img             = self.get_image()
         border_size     = self.__border_dimen.size
