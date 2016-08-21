@@ -104,10 +104,6 @@ class Packet(GameObject):
         img             = self.get_image()
         border_size     = self.__border_dimen.size
         border_color    = self.__border_color
-        border_vert = pygame.Surface((border_size, dimen.height))
-        border_hori = pygame.Surface((dimen.width, border_size))
-        border_vert.fill(border_color)
-        border_hori.fill(border_color)
 
         pygame.draw.lines(img, border_color, False,
                           ((0, 0),
