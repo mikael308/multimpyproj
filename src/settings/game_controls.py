@@ -8,8 +8,7 @@
 import pygame
 
 
-key_info			= pygame.K_i
-key_quit			= pygame.K_q
+key_switch_sound_enabled = pygame.K_m
 
 # MOVEMENT
 key_mov_left		= pygame.K_LEFT
