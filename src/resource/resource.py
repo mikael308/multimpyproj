@@ -163,7 +163,17 @@ def get_font(res_id):
 		if child.attrib[attr_key] == res_id:
 			name = child.text
 			size = int(child.attrib["size"])
-			return FontResource(name, size)
+			font_res = FontResource(name, size)
+			try:
+				style = child.attrib["style"]
+				if "italic" in style:
+					font_res.style_italic = True
+				if "bold" in style:
+					font_res.style_bold = True
+			except KeyError as e:
+				pass
+
+			return font_res
 
 	return res_notfound_val
 
