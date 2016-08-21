@@ -5,4 +5,5 @@
 	<font name="menu_button" size="20">arial</font>
 	
 	<font name="cpu" size="35">arial</font>
+	<font name="packet" size="30">arial</font>
 </fonts>
