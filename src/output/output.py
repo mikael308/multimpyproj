@@ -30,8 +30,10 @@ class Output:
         closes this resource
         :return: None
         """
-        self.__screen.close()
-        self.get_soundcontroller().close()
+        if self.get_screen() is not None:
+            self.get_screen().close()
+        if self.get_soundcontroller() is not None:
+            self.get_soundcontroller().close()
 
     def get_soundcontroller(self):
         """
