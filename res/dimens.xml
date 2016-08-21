@@ -21,6 +21,7 @@
 	<dimen name="info_article_gameinfo" x="500" y="10" />
 	<dimen name="button" width="100" height="100" />
 	<dimen name="button_marg" top="100" dist="100" />
+	<dimen name="text_button" width="100" height="70" />
 	<dimen name="trash" width="100" height="100" x="800" y="900" />
 
 </dimens>
