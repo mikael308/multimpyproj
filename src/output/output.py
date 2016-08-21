@@ -90,3 +90,9 @@ class Output:
         """
         self.__screen.update()
 
+    def get_btns(self):
+        """
+        get buttons from this outputs screen\n
+        :return: list of buttons from screen instance
+        """
+        return self.get_screen().get_btns()
