@@ -22,7 +22,6 @@ class Output:
     def __init__(self):
         """
         set the size of this screen\n
-        initiates a SoundController
         """
         self.__screen_size = (resource.get_dimen("main_window"))
 
