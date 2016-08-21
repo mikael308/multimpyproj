@@ -9,6 +9,7 @@ to get string from resourcefile, use getString(resId) function\n
 import xml.etree.ElementTree as ET
 from font_resource import FontResource
 from color_resource import ColorResource
+from dimen_resource import DimenResource
 
 
 # path to resource data
@@ -47,7 +48,7 @@ def get_dimen(res_id):
 	"""
 	get resource dimension of name param
 	:param res_id: resource id as of attribute name in resource file
-	:return: dimension from resources, if resource not found: None is returned
+	:return: dimension from resources as DimenResource, if resource not found: None is returned
 	"""
 	attr_key = "name"
 	res_notfound_val = None
@@ -55,10 +56,32 @@ def get_dimen(res_id):
 	tree = ET.parse(resdir + resfile_dimen)
 	root = tree.getroot()
 
+	def get_attr(child, key):
+		try:
+			return int(child.attrib[key])
+		except:
+			return None
+
 	for child in root:
 		# if resource is found
 		if child.attrib[attr_key] == res_id:
-			return int(child.text)
+			dimen = DimenResource()
+
+			dimen.top 			= get_attr(child, "top")
+			dimen.right 		= get_attr(child, "right")
+			dimen.bottom 		= get_attr(child, "bottom")
+			dimen.left 			= get_attr(child, "left")
+			dimen.linespacing	= get_attr(child, "linespacing")
+			dimen.dist 			= get_attr(child, "dist")
+			dimen.width 		= get_attr(child, "width")
+			dimen.height 		= get_attr(child, "height")
+			dimen.x 			= get_attr(child, "x")
+			dimen.y 			= get_attr(child, "y")
+			dimen.size 			= get_attr(child, "size")
+			dimen.radius 		= get_attr(child, "radius")
+			dimen.border		= get_attr(child, "border")
+
+			return dimen
 
 	return res_notfound_val
 
