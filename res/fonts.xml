@@ -4,4 +4,5 @@
 	<font name="infopanel" size="20">arial</font>
 	<font name="menu_button" size="20">arial</font>
 	
+	<font name="cpu" size="35">arial</font>
 </fonts>
