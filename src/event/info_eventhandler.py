@@ -25,5 +25,5 @@ class InfoEventHandler(EventHandler):
             if key[nav_controls.key_quit]:
                 interf.shutdown()
             elif key[nav_controls.key_back]:
-                interf.shutdown()
+                interf.back()
 
