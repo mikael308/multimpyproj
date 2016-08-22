@@ -4,6 +4,7 @@
 	<string name="btn_start_text">start</string>
 	<string name="btn_info_text">info</string>
 	<string name="btn_exit_text">exit</string>
+	<string name="info_gameinfo_text">you are the router. your mission is to sort the right packets to the right cpus. A packet contains of three parts: SENDER | RECEIVER | CHECKSUM. the cpus are in decimal format and the packets in binary format. Make a AND addition on the sender and the receiver value to get the checksum. If the checksum is not correct you should throw that packet in the trashbin.</string>
 	<string name="info_header_gameinfo">gameinfo</string>
 	<string name="info_header_controls">controls</string>
 
