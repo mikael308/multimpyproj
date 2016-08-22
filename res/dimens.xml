@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <dimens>
 	<dimen name="main_window" width="1000" height="600" />
-	<!-- the actual game size, all gameobjects dimens are set relative to this -->
+	<!-- the game logic size, all gameobjects dimens are set relative to this -->
 	<dimen name="gamefield" width="1000" height="1200" />
 	<!-- the actual game view screen -->
 	<dimen name="gamefieldscreen" width="480" height="576" />
