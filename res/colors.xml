@@ -20,4 +20,5 @@
 	<color name="infoscreen_background" ref="main_background" />
 
 	<color name="info_text" ref="black" />
+	<color name="player" r="250" g="0" b="0" />
 </colors>
