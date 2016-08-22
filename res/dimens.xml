@@ -3,7 +3,7 @@
 	<dimen name="main_window" width="1000" height="600" />
 	<!-- the game logic size, all gameobjects dimens are set relative to this -->
 	<dimen name="gamefield" width="1000" height="1200" />
-	<!-- the actual game view screen -->
+	<!-- the game view screen -->
 	<dimen name="gamefieldscreen" width="480" height="576" />
 	<!-- the game model gamefield: dimension in game is scaled after this -->
 	<dimen name="gamescreen" width="1000" height="600" />
