@@ -1,5 +1,5 @@
 import pygame
-import src.settings.controls as controls
+import src.settings.navigation_controls as controls
 from eventhandler import EventHandler
 
 

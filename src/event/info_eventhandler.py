@@ -1,5 +1,5 @@
 import pygame
-import src.settings.controls as controls
+import src.settings.navigation_controls as nav_controls
 from eventhandler import EventHandler
 
 
@@ -22,8 +22,8 @@ class InfoEventHandler(EventHandler):
         elif event.type == pygame.KEYDOWN:
             key = pygame.key.get_pressed()
 
-            if key[controls.key_quit]:
+            if key[nav_controls.key_quit]:
                 interf.shutdown()
-            elif key[controls.key_back]:
+            elif key[nav_controls.key_back]:
                 interf.shutdown()
 
