@@ -1,5 +1,4 @@
 import pygame
-
 import src.resource.resource as resource
 from src.output.view.gameobjects.gameobject import GameObject
 
