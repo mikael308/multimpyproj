@@ -17,6 +17,7 @@
 	<value name="timespan_add_packet_start">8000</value>
 	<!-- timespan specified in milliseconds -->
 	<value name="timespan_add_packet_factor_decr_factor">0.8</value>
+	<value name="info_gameinfo_maxwidth">40</value>
 
 </values>
 
