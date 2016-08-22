@@ -28,4 +28,5 @@
 	<color name="packet" r="150" g="150" b="100" />
 	<color name="packet_border" ref="black" />
 	<color name="startmenu_gametitle" ref="black" />
+	<color name="infopanel_text" ref="black" />
 </colors>
