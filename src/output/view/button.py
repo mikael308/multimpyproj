@@ -1,5 +1,5 @@
 import src.resource.resource as resource
-from src.output.view.game.gameobjects.gameobject import GameObject
+from src.output.view.gameobjects.gameobject import GameObject
 
 
 class Button(GameObject):

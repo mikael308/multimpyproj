@@ -1,7 +1,7 @@
 import pygame
 
 import src.resource.resource as resource
-from src.output.view.gameobjects import GameObject
+from src.output.view.gameobjects.gameobject import GameObject
 
 
 class Trash(GameObject):
