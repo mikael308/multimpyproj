@@ -20,5 +20,7 @@
 	<color name="infoscreen_background" ref="main_background" />
 
 	<color name="info_text" ref="black" />
+	<color name="cpu_fill" r="250" g="250" b="0" />
+	<color name="cpu_border" ref="black" />
 	<color name="player" r="250" g="0" b="0" />
 </colors>
