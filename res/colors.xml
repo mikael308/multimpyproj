@@ -23,4 +23,6 @@
 	<color name="cpu_fill" r="250" g="250" b="0" />
 	<color name="cpu_border" ref="black" />
 	<color name="player" r="250" g="0" b="0" />
+	<color name="packet" r="150" g="150" b="100" />
+	<color name="packet_border" ref="black" />
 </colors>
