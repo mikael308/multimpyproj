@@ -1,15 +1,15 @@
 import pygame
 from random import randint
 
-from src.view.game.gameobjects.cpu import CPU
-from src.view.game.gameobjects.player import Player
-from src.view.game.gameobjects.trash import Trash
+from src.output.view.gameobjects.cpu import CPU
+from src.output.view.gameobjects.packet import Packet
+from src.output.view.gameobjects.trash import Trash
 
 import src.resource.resource as resource
 import src.tools as tools
 from src.buffer import Buffer
 from src.engine.engine import Engine
-from src.output.view.gameobjects import Packet
+from src.output.view.gameobjects.player import Player
 
 
 class GameEngine(Engine):
@@ -56,7 +56,7 @@ class GameEngine(Engine):
 		Engine.__init__(self)
 
 		self.__player 	= Player()
-		self.__buf 		= Buffer(resource.get_value("buf_capacity"))
+		self.__buf 		= Buffer(resource.get_value("buffer_capacity"))
 		self.__cpus 	= []
 		self.__packets 	= []
 
@@ -83,7 +83,7 @@ class GameEngine(Engine):
 		for val in vals:
 			self.__cpus.append(CPU(val))
 
-		for i in range(0, resource.get_value("buf_size_start")):
+		for i in range(0, resource.get_value("buffer_size_start")):
 			self.add_packet()
 
 		player_dimen = resource.get_dimen("player")
