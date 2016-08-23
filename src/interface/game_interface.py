@@ -1,7 +1,7 @@
 import pygame
 
 from interface import Interface
-from src.engine.gameengine import GameEngine
+from src.controller.game_controller import GameEngine
 from src.event.game_eventhandler import GameEventHandler
 from src.event.result_eventhandler import ResultEventHandler
 from src.output.game_output import GameOutput

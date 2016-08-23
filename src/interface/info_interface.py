@@ -1,5 +1,5 @@
 from interface import Interface
-from src.engine.info_engine import InfoEngine
+from src.controller.info_controller import InfoEngine
 from src.event.info_eventhandler import InfoEventHandler
 from src.output.info_output import InfoOutput
 

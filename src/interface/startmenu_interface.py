@@ -1,5 +1,5 @@
 from interface import Interface
-from src.engine.startmenu_engine import StartMenuEngine
+from src.controller.startmenu_controller import StartMenuEngine
 from src.event.startmenu_eventhandler import StartMenuEventHandler
 from src.interface.game_interface import GameInterface
 from src.interface.info_interface import InfoInterface

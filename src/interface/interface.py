@@ -39,7 +39,7 @@ class Interface:
     def run(self):
         """
         run this interface:\n
-        while this engine is running and pygame is active: render this view and handle incoming events\n
+        while this controller is running and pygame is active: render this view and handle incoming events\n
         :return: None
         """
 
@@ -58,7 +58,7 @@ class Interface:
 
     def shutdown(self):
         """
-        shutdown this current engine, output, and quits pygame\n
+        shutdown this current controller, output, and quits pygame\n
         :return:
         """
         self.get_engine().shutdown()
@@ -67,7 +67,7 @@ class Interface:
 
     def back(self):
         """
-        shutdown this current engine\n
+        shutdown this current controller\n
         :return:
         """
         self.get_engine().shutdown()
@@ -92,7 +92,7 @@ class Interface:
 
     def _set_engine(self, engine):
         """
-        set this engine\n
+        set this controller\n
         :param engine: Engine instane
         :type engine: Engine
         :return: None
@@ -101,8 +101,8 @@ class Interface:
 
     def get_output(self):
         """
-        get this engine
-        :return: this engine instance
+        get this controller
+        :return: this controller instance
         """
         return self.__output
 
@@ -115,8 +115,8 @@ class Interface:
 
     def get_engine(self):
         """
-        get this engine
-        :return: this engine instance
+        get this controller
+        :return: this controller instance
         """
         return self.__engine
 
