@@ -8,7 +8,7 @@ from src.output.view.gameobjects.trash import Trash
 import src.resource.resource as resource
 import src.tools as tools
 from src.buffer import Buffer
-from src.engine.engine import Engine
+from src.engine.controller import Engine
 from src.output.view.gameobjects.player import Player
 
 

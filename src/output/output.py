@@ -1,6 +1,7 @@
 import pygame
+
 import src.resource.resource as resource
-from src.view.sound_controller import SoundController
+from src.output.sound.sound_controller import SoundController
 
 
 class Output:
