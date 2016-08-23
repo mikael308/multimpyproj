@@ -1,52 +1,51 @@
-import pygame, resource, src.tools as tools, traceback
 import pygame
 from random import randint
-from src.settings import controls , settings
-from src.output import Output
-import game_objects
 
 from src.view.game.gameobjects.cpu import CPU
-from src.view.game.gameobjects.packet import Packet
 from src.view.game.gameobjects.player import Player
 from src.view.game.gameobjects.trash import Trash
 
-class GameEngine:
+import src.resource.resource as resource
+import src.tools as tools
+from src.buffer import Buffer
+from src.engine.engine import Engine
+from src.output.view.gameobjects import Packet
+
+
+class GameEngine(Engine):
 	"""
-	gameengine for game\n
-	To run this, see run(self)\n
-	gameloop: @see start(self)
+	engine for game use-case\n
 
 	:author: Mikael Holmbom
 	:version: 1.0
 	"""
+	__game_title = resource.get_string("game_title")
 
-	__game_title 		= resource.get_string("game_title")
-	__output 			= None
+	__gamefield_dimen = resource.get_dimen("gamefield")
 
 	## GAMELOGIC
 	####################
-	# time
-	__clock				= None
-	__FPS				= resource.get_value("fps")
-	__holdtime			= 1000 / __FPS
 	__timespan_add_packet = resource.get_value("timespan_add_packet_start")
 	__timespan_add_packet_factor_decr_factor = resource.get_value("timespan_add_packet_factor_decr_factor")
 
 	## GAMEOBJECTS
 	###################
 	# users gameobject
-	__player 			= game_objects.get_player()
+	__player 			= None
 	__points_to_next_level = resource.get_value("points_exp_level_up_start")
 	__points_exp_needed_factor = resource.get_value("points_exp_needed_factor")
 
 	# contain current games CPUs
-	__cpus				= game_objects.get_cpus()
+	__cpus				= None
 	# contain current games Packets
 
-	__end_state			= 0
-	__packets			= game_objects.get_packets()
-	__buf				= game_objects.get_buf()
 
+	__packets			= None
+	__buf				= None
+	__trash				= None
+	"""
+	memento object of this instance
+	"""
 	__memento			= None
 
 	def __init__(self):
@@ -54,408 +53,140 @@ class GameEngine:
 		initialize gameengine\n
 		defines screen and init pygame
 		"""
-		pygame.display.set_caption(self.__game_title)
-		pygame.display.set_icon(GameEngine.load_image("icon"))
+		Engine.__init__(self)
 
-	def __destruct(self):
+		self.__player 	= Player()
+		self.__buf 		= Buffer(resource.get_value("buf_capacity"))
+		self.__cpus 	= []
+		self.__packets 	= []
+
+	def setup(self):
 		"""
-		destructs this gameengine
+		setup the attributes of this gameengine\n
 		:return:
 		"""
-		pygame.quit()
 
-	def run(self):
-		"""
-		start this gameengines gameloop\n
-		prior -- player must be defined, see add_player(self)
-		:return:
-		"""
-		try:
-			self.__start()
+		Engine.setup(self)
 
-		except Exception as e:
-			traceback.print_exc()
-		finally:
-			self.__destruct()
+		self.__create_memento()
 
-	def __start(self):
-		"""
-		the startpoint of this gameengine
-		:return:
-		"""
-		pygame.init()
+		n_cpus = resource.get_value("n_cpus")
+		packet_val_min = resource.get_value("packet_val_min")
+		packet_val_max = resource.get_value("packet_val_max")
 
-		self.__setup_gameobjects()
-		self.__output = Output()
+		self.__trash = Trash()
+		trash_dimen = resource.get_dimen("trash")
+		self.__trash.set_pos(trash_dimen.x, trash_dimen.y)
 
-		# set key press repeat instantly as standard
-		flag_key_repeat_inst = True
-		pygame.key.set_repeat(21,21)
+		# generates cpus with unique values
+		vals = tools.unique_vals(n_cpus, packet_val_min, packet_val_max)
+		for val in vals:
+			self.__cpus.append(CPU(val))
 
-		self.__game_loop = True
-		self.__clock = pygame.time.Clock()
-		self.__time = 0
+		for i in range(0, resource.get_value("buf_size_start")):
+			self.add_packet()
 
-		# GAME LOOP ####################################
-		while self.__game_loop:
-			for event in pygame.event.get():
-				self.__handle_event(event)
-
-			self.__gamelogic()
-
-			self.__output.render()
-
-		# ! GAME LOOP ###################################
-
-		self.__update_endstate()
-		self.__validate_endstate()
+		player_dimen = resource.get_dimen("player")
+		self.__player.set_pos(player_dimen.x, player_dimen.y)
 
 	@staticmethod
 	def load_image(img_id):
 		return pygame.image.load(resource.get_imagesrc(img_id))
 
-	def __handle_event(self, event):
+	def __collide_detection(self, obj, (x, y)):
 		"""
-		handles incoming event
-		:param event: the event to handle
-		:type event: pygame.event.Event
+		detect if movement will result in a collision with wall, if so the movements will be modified to not collide\n
+		:param obj: object to determine collision
+		:type obj: src.game.gameobjects.GameObject
+		:param (x, y): the relative movement direction
+		:type (x, y): (int, int)
+		:return: the
+		"""
+		o_rect = obj.get_rect()
+		## COLLISION WITH WALL
+		gf_w, gf_h = self.get_gamefield_dimen().wh()
+
+		if x < 0:  # left movement
+			dist = o_rect.left
+			if dist + x < 0:
+				x = dist * -1 # -1 because of negative direction
+		elif x > 0:  # right movement
+			dist = gf_w - o_rect.right
+			if x > dist:
+				x = dist
+
+		if y < 0:  # up movement
+			dist = o_rect.top
+			if dist + y < 0:
+				y = dist * -1 # -1 because of negative direction
+		elif y > 0:  # down movement
+			dist = gf_h - o_rect.bottom
+			if y > dist:
+				y = dist
+
+		return x, y
+
+	def get_gamefield_dimen(self):
+		"""
+		get the dimension of gamefield\n
 		:return:
 		"""
+		return self.__gamefield_dimen
 
-		if event.type == pygame.QUIT:
-			self.__destruct()
-
-		if event.type == pygame.KEYDOWN:
-			key = pygame.key.get_pressed()
-			if key[controls.key_quit]:
-				# quit gameloop
-				self.__game_loop = False
-				self.__end_state = 2	
-
-			###############################################
-			# DEBUG
-			if key[pygame.K_a]:
-				print "add packet!"
-				self.__add_packet()
-			if key[pygame.K_b]:
-				print "buf:" + str(self.__buf)
-			if key[pygame.K_k]:
-				print "kill player by 1"
-				self.__player.damage(1)
-
-				print "player health: " + str(self.__player.get_health())
-
-			if key[pygame.K_s]:
-				print "SCORE!!!"
-				self.__score()
-
-			if key[pygame.K_p]:
-				print "my packets"
-				for p in self.__packets:
-					print " * " + str(p.get_val())
-			# ! DEBUG
-			####################################################
-			elif key[pygame.K_m]:
-				settings.switch_soundfx_enabled()
-
-			elif key[controls.key_action]:
-
-				if self.__player.has_attached():
-					self.__release_packet()
-
-				else:
-					for p in self.__packets:
-						pr = p.get_rect()
-						plr = self.__player.get_rect()
-						if pr.colliderect(plr):
-							self.__grab_packet(p)
-
-			else:
-				##################
-				## MOVEMENT
-				##################
-				x, y = self.__parse_movement_event(key)
-				x *= self.__player.get_speed()
-				y *= self.__player.get_speed()
-				prect = self.__player.get_rect()
-				## COLLISION WITH WALL
-				if x < 0:  # left
-					dist = prect.left
-					if dist + x < 0:
-						x = dist * -1
-				elif x > 0:  # right
-					dist = self.__output.get_screen().get_width() - prect.right
-					if x > dist:
-						x = dist
-
-				if y < 0:  # up
-					dist = prect.top
-					if dist + y < 0:
-						y = dist * -1
-				elif y > 0:  # down
-					dist = self.__output.get_screen().get_height() - prect.bottom
-					if y > dist:
-						y = dist
-
-				print "pl pos : " + str(self.__player.get_rect().x) + ", " + str(self.__player.get_rect().y)
-				print "move player: " + str(x) + ", " + str(y)
-				self.__player = GameEngine.__move_gameobj(self.__player, (x,y))
-
-		elif event.type == pygame.KEYUP:
-			key = pygame.key.get_pressed()
-			if key[controls.key_info]:
-				print "info"
-				pl = self.__player
-				print pl.get_name() + " hp:" + str(pl.get_health())
-				#print en.get_name() + " hp:" + str(en.getHealth())
-				print " -"
-				print ""
-
-	@staticmethod
-	def __move_gameobj(gameobj, movs):
+	def get_points_to_next_level(self):
 		"""
-		move gameobject with direction movs
-		:param gameobj:
-		:param movs: movs[0] - X -> positive:right, negative:left\n
-		movs[1] - Y -> positive:down, negative:up
-		:type movs: list
-		:return: edited gameobj with new position
-		"""
-		rect = gameobj.get_rect()
-		gameobj.set_rect(rect.move(movs[0], movs[1]))
-
-		if isinstance(gameobj, Attachable) and gameobj.has_attached():
-			GameEngine.__move_gameobj(gameobj.get_attached(), movs)
-
-		return gameobj
-
-	def __gamelogic(self):
-		"""
-		gamelogic defined
+		get the current treshold amount of points needed to get to next level\n
 		:return:
 		"""
-		# delay framerate
-		self.__time += self.__clock.tick(self.__FPS)
+		return self.__points_to_next_level
 
-		while self.__player.get_score() >= self.__points_to_next_level:
-			self.__level_up()
-
-		# spawn new packets every x second
-		if self.__time % self.__timespan_add_packet < self.__holdtime:
-			print "add packet according to time"
-			self.__add_packet()
-
-			print " ==== " + str(self.__time / 1000) + "s"
-			print "      rest : " + str()
-
-		if not self.__player.is_alive():
-			self.__game_loop = False
-
-	def __setup_gameobjects(self):
+	def get_timespan_add_packet(self):
 		"""
-		setup gameobjects
+		get the amount of milliseconds timespan between every generated packet\n
 		:return:
 		"""
-		self.__create_memento()
+		return self.__timespan_add_packet
 
-		packet_val_max = resource.get_value("packet_val_max")
-		packet_val_min = resource.get_value("packet_val_min")
-
-		n_cpus = resource.get_value("n_cpus")
-
-		# generates cpus with unique values
-		vals = tools.unique_vals(n_cpus, packet_val_min, packet_val_max)
-		for val in vals:
-			cpu = CPU(val)
-			self.__cpus.append(cpu)
-
-		for i in range(0, resource.get_value("buf_size_start")):
-			self.__add_packet()
-
-		self.__player.set_pos(resource.get_value("player_startpoint_x"), resource.get_value("player_startpoint_y"))
-
-	def __validate_endstate(self):
+	def get_player(self):
 		"""
-		start endsequence according to this current endstate
+		get the current player\n
 		:return:
 		"""
-		es = self.__end_state
-		if es 		== -1:
-			print "ERROR"
-		elif es 	== 0:
-			print "you died, you lost"
-		elif es 	== 1:
-			print "you defeated the enemy , you won the game!"
-		elif es 	== 2:
-			print "you quit the game"
+		return self.__player
 
-	def __update_endstate(self):
-		if not self.__player.is_alive():
-			self.__end_state = 0
-
-	def __parse_movement_event(self, key):
+	def get_cpus(self):
 		"""
-		parses key event as movement\n
-		:Example: if the returned tuple[0] is positive, this movement is a positive movement on the x-axis
-		:param key: the pressed key
-		:return: movement as tuple (x_movement, y_movement)
-		:returns: tuple
-		"""
-		ddir 		= 0.7  # diagonal direction: factor multiplied to distance on diagonal movement
-
-		left 	= controls.key_mov_left
-		right 	= controls.key_mov_right
-		up 		= controls.key_mov_up
-		down 	= controls.key_mov_down
-
-		def __get_mov(key, neg_dir, pos_dir):
-			"""
-			inner function;
-			determine if key pressed compares with the negative or positive key-value according to wanted axis\n
-			if no movement was found, 0 is returned\n
-			:Example: in X-axis -> neg_dir=left, pos_dir=right\n
-			:param key: pressed key
-			:param neg_dir: key that generates negative values
-			:param pos_dir: key that generates positive values
-			:return: movement in one axis
-			"""
-			if key[neg_dir]:
-				return  -1.0
-			elif key[pos_dir]:
-				return 1.0
-			else:
-				return 0
-
-		mov_x = __get_mov(key, left, right)
-		mov_y = __get_mov(key, up, down)
-
-		if mov_x is not 0 and mov_y is not 0:
-			# if diagonally movement
-			mov_x *= ddir
-			mov_y *= ddir
-
-		return mov_x, mov_y
-
-	def __slow_key(self):
-		"""
-		gets current key event slow delay and interval
-		sets keys to instant repeat again after used
+		get current list of cpus\n
 		:return:
 		"""
-		pygame.key.set_repeat(60000,60000)
-		pygame.key.set_repeat(21,21)
+		return self.__cpus
 
-	def __generate_packet(self):
+	def get_packets(self):
 		"""
-		generates a packet with value from current cpus
+		get current list of packets\n
 		:return:
 		"""
-		n_cpu = len(self.__cpus)
-		val_idx = randint(0, n_cpu - 1)
-		val = self.__cpus[val_idx].get_val()
-		p = Packet(val)
+		return self.__packets
 
-		return p
-
-	def __add_packet(self):
+	def get_buffer(self):
 		"""
-		generates a new packet and adds it to game:\n
-		if buffer is full -> buffer overflow\n
-		else add packet to buffer
+		get the buffer containing packets from this instance attr packets\n
+		:see: get_packets(self) for all current packets\n
 		:return:
 		"""
-		p = self.__generate_packet()
+		return self.__buf
 
-		if self.__buf.add(p):
-			if self.__output:
-				self.__output.update()
-			self.__packets.append(p)
-
-		else:
-			self.__buffer_overflow()
-
-	def __grab_packet(self, packet):
+	def get_trash(self):
 		"""
-		player grabs a packet
-		:param packet:
+		get current trash instance
 		:return:
 		"""
-		self.__buf.delete(packet)
-		self.__player.attach(packet)
-
-	def __release_packet(self):
-		"""
-		player releases the attached packet
-		:return:
-		"""
-		attobj = self.__player.get_attached()
-		self.__player.detach()
-		for cpu in self.__cpus:
-			if attobj.get_rect().colliderect(cpu.get_rect()):
-				self.__packets.remove(attobj)
-				if attobj.get_val() == cpu.get_val():
-					self.__score()
-				else:
-					self.__wrong_cpu()
-				return
-
-	def __buffer_overflow(self):
-		"""
-		simulates the effect of a buffer overflow
-		:return:
-		"""
-		self.__output.buffer_overflow()
-
-		self.__player.damage(1)
-
-	def __packet_timeout(self, packet):
-		"""
-		simulates the effect of timeout of packet
-		:param packet:
-		:return:
-		"""
-		self.__player.mod_score(-1)
-
-	def __score(self):
-		"""
-		simulates the effect of getting +1 score
-		:return:
-		"""
-		self.__output.score()
-
-		self.__player.mod_score(1)
-
-	def __wrong_cpu(self):
-		"""
-		simulates the effect adding the wrong packet to wrong cpu
-		:return:
-		"""
-		self.__output.wrong_cpu()
-
-		self.__restore_memento()
-
-	def __level_up(self):
-		"""
-		simulates the effect of player level up
-		:return:
-		"""
-		self.__output.level_up()
-
-		self.__points_to_next_level *= self.__points_exp_needed_factor
-		self.__timespan_add_packet *= self.__timespan_add_packet_factor_decr_factor
-		self.__player.mod_level(1)
-
-		self.__create_memento()
-
-		print " ********** lvl up"
-		print "\tpoints need next lvl : " + str(self.__points_to_next_level)
-		print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
-		print "\tplayer level         : " + str(self.__player.get_level())
+		return self.__trash
 
 	def __create_memento(self):
 		"""
 		create memento of this gameengine current state\n
-		:See: __restore_memento(self)
+		:see: __restore_memento(self)\n
 		:return:
 		"""
 		class Memento:
@@ -474,7 +205,7 @@ class GameEngine:
 	def __restore_memento(self):
 		"""
 		restore gameengine from last created memento\n
-		:See: __create_memento(self)
+		:see: __create_memento(self)\n
 		:return:
 		"""
 		self.__points_to_next_level 	= self.__memento.points_to_next_level
@@ -483,3 +214,145 @@ class GameEngine:
 			self.__player.set_score(self.__memento.player_score)
 		if self.__player.get_level() > self.__memento.player_level:
 			self.__player.set_score(self.__memento.player_level)
+
+	def generate_packet(self):
+		"""
+		generates a packet with value from current cpus\n
+		:return:
+		"""
+		n_cpu = len(self.__cpus)
+		sender_idx, receiver_idx = tools.unique_vals(2, 0, n_cpu - 1)
+		sender = self.get_cpus()[sender_idx].get_adress()
+		receiver = self.get_cpus()[receiver_idx].get_adress()
+
+		checksum = 0
+		if randint(0, 4) == 0:
+			# create incorrect checksum
+			checksum = sender | receiver >> 1
+		else:
+			# create correct checksum
+			checksum = sender & receiver
+
+		p = Packet(sender, receiver, checksum)
+
+		return p
+
+	def add_packet(self):
+		"""
+		generates a new packet and adds it to game:\n
+		if buffer is full -> buffer overflow\n
+		else add packet to buffer\n
+		:return: True if packet was added correct\nFalse if buffer overflow
+		"""
+		p = self.generate_packet()
+		if self.__buf.add(p):
+			self.__packets.append(p)
+			return True
+
+		else:
+			self.buffer_overflow()
+			return False
+
+	def grab_packet(self, packet):
+		"""
+		player grabs a packet\n
+		:param packet:
+		:return:
+		"""
+		print "grab : " + str(packet)
+		self.__buf.delete(packet)
+		self.__player.attach(packet)
+
+	def release_packet(self):
+		"""
+		player releases the attached packet\n
+		:return: returns a flag as of:\n
+		:returns -1: packet was placed at wrong position\n
+		:returns 0: packet was placed on ground\n
+		:returns 1: packet was placed at correct position ( cpu | trash )\n
+		"""
+		attobj = self.get_player().detach()
+		for cpu in self.__cpus:
+			if attobj.get_rect().colliderect(cpu.get_rect()):
+				self.__packets.remove(attobj)
+				if attobj.get_receiver() == cpu.get_adress()\
+						and attobj.valid_checksum():
+					self.score()
+					return 1
+				else:
+					self.wrong_cpu()
+					return -1
+
+		if attobj.get_rect().colliderect(self.get_trash().get_rect()):
+			self.__packets.remove(attobj)
+			if attobj.valid_checksum():
+				self.wrong_cpu()
+				return -1
+			else:
+				self.score()
+				return 1
+
+		return 0
+
+	def buffer_overflow(self):
+		"""
+		simulates the effect of a buffer overflow\n
+		:return:
+		"""
+		self.__player.mod_health(-1)
+
+	def packet_timeout(self, packet):
+		"""
+		simulates the effect of timeout of packet\n
+		:param packet:
+		:return:
+		"""
+		self.__player.mod_score(-1)
+
+	def score(self):
+		"""
+		simulates the effect of getting +1 score\n
+		:return:
+		"""
+		self.__player.mod_score(1)
+
+	def wrong_cpu(self):
+		"""
+		simulates the effect releasing the wrong packet to wrong cpu\n
+		:return:
+		"""
+		self.__restore_memento()
+
+	def level_up(self):
+		"""
+		simulates the effect of player level up\n
+		:return:
+		"""
+		self.__points_to_next_level *= self.__points_exp_needed_factor
+		self.__timespan_add_packet 	*= self.__timespan_add_packet_factor_decr_factor
+		self.__player.mod_level(1)
+
+		self.__create_memento()
+
+		print " ********** lvl up"
+		print "\tpoints need next lvl : " + str(self.__points_to_next_level)
+		print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
+		print "\tplayer level         : " + str(self.__player.get_level())
+
+	def mov_player(self, (dir_x, dir_y)):
+		"""
+		move player position relative to current position\n
+		:param dir_x: the X-axis direction to move player\n
+		:type dir_x: int, ( -1 | 0 | 1 )
+		:param dir_y: the Y-axis direction to move player\n
+		:type dir_y: int, ( -1 | 0 | 1 )
+		:return: players new modified position
+		"""
+		dir_x *= self.__player.get_speed()
+		dir_y *= self.__player.get_speed()
+
+		dir_x, dir_y = self.__collide_detection(self.__player, (dir_x, dir_y))
+		self.__player.move_pos(dir_x, dir_y)
+		r = self.get_player().get_rect()
+
+		return self.get_player().get_pos()
