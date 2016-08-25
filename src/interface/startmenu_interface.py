@@ -17,7 +17,6 @@ class StartMenuInterface(Interface):
     def __init__(self):
         """
 
-        :param interface:
         """
         eh = StartMenuEventHandler(self)
         c = StartMenuController()
