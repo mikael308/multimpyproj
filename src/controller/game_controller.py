@@ -40,7 +40,7 @@ class GameController(Controller):
 	# contain current games Packets
 
 
-	__packets			= None
+	__pending_packet	= None
 	__buf				= None
 	__trash				= None
 	"""
@@ -58,7 +58,7 @@ class GameController(Controller):
 		self.__player 	= Player()
 		self.__buf 		= Buffer(resource.get_value("buffer_capacity"))
 		self.__cpus 	= []
-		self.__packets 	= []
+		self.__pending_packet 	= []
 
 	def setup(self):
 		"""
@@ -163,10 +163,17 @@ class GameController(Controller):
 
 	def get_packets(self):
 		"""
-		get current list of packets\n
+		get a copy list of all current of packets from buffer and not in buffer\n
 		:return:
 		"""
-		return self.__packets
+		packets = list(self.get_pending_packets())
+		for p in self.get_buffer():
+			packets.append(p)
+
+		return packets
+
+	def get_pending_packets(self):
+		return self.__pending_packet
 
 	def get_buffer(self):
 		"""
@@ -245,8 +252,7 @@ class GameController(Controller):
 		:return: True if packet was added correct\nFalse if buffer overflow
 		"""
 		p = self.generate_packet()
-		if self.__buf.add(p):
-			self.__packets.append(p)
+		if self.get_buffer().add(p):
 			return True
 
 		else:
@@ -259,9 +265,9 @@ class GameController(Controller):
 		:param packet:
 		:return:
 		"""
-		print "grab : " + str(packet)
-		self.__buf.delete(packet)
-		self.__player.attach(packet)
+		self.get_buffer().delete(packet)
+		self.get_pending_packets().append(packet)
+		self.get_player().attach(packet)
 
 	def release_packet(self):
 		"""
@@ -274,7 +280,7 @@ class GameController(Controller):
 		attobj = self.get_player().detach()
 		for cpu in self.__cpus:
 			if attobj.get_rect().colliderect(cpu.get_rect()):
-				self.__packets.remove(attobj)
+				self.get_pending_packets().remove(attobj)
 				if attobj.get_receiver() == cpu.get_adress()\
 						and attobj.valid_checksum():
 					self.score()
@@ -284,7 +290,7 @@ class GameController(Controller):
 					return -1
 
 		if attobj.get_rect().colliderect(self.get_trash().get_rect()):
-			self.__packets.remove(attobj)
+			self.get_pending_packets().remove(attobj)
 			if attobj.valid_checksum():
 				self.wrong_cpu()
 				return -1
