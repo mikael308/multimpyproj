@@ -14,7 +14,7 @@
 	<!--	the factor to experience needed to level up to the next level 
 	-->
 	<value name="points_exp_needed_factor">1.8</value>
-	<value name="timespan_add_packet_start">8000</value>
+	<value name="timespan_add_packet_start">12000</value>
 	<!-- timespan specified in milliseconds -->
 	<value name="timespan_add_packet_factor_decr_factor">0.8</value>
 	<value name="info_gameinfo_maxwidth">40</value>
