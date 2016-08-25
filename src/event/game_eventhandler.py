@@ -91,9 +91,9 @@ class GameEventHandler(EventHandler):
 
                 else:
                     # ATTACH PACKET
+                    plr = player.get_rect()
                     for p in e.get_packets():
                         pr = p.get_rect()
-                        plr = player.get_rect()
                         if pr.colliderect(plr):
                             e.grab_packet(p)
 
