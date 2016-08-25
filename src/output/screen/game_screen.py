@@ -126,9 +126,10 @@ class GameScreen(Screen):
 
         self._blit(self._get_background(), (0, 0))
 
-        self._get_main_surface().blit(self.__gamefield_screen.render(), (self.__gamescreen_margin_left, self.__gamescreen_margin_top))
+        self._blit(self.__gamefield_screen.render(), (self.__gamescreen_margin_left, self.__gamescreen_margin_top))
 
         self._blit(self.__infopanel.render(), self.__infopanel_dimen.pos())
+
         for b in self.__btns.itervalues():
             self._blit(b)
 
