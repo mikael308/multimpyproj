@@ -1,5 +1,6 @@
 import pygame
 import src.resource.resource as resource
+import src.output.view.tools as viewtools
 from view_object import ViewObject
 
 
@@ -31,7 +32,31 @@ class InfoPanel(ViewObject):
 	"""
 	set this player as source of panels data to output
 	:return: this InfoPanel
+
+    def __create_background(self):
 	"""
+        create a background for this infopanel
+        :return:
+        """
+        surf = pygame.Surface(self.__dimen.wh())
+        surf.fill(self.__background_color)
+        border_size = resource.get_dimen("infopanel_border").size
+        col_diff = -50
+        bbc = []
+        for v in self.__background_color:
+            c = v + col_diff
+            if c < 0:
+                c = 0
+            elif c > 255:
+                c = 255
+            bbc.append(c)
+
+        border_color = bbc[0], bbc[1], bbc[2]
+
+        surf = viewtools.add_shadow(surf, border_color, border_size)
+
+        return surf
+
         self.__player = player
 	return self
 
