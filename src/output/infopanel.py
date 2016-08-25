@@ -17,7 +17,8 @@ class InfoPanel(ViewObject):
     """ icons representing health points """
     __health_icon   = None
 
-    __startpoint    = resource.get_dimen("infopanel_x"), resource.get_dimen("infopanel_y")
+    __dimen = resource.get_dimen("infopanel")
+    __dimen_health  = resource.get_dimen("infopanel_health")
 
     def __init__(self, text_size=resource.get_dimen("infopanel_textsize"), text_color=(0, 0, 0)):
     __font_res      = resource.get_font("infopanel")
