@@ -1,8 +1,9 @@
 import pygame
 import src.resource.resource as resource
+from view_object import ViewObject
 
 
-class InfoPanel:
+class InfoPanel(ViewObject):
     """
     panel displaying information about player
 
