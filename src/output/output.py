@@ -6,7 +6,7 @@ from src.output.sound.sound_controller import SoundController
 
 class Output:
     """
-    facade object handling all output
+    facade object handling all output\n
     contain parts:
         * Screen - visual output
         * SoundController - audiovisual output
