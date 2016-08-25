@@ -1,16 +1,15 @@
 import pygame
 from random import randint
 
-from src.output.view.gameobjects.cpu import CPU
-from src.output.view.gameobjects.packet import Packet
-from src.output.view.gameobjects.trash import Trash
 from src.game.gameobjects.trash import Trash
 
 import src.resource.resource as resource
 import src.tools as tools
 from src.buffer import Buffer
-from src.output.view.gameobjects.player import Player
 from src.controller.controller import Controller
+from src.game.gameobjects.packet import Packet
+from src.game.gameobjects.player import Player
+from src.game.gameobjects.cpu import CPU
 
 
 class GameController(Controller):

@@ -1,6 +1,7 @@
 import pygame
 import src.resource.resource as resource
 from src.output.view.gameobjects.gameobject import GameObject
+from src.game.gameobjects.game_object import GameObject
 
 
 class Screen:
