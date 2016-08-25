@@ -16,6 +16,7 @@ class InfoPanel(ViewObject):
     __player        = None
     """ icons representing health points """
     __health_icon   = None
+    __n_health_start = resource.get_value("player_hp_start")
 
     __dimen = resource.get_dimen("infopanel")
     __dimen_health  = resource.get_dimen("infopanel_health")
