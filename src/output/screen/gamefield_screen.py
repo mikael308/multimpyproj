@@ -2,8 +2,13 @@ import pygame
 
 import src.resource.resource as resource
 from src.output.screen.screen import Screen
+from src.output.view.view_object import ViewObject
 from src.output.view.buffer_view import BufferView
 from src.output.view.gameobjects.gameobject import GameObject
+from src.output.view.player_view import PlayerView
+from src.output.view.packet_view import PacketView
+from src.output.view.trash_view import TrashView
+from src.output.view.cpu_view import CPUView
 
 
 class GameFieldScreen(Screen):
@@ -14,17 +19,18 @@ class GameFieldScreen(Screen):
     :version: 1.0
     """
 
-    __buffer_background     = None
-    #__buf_background_color  = resource.get_color("game_buffer_background").rgb()
-    #__buf_border_dimen      = resource.get_dimen("game_buffer_border")
-
-    #__buf_dimen             = resource.get_dimen("game_buffer_background")
-    #__buf_padd              = resource.get_dimen("game_buffer_background_padd")
-
     __scaling_factor_x      = 0
     __scaling_factor_y      = 0
 
     __game_controller       = None
+
+    # VIEW_OBJECTS
+    __buffer_view           = None
+    __buffer_packets        = []
+    __cpu_views             = []
+    __packet_views          = []
+    __player_view           = None
+    __trash_view            = None
 
     def __init__(self, dimen=resource.get_dimen("gamefieldscreen")):
         Screen.__init__(self, dimen, False)
@@ -61,9 +67,12 @@ class GameFieldScreen(Screen):
 
         self._get_background().fill(resource.get_color("gamefield_background").rgb())
 
-        bg = self._get_background()
+        self.__buffer_view = BufferView(self.__game_controller.get_buffer())
+
         if self.__game_controller is not None:
             gc = self.__game_controller
+            # PLAYER
+            self.__player_view = PlayerView(gc.get_player())
 
             # CPU
             n_cpus = len(gc.get_cpus())
@@ -76,6 +85,17 @@ class GameFieldScreen(Screen):
                 y = (top + cpu.get_dimen().dist * idx)
 
                 cpu.set_pos(x, y)
+                cpu_view = CPUView(cpu)
+
+                self.__cpu_views.append(cpu_view)
+
+            # PACKET
+            for packet in gc.get_packets():
+                idx = gc.get_buffer().index(packet)
+
+                self.__packet_views.append(PacketView(packet))
+
+            self.__trash_view = TrashView(gc.get_trash())
 
         self.update()
 
@@ -144,17 +164,18 @@ class GameFieldScreen(Screen):
         """
         Screen.render(self)
 
-        #self._get_main_surface().blit(self.__buffer_background.render(), (50,50)) #TODO denna ar tmp
-        self._blit(self.__buffer_background.render(), (50,50)) #TODO denna ar tmp
+        self._blit(self.__buffer_view)
 
-        for cpu in self.__gameengine.get_cpus():
+        for cpu in self.__cpu_views:
             self._blit(cpu)
 
-        self._blit(self.__gameengine.get_trash())
+        self._blit(self.__trash_view)
 
-        for p in self.__gameengine.get_packets():
-            self._blit(p)
+        for p in self.__game_controller.get_pending_packets():
+            pv = PacketView(p)
+            self._blit(pv)
 
-        self._blit(self.__gameengine.get_player())
+        self._blit(self.__player_view)
 
         return self._get_main_surface()
+
