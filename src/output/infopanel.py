@@ -21,16 +21,15 @@ class InfoPanel(ViewObject):
     __dimen = resource.get_dimen("infopanel")
     __dimen_health  = resource.get_dimen("infopanel_health")
 
-    def __init__(self, text_size=resource.get_dimen("infopanel_textsize"), text_color=(0, 0, 0)):
-    __font_res      = resource.get_font("infopanel")
-    __text_color    = resource.get_color("infopanel_text").rgb()
-
-    __background_color = resource.get_color("infopanel_background").rgb()
+    def __init__(self):
 
         src = resource.get_imagesrc("health")
-        self.__health_icon = pygame.image.load(src)
-        self.__text_size    = text_size
-        self.__text_color   = text_color
+        self.__health_icon  = pygame.image.load(src)
+        self.__health_icon  = pygame.transform.scale(self.__health_icon, (self.__dimen_health.wh()))
+        self.__text         = pygame.font.SysFont(self.__font_res.name, self.__font_res.size)
+        self.__background_surf = self.__create_background()
+
+        ViewObject.__init__(self, self.__background_surf)
 
     def set_player(self, player):
 	"""
