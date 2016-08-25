@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <images rootdir="./img/">
-	<image name="background">background.bmp</image>
 	<image name="button">button.png</image>
 	<image name="health">health.png</image>
 	<image name="soundfx_on">sound_fx_on.png</image>
