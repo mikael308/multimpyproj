@@ -5,7 +5,7 @@ class Engine:
     Engine instance holding data about current use-case\n
     instance that can be manipulated
 
-    engine can be in states:
+    controller can be in states:
         * running
         * not running
     determine state with public method:
@@ -18,7 +18,7 @@ class Engine:
     :version: 1.0
     """
 
-    # the current state of this engine
+    # the current state of this controller
     __is_running        = None
 
     def __init__(self):
@@ -29,29 +29,29 @@ class Engine:
 
     def _set_to_running(self):
         """
-        set this engine to state: running
+        set this controller to state: running
         :return: None
         """
         self.__is_running = True
 
     def _stop_running(self):
         """
-        set this engine to state: not running
+        set this controller to state: not running
         :return: None
         """
         self.__is_running = False
 
     def setup(self):
         """
-        setup this engine\n
-        engine sets to state running\n
+        setup this controller\n
+        controller sets to state running\n
         :return: None
         """
         self._set_to_running()
 
     def shutdown(self):
         """
-        shuts down this engine\n
+        shuts down this controller\n
         state is set to not running\n
         :return: None
         """

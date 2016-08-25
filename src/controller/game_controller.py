@@ -8,13 +8,13 @@ from src.output.view.gameobjects.trash import Trash
 import src.resource.resource as resource
 import src.tools as tools
 from src.buffer import Buffer
-from src.engine.controller import Engine
+from src.controller.controller import Engine
 from src.output.view.gameobjects.player import Player
 
 
 class GameEngine(Engine):
 	"""
-	engine for game use-case\n
+	controller for game use-case\n
 
 	:author: Mikael Holmbom
 	:version: 1.0

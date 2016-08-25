@@ -1,7 +1,12 @@
-from src.engine.controller import Engine
+from controller import Engine
 
 
-class InfoEngine(Engine):
+class StartMenuEngine(Engine):
+    """
+    controller used for startmenu\n
+    :author: Mikael Holmbom
+    :version: 1.0
+    """
 
     def __init__(self):
         """
@@ -15,4 +20,3 @@ class InfoEngine(Engine):
         :return:
         """
         Engine.setup(self)
-
