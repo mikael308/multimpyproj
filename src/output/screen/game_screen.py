@@ -107,8 +107,6 @@ class GameScreen(Screen):
         """
         Screen.setup(self)
 
-        sound_btn = self.get_btns()["SOUND"]
-
         self.__gamefield_screen.setup()
 
         if self.get_infopanel() is not None:
