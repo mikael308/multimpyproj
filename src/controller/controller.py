@@ -27,6 +27,13 @@ class Controller:
         """
         pass
 
+    def close(self):
+        """
+        close this controller
+        :return:
+        """
+        self._stop_running()
+
     def _set_to_running(self):
         """
         set this controller to state: running
