@@ -18,17 +18,9 @@ class Interface:
     :version: 1.0
     """
 
-    """
-    see class Output
-    """
     __output        = None
-    """
-    see class EventHandler
-    """
+
     __eventhandler  = None
-    """
-    see class Engine
-    """
 
     __controller        = None
 
