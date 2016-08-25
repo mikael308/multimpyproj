@@ -114,6 +114,8 @@ class GameEventHandler(EventHandler):
         out     = i.get_output()
         e       = i.get_controller()
         player = e.get_player()
+
+        # player level up
         while player.get_score() >= e.get_points_to_next_level():
             e.level_up()
             out.level_up()
