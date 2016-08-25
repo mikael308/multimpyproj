@@ -35,9 +35,7 @@ class GameController(Controller):
 
 	# contain current games CPUs
 	__cpus				= None
-	# contain current games Packets
-
-
+	# current packets not contained in buffer
 	__pending_packet	= None
 	__buf				= None
 	__trash				= None
