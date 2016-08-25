@@ -28,6 +28,7 @@ class Interface:
         """
 
         """
+        pygame.init()
 
     def run(self):
         """
