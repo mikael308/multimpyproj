@@ -54,7 +54,7 @@ class Controller:
         controller sets to state running\n
         :return: None
         """
-        self._set_to_running()
+        self.start()
 
     def shutdown(self):
         """
