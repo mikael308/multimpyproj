@@ -106,10 +106,6 @@ class GameEventHandler(EventHandler):
                         if pr.colliderect(plr):
                             e.grab_packet(p)
 
-    @staticmethod
-    def __slow_key():
-        pygame.key.set_repeat(1000, 1000)
-
     def repeated_tasks(self):
         """
         gamelogic tasks not triggered by user input\n
