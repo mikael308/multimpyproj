@@ -1,8 +1,8 @@
 import src.resource.resource as resource
-from src.output.view.gameobjects.gameobject import GameObject
+from src.output.view.view_object import ViewObject
 
 
-class Button(GameObject):
+class Button(ViewObject):
     """
     Visual object representing a clickable button\n
     When clicked: call function defined by set_on_click_listener(self, on_click)\n
@@ -10,14 +10,15 @@ class Button(GameObject):
     :author: Mikael Holmbom
     :version: 1.0
     """
+    dimen               = None
     # function to call on this button click
     __on_click          = None
 
-    def __init__(self, surface_layer, dimen=resource.get_dimen("button")):
+    def __init__(self, surface_layer, dimen=None):
         """
 
         """
-        GameObject.__init__(self, surface_layer, dimen)
+        ViewObject.__init__(self, surface_layer)
         self.__dimen = dimen
         if dimen.x is not None and dimen.y is not None:
             self.set_pos(dimen.x, dimen.y)
