@@ -12,9 +12,9 @@
 	<dimen name="packet_border" size="2" />
 	<dimen name="packet_padd" left="15" right="15" />
 	<dimen name="health" width="20" height="20" dist="10" />
-	<dimen name="game_buffer_background" x="20" y="150" dist="30" />
-	<dimen name="game_buffer_background_padd" left="20" right="30" top="30" bottom="20" />
-	<dimen name="game_buffer_border" size="6" />
+	<dimen name="buffer_view" x="20" y="150" dist="30" />
+	<dimen name="buffer_view_padd" left="20" top="10" />
+	<dimen name="buffer_view_border" size="6" />
 	<dimen name="cpu" radius="50" left="800" dist="150" border="5" />
 	<dimen name="player" width="50" height="50" x="50" y="100" />
 	<dimen name="info_article_padd" top="25" right="20" bottom="20" left="20" linespacing="3" />
