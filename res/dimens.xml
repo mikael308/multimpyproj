@@ -8,10 +8,11 @@
 	<!-- the game model gamefield: dimension in game is scaled after this -->
 	<dimen name="gamescreen" width="1000" height="600" />
 	<dimen name="infopanel" width="250" height="40" x="5" y="5" dist="30"/>
+	<dimen name="infopanel_border" size="4" />
+	<dimen name="infopanel_health" width="20" height="20" dist="10" />
 	<dimen name="packet" width="500" height="80" dist="20" />
 	<dimen name="packet_border" size="2" />
 	<dimen name="packet_padd" left="15" right="15" />
-	<dimen name="health" width="20" height="20" dist="10" />
 	<dimen name="buffer_view" x="20" y="150" dist="30" />
 	<dimen name="buffer_view_padd" left="20" top="10" />
 	<dimen name="buffer_view_border" size="6" />
