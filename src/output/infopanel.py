@@ -25,6 +25,7 @@ class InfoPanel(ViewObject):
     __font_res      = resource.get_font("infopanel")
     __text_color    = resource.get_color("infopanel_text").rgb()
 
+    __background_color = resource.get_color("infopanel_background").rgb()
 
         src = resource.get_imagesrc("health")
         self.__health_icon = pygame.image.load(src)
