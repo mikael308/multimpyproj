@@ -83,3 +83,15 @@ class DimenResource:
         from math import pi
         return self.diameter() * pi
 
+    def rect(self):
+        """
+        get tuple of this dimensions rect attributes\n
+        needs attributes:
+         * x
+         * y
+         * width
+         * height
+        :return:
+        """
+        return self.x, self.y, self.width, self.height
+
