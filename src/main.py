@@ -6,7 +6,16 @@
 	:author: Mikael Holmbom
 	:version: 1.0
 """
-from game.gameengine import GameEngine
+from interface.startmenu_interface import StartMenuInterface
 
-ge = GameEngine()
-ge.run()
+
+def start_game():
+    i = StartMenuInterface()
+    i.setup()
+    i.run()
+
+
+start_game()
+
+
+
