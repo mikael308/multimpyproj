@@ -72,6 +72,15 @@ class GameEventHandler(EventHandler):
                 elif key == pygame.K_p:
                     for p in self._get_interface().get_controller().get_packets():
                         print " * " + str(p.get_receiver())
+
+                elif key == pygame.K_i:
+                    print "PENDING PACKETS"
+                    for p in intf.get_controller().get_pending_packets():
+                        print " - " + str(p.get_pos()) + "  " + str(p)
+                    print "BUFFER PACKETS"
+                    buf = intf.get_controller().get_buffer()
+                    for p in buf:
+                        print " ["+str(buf.index(p)) +"] "+str(p.get_pos())+" " + str(p)
             # ! DEBUG
             ####################################################
             if key == settings_controls.key_switch_sound_enabled:
