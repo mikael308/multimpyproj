@@ -37,7 +37,7 @@ class GameController(Controller):
 	__cpus				= None
 	# current packets not contained in buffer
 	__pending_packet	= None
-	__buf				= None
+	__buffer			= None
 	__trash				= None
 	"""
 	memento object of this instance
@@ -52,7 +52,7 @@ class GameController(Controller):
 		Controller.__init__(self)
 
 		self.__player 	= Player()
-		self.__buf 		= Buffer(resource.get_value("buffer_capacity"))
+		self.__buffer 		= Buffer(resource.get_value("buffer_capacity"))
 		self.__cpus 	= []
 		self.__pending_packet 	= []
 
@@ -177,7 +177,7 @@ class GameController(Controller):
 		:see: get_packets(self) for all current packets\n
 		:return:
 		"""
-		return self.__buf
+		return self.__buffer
 
 	def get_trash(self):
 		"""
