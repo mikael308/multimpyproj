@@ -18,6 +18,8 @@ class StartMenuInterface(Interface):
         """
 
         """
+        Interface.__init__(self)
+
         eh = StartMenuEventHandler(self)
         c = StartMenuController()
         out = StartMenuOutput()
