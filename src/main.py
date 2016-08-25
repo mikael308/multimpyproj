@@ -1,10 +1,10 @@
 
 """
-	main start
-	startup gameengine
+	main start\n
+	runs StartMenuInterface\n
 
-	author: Mikael Holmbom
-	ver 1.0
+	:author: Mikael Holmbom
+	:version: 1.0
 """
 from game.gameengine import GameEngine
 
