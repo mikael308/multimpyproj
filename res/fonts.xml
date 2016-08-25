@@ -6,4 +6,5 @@
 	<font name="result_playerinfo" size="20">arial</font>
 	<font name="cpu" size="35">arial</font>
 	<font name="packet" size="30">arial</font>
+	<font name="startscreen_title" size="50">arial</font>
 </fonts>
