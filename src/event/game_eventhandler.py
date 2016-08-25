@@ -21,7 +21,7 @@ class GameEventHandler(EventHandler):
         EventHandler.__init__(self, interface)
         self.__game_time = 0
         self.__game_clock = pygame.time.Clock()
-        #pygame.key.set_repeat(10, 10)
+        pygame.key.set_repeat(10, 10)
 
     def handle(self, event):
         intf = self._get_interface()
