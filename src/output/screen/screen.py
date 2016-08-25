@@ -1,7 +1,7 @@
 import pygame
 import src.resource.resource as resource
-from src.output.view.gameobjects.gameobject import GameObject
 from src.game.gameobjects.game_object import GameObject
+from src.output.view.view_object import ViewObject
 
 
 class Screen:
@@ -78,7 +78,7 @@ class Screen:
         """
 
         surf = None
-        if isinstance(object, GameObject):
+        if isinstance(object, ViewObject):
             if pos is None:
                 pos = object.get_pos()
             surf = object.get_image()
