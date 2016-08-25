@@ -27,6 +27,7 @@
 	<color name="player" r="250" g="0" b="0" />
 	<color name="packet" r="150" g="150" b="100" />
 	<color name="packet_border" ref="black" />
+	<color name="packet_text" ref="black" />
 	<color name="startmenu_gametitle" ref="black" />
 	<color name="infopanel_text" ref="black" />
 </colors>
