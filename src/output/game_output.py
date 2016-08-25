@@ -51,5 +51,9 @@ class GameOutput(Output):
         self.get_soundcontroller().play("buffer_overflow")
 
     def switch_sound_enabled(self):
+        """
+        switch the settings value of soundfc enabled
+        :return:
+        """
         self.get_btns()["SOUND"].switch()
         settings.switch_soundfx_enabled()
