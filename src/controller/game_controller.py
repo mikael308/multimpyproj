@@ -1,8 +1,6 @@
 import pygame
 from random import randint
-
 from src.game.gameobjects.trash import Trash
-
 import src.resource.resource as resource
 import src.tools as tools
 from src.buffer import Buffer
