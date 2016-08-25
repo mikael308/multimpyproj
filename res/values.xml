@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <values>
 	<value name="fps">40</value>
-	<value name="packet_val_max">31</value>
+	<value name="packet_val_max">8</value>
 	<value name="packet_val_min">0</value>
 	<value name="n_cpus">4</value>
 	<value name="buffer_capacity">8</value>
