@@ -68,33 +68,34 @@ class InfoPanel(ViewObject):
         render this panel
         :return: surface instance of this infopanel
         """
-        panel = pygame.Surface((200, 50), pygame.SRCALPHA, 32)
-        panel.convert_alpha(panel)
+        panel_surf = self.__background_surf.copy()
+
         if self.__player is None:
-        	return panel
+            return panel_surf
 
-        y = self.__startpoint[1]
-        x = self.__startpoint[0]
+        dimen = self.__dimen
+        x = dimen.x
+        y = dimen.y
+
+        # HEALTH
+        #####################
         for i in range(0, self.__player.get_health()):
-            panel.blit(self.__health_icon, (x, self.__startpoint[1]))
-            x += 30
+            panel_surf.blit(self.__health_icon, (x, dimen.y))
+            x += self.__dimen_health.width + self.__dimen_health.dist
 
-        text_color = 0, 0, 0
-        text = pygame.font.SysFont("player_score_label", self.__text_size)
-        text_val = str(self.__player.get_score())
+        x = ((self.__dimen_health.width + self.__dimen_health.dist ) * self.__n_health_start) + dimen.dist
 
         # SCORE
         ######################
-        if x < self.__startpoint[0] + 90:
-            x = self.__startpoint[0] + 90
+        text_val = str(self.__player.get_score())
 
-        panel.blit(text.render(text_val, 0, text_color), (x, y))
+        panel_surf.blit(self.__text.render(text_val, 0, self.__text_color), (x, y))
 
         # LEVEL
         ######################
-        x += 50
+        x += self.__dimen.dist * 2
         text_val = str(self.__player.get_level())
-        panel.blit(text.render(text_val, 0, text_color), (x, y))
+        panel_surf.blit(self.__text.render(text_val, 0, self.__text_color), (x, y))
 
-        return panel
+        return panel_surf
 
