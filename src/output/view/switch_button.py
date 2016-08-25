@@ -48,6 +48,16 @@ class SwitchButton(Button):
         """
         return self.__image_off, self.__image_on
 
+    def get_image(self):
+        """
+        get the image according to current switch value\n
+        :return:
+        """
+        if self.__switch_val:
+            return self.__image_on
+        else:
+            return self.__image_off
+
     def is_switch_on(self):
         """
         determine if this button instance is switched on
