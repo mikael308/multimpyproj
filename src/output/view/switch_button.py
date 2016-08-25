@@ -17,7 +17,7 @@ class SwitchButton(Button):
     __image_off = None
     __image_on = None
 
-    def __init__(self, surf_off, surf_on, dimen=resource.get_dimen("switch_button")):
+    def __init__(self, surf_off, surf_on, start_value=False, dimen=resource.get_dimen("switch_button")):
         """
 
         :param surf_off: surface to display if this is switch value is False
@@ -36,7 +36,7 @@ class SwitchButton(Button):
 
         Button.__init__(self, surf_off, dimen)
 
-        self.__switch_val   = False
+        self.__switch_val   = start_value
 
         self.__image_off    = surf_off
         self.__image_on     = surf_on
