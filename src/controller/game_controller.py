@@ -340,11 +340,6 @@ class GameController(Controller):
 
 		self.__create_memento()
 
-		print " ********** lvl up"
-		print "\tpoints need next lvl : " + str(self.__points_to_next_level)
-		print "\ttimespan add packet  : " + str(self.__timespan_add_packet)
-		print "\tplayer level         : " + str(self.__player.get_level())
-
 	def mov_player(self, (dir_x, dir_y)):
 		"""
 		move player position relative to current position\n
