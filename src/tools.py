@@ -1,3 +1,10 @@
+"""
+tools module\n
+
+:author: Mikael Holmbom
+:version: 1.0
+"""
+
 from random import randint
 
 
