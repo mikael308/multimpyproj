@@ -7,4 +7,6 @@
 	<font name="cpu" size="35">arial</font>
 	<font name="packet" size="30">arial</font>
 	<font name="startscreen_title" size="50">arial</font>
+	<font name="result_header" size="25" style="bold">arial</font>
+
 </fonts>
