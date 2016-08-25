@@ -4,15 +4,16 @@ from random import randint
 from src.output.view.gameobjects.cpu import CPU
 from src.output.view.gameobjects.packet import Packet
 from src.output.view.gameobjects.trash import Trash
+from src.game.gameobjects.trash import Trash
 
 import src.resource.resource as resource
 import src.tools as tools
 from src.buffer import Buffer
-from src.controller.controller import Engine
 from src.output.view.gameobjects.player import Player
+from src.controller.controller import Controller
 
 
-class GameEngine(Engine):
+class GameController(Controller):
 	"""
 	controller for game use-case\n
 
@@ -53,7 +54,7 @@ class GameEngine(Engine):
 		initialize gameengine\n
 		defines screen and init pygame
 		"""
-		Engine.__init__(self)
+		Controller.__init__(self)
 
 		self.__player 	= Player()
 		self.__buf 		= Buffer(resource.get_value("buffer_capacity"))
@@ -66,7 +67,7 @@ class GameEngine(Engine):
 		:return:
 		"""
 
-		Engine.setup(self)
+		Controller.setup(self)
 
 		self.__create_memento()
 

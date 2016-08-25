@@ -16,17 +16,17 @@ class StartMenuEventHandler(EventHandler):
 
         if event.type == pygame.QUIT:
             if interf is not None:
-                interf.get_engine().shutdown()
+                interf.get_controller().shutdown()
                 pygame.quit()
 
         elif event.type == pygame.KEYDOWN:
             key = pygame.key.get_pressed()
 
             if key[controls.key_quit]:
-                interf.get_engine().shutdown()
+                interf.get_controller().shutdown()
 
             elif key[pygame.K_ESCAPE]:
-                interf.get_engine().shutdown()
+                interf.get_controller().shutdown()
 
             if pygame.key.get_mods() & pygame.KMOD_ALT:
                 if key[pygame.K_s]:

@@ -1,5 +1,5 @@
 from interface import Interface
-from src.controller.info_controller import InfoEngine
+from src.controller.info_controller import InfoController
 from src.event.info_eventhandler import InfoEventHandler
 from src.output.info_output import InfoOutput
 
@@ -17,9 +17,9 @@ class InfoInterface(Interface):
 
         """
         eh = InfoEventHandler(self)
-        e = InfoEngine()
+        c = InfoController()
         out = InfoOutput()
 
-        self._set_engine(e)
+        self._set_controller(c)
         self._set_eventhandler(eh)
         self._set_output(out)

@@ -1,18 +1,18 @@
-from src.controller.controller import Engine
+from src.controller.controller import Controller
 
 
-class InfoEngine(Engine):
+class InfoController(Controller):
 
     def __init__(self):
         """
 
         """
-        Engine.__init__(self)
+        Controller.__init__(self)
 
     def setup(self):
         """
 
         :return:
         """
-        Engine.setup(self)
+        Controller.setup(self)
 

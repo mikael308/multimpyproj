@@ -1,5 +1,5 @@
 from interface import Interface
-from src.controller.startmenu_controller import StartMenuEngine
+from src.controller.startmenu_controller import StartMenuController
 from src.event.startmenu_eventhandler import StartMenuEventHandler
 from src.interface.game_interface import GameInterface
 from src.interface.info_interface import InfoInterface
@@ -20,10 +20,10 @@ class StartMenuInterface(Interface):
         :param interface:
         """
         eh = StartMenuEventHandler(self)
-        e = StartMenuEngine()
+        c = StartMenuController()
         out = StartMenuOutput()
 
-        self._set_engine(e)
+        self._set_controller(c)
         self._set_eventhandler(eh)
         self._set_output(out)
 
@@ -47,7 +47,7 @@ class StartMenuInterface(Interface):
             i.run()
 
         def click_exit():
-            self.get_engine().shutdown()
+            self.get_controller().shutdown()
 
         btns["START"].set_on_click_listener(click_start)
         btns["INFO"].set_on_click_listener(click_info)

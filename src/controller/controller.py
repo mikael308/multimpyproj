@@ -1,6 +1,6 @@
 
 
-class Engine:
+class Controller:
     """
     Engine instance holding data about current use-case\n
     instance that can be manipulated

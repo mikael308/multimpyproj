@@ -12,11 +12,11 @@ class GameOutput(Output):
     :version: 1.0
     """
 
-    def __init__(self, gameengine):
+    def __init__(self, game_controller):
         Output.__init__(self)
         self._set_screen(GameScreen())
-        self.get_screen().set_gameengine(gameengine)
-        self.get_screen().get_infopanel().set_player(gameengine.get_player())
+        self.get_screen().set_game_controller(game_controller)
+        self.get_screen().get_infopanel().set_player(game_controller.get_player())
 
         self.get_btns()["SOUND"].set_on_click_listener(self.switch_sound_enabled)
 

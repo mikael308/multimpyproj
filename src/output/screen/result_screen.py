@@ -12,7 +12,7 @@ class ResultScreen(ViewScreen):
     :version: 1.0
     """
 
-    __gameengine    = None
+    __game_controller    = None
 
     __article_player= None
 
@@ -27,8 +27,8 @@ class ResultScreen(ViewScreen):
         ViewScreen.__init__(self)
         self._article_padd = resource.get_dimen("result_article_padd")
 
-    def set_gameengine(self, gameengine):
-        self.__gameengine = gameengine
+    def set_game_controller(self, game_controller):
+        self.__game_controller = game_controller
 
     def setup(self):
         ViewScreen.setup(self)
@@ -47,7 +47,7 @@ class ResultScreen(ViewScreen):
         create article displaying player result
         :return:
         """
-        player = self.__gameengine.get_player()
+        player = self.__game_controller.get_player()
 
         rows = []
         rows.append("score : " + str(player.get_score()))

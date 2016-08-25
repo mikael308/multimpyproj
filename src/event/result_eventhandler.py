@@ -16,18 +16,18 @@ class ResultEventHandler(EventHandler):
 
         if event.type == pygame.QUIT:
             if interf is not None:
-                interf.get_engine().shutdown()
+                interf.get_controller().shutdown()
                 pygame.quit()
 
         if event.type == pygame.KEYDOWN:
             key = pygame.key.get_pressed()
 
             if key[nav_controls.key_quit]:
-                interf.get_engine().shutdown()
+                interf.get_controller().shutdown()
                 pygame.quit()
 
             elif key[nav_controls.key_back]:
-                interf.get_engine().shutdown()
+                interf.get_controller().shutdown()
 
-            interf.get_engine().shutdown()
+            interf.get_controller().shutdown()
 

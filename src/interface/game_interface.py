@@ -1,7 +1,7 @@
 import pygame
 
 from interface import Interface
-from src.controller.game_controller import GameEngine
+from src.controller.game_controller import GameController
 from src.event.game_eventhandler import GameEventHandler
 from src.event.result_eventhandler import ResultEventHandler
 from src.output.game_output import GameOutput
@@ -19,16 +19,16 @@ class GameInterface(Interface):
     def __init__(self):
         Interface.__init__(self)
         eh      = GameEventHandler(self)
-        e       = GameEngine()
-        out     = GameOutput(e)
+        c       = GameController()
+        out     = GameOutput(c)
 
-        self._set_engine(e)
+        self._set_controller(c)
         self._set_eventhandler(eh)
         self._set_output(out)
 
     def setup(self):
         Interface.setup(self)
-        e   = self.get_engine()
+        e   = self.get_controller()
         out = self.get_output()
 
         out.get_screen().get_infopanel().set_player(e.get_player())
@@ -39,9 +39,12 @@ class GameInterface(Interface):
         if pygame.display.get_init():
             self._set_eventhandler(ResultEventHandler(self))
             out = ResultOutput()
-            out.get_screen().set_gameengine(self.get_engine())
+            out.get_screen().set_game_controller(self.get_controller())
 
             self._set_output(out)
-            Interface.setup(self)
+
+            self.get_controller().start()
+            self.get_output().setup()
 
             Interface.run(self)
+

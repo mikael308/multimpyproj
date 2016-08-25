@@ -51,7 +51,7 @@ class GameEventHandler(EventHandler):
             else:
                 ## MOVEMENT
                 mov = self._parse_movement_event(key)
-                intf.get_engine().mov_player(mov)
+                intf.get_controller().mov_player(mov)
 
         elif event.type == pygame.KEYUP:
             key = event.key
@@ -60,17 +60,17 @@ class GameEventHandler(EventHandler):
             # DEBUG
             if pygame.key.get_mods() & pygame.KMOD_ALT:
                 if key == pygame.K_s:
-                    intf.get_engine().score()
+                    intf.get_controller().score()
                     intf.get_output().score()
 
                 elif key == pygame.K_a:
-                    intf.get_engine().add_packet()
+                    intf.get_controller().add_packet()
                     intf.get_output().update()
                 elif key == pygame.K_k:
-                    intf.get_engine().get_player().mod_health(-1)
+                    intf.get_controller().get_player().mod_health(-1)
 
                 elif key == pygame.K_p:
-                    for p in self._get_interface().get_engine().get_packets():
+                    for p in self._get_interface().get_controller().get_packets():
                         print " * " + str(p.get_receiver())
             # ! DEBUG
             ####################################################
@@ -78,7 +78,7 @@ class GameEventHandler(EventHandler):
                 intf.get_output().switch_sound_enabled()
 
             elif key == game_controls.key_action:
-                e = intf.get_engine()
+                e = intf.get_controller()
                 player = e.get_player()
 
                 if player.has_attached():
@@ -112,7 +112,7 @@ class GameEventHandler(EventHandler):
 
         i = self._get_interface()
         out     = i.get_output()
-        e       = i.get_engine()
+        e       = i.get_controller()
         player = e.get_player()
         while player.get_score() >= e.get_points_to_next_level():
             e.level_up()

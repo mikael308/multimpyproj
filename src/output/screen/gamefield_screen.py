@@ -24,24 +24,20 @@ class GameFieldScreen(Screen):
     __scaling_factor_x      = 0
     __scaling_factor_y      = 0
 
-    __gameengine            = None
+    __game_controller       = None
 
     def __init__(self, dimen=resource.get_dimen("gamefieldscreen")):
         Screen.__init__(self, dimen, False)
 
         self.__dimen = dimen
 
-
-
-
-    def set_gameengine(self, gameengine):
+    def set_game_controller(self, gamecontroller):
         """
-        set a gameengine to get all viewing objects from\n
-        :param gameengine:
+        set a game_controller to get all viewing objects from\n
+        :param gamecontroller:
         :return:
         """
-        self.__gameengine = gameengine
-        self.__buffer_background = BufferView(self.__gameengine.get_buffer())
+        self.__game_controller = gamecontroller
 
     def get_scaling_factors(self):
         """
@@ -66,14 +62,16 @@ class GameFieldScreen(Screen):
         self._get_background().fill(resource.get_color("gamefield_background").rgb())
 
         bg = self._get_background()
+        if self.__game_controller is not None:
+            gc = self.__game_controller
 
-        if self.__gameengine is not None:
-            n_cpus = len(self.__gameengine.get_cpus())
+            # CPU
+            n_cpus = len(gc.get_cpus())
             cpu_dimen = resource.get_dimen("cpu")
             top = (self.get_dimen().height / 2) - ((n_cpus * cpu_dimen.diameter()) - (n_cpus * cpu_dimen.dist))
             top /= 2
 
-            for idx, cpu in enumerate(self.__gameengine.get_cpus()):
+            for idx, cpu in enumerate(gc.get_cpus()):
                 x = cpu.get_dimen().left
                 y = (top + cpu.get_dimen().dist * idx)
 

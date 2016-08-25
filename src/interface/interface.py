@@ -29,7 +29,8 @@ class Interface:
     """
     see class Engine
     """
-    __engine        = None
+
+    __controller        = None
 
     def __init__(self):
         """
@@ -44,10 +45,10 @@ class Interface:
         """
 
         eventhandler    = self.get_eventhandler()
-        engine          = self.get_engine()
+        controller      = self.get_controller()
         out             = self.get_output()
 
-        while engine.is_running() and pygame.display.get_init():
+        while controller.is_running() and pygame.display.get_init():
 
             out.render()
 
@@ -56,12 +57,19 @@ class Interface:
 
             eventhandler.repeated_tasks()
 
+    def close(self):
+        """
+        close this controller\n
+        :return:
+        """
+        pass
+
     def shutdown(self):
         """
         shutdown this current controller, output, and quits pygame\n
         :return:
         """
-        self.get_engine().shutdown()
+        self.get_controller().shutdown()
         self.get_output().close()
         pygame.quit()
 
@@ -70,7 +78,7 @@ class Interface:
         shutdown this current controller\n
         :return:
         """
-        self.get_engine().shutdown()
+        self.get_controller().shutdown()
 
     def _set_output(self, output):
         """
@@ -90,14 +98,14 @@ class Interface:
         """
         self.__eventhandler = eventhandler
 
-    def _set_engine(self, engine):
+    def _set_controller(self, controller):
         """
         set this controller\n
-        :param engine: Engine instane
-        :type engine: Engine
+        :param controller: Controller instane
+        :type controller: Controller
         :return: None
         """
-        self.__engine = engine
+        self.__controller = controller
 
     def get_output(self):
         """
@@ -113,17 +121,17 @@ class Interface:
         """
         return self.__eventhandler
 
-    def get_engine(self):
+    def get_controller(self):
         """
         get this controller
         :return: this controller instance
         """
-        return self.__engine
+        return self.__controller
 
     def setup(self):
         """
         setup this interface
         :return:
         """
-        self.get_engine().setup()
+        self.get_controller().setup()
         self.get_output().setup()

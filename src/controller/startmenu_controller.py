@@ -1,7 +1,7 @@
-from controller import Engine
+from controller import Controller
 
 
-class StartMenuEngine(Engine):
+class StartMenuController(Controller):
     """
     controller used for startmenu\n
     :author: Mikael Holmbom
@@ -12,11 +12,11 @@ class StartMenuEngine(Engine):
         """
 
         """
-        Engine.__init__(self)
+        Controller.__init__(self)
 
     def setup(self):
         """
 
         :return:
         """
-        Engine.setup(self)
+        Controller.setup(self)

@@ -22,6 +22,8 @@ class GameScreen(Screen):
 
     __gamefield_screen      = None
 
+    __game_controller       = None
+
     __background_color      = resource.get_color("gamescreen_background").rgb()
 
     __scaling_factor_x      = 0
@@ -80,14 +82,14 @@ class GameScreen(Screen):
         """
         return self.__infopanel
 
-    def set_gameengine(self, gameengine):
+    def set_game_controller(self, game_controller):
         """
-        set a gameengine to get all viewing objects from
-        :param gameengine:
+        set a game_controller to get all viewing objects from
+        :param game_controller:
         :return: None
         """
-        self.__gameengine = gameengine
-        self.__gamefield_screen.set_gameengine(gameengine)
+        self.__game_controller = game_controller
+        self.__gamefield_screen.set_game_controller(game_controller)
 
     def click(self, pos):
         """
@@ -113,7 +115,7 @@ class GameScreen(Screen):
         self.__gamefield_screen.setup()
 
         if self.get_infopanel() is not None:
-            self.get_infopanel().set_player(self.__gameengine.get_player())
+            self.get_infopanel().set_player(self.__game_controller.get_player())
 
         self.update()
 
