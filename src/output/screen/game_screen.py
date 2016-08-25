@@ -26,8 +26,6 @@ class GameScreen(Screen):
 
     __background_color      = resource.get_color("gamescreen_background").rgb()
 
-    __scaling_factor_x      = 0
-    __scaling_factor_y      = 0
 
     def __init__(self, dimen=resource.get_dimen("gamescreen")):
 
