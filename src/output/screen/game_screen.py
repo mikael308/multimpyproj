@@ -35,8 +35,6 @@ class GameScreen(Screen):
 
         self.__gamefield_screen = GameFieldScreen()
 
-        self.__btns = {}
-
         # setup background
         self._set_background(pygame.Surface(self.get_dimen().wh()))
         self._get_background().fill(self.__background_color)
@@ -46,6 +44,7 @@ class GameScreen(Screen):
         self.__gamescreen_margin_left = (self.get_dimen().width / 2) - (dimen_gamefield.width / 2)
         self.__gamescreen_margin_top = (self.get_dimen().height / 2) - (dimen_gamefield.height / 2)
 
+        self.__btns = {}
         self.__btns["SOUND"] = self.__create_soundfx_button()
 
     def get_scaling_factors(self):
