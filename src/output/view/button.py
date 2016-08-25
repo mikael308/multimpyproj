@@ -18,6 +18,9 @@ class Button(GameObject):
 
         """
         GameObject.__init__(self, surface_layer, dimen)
+        self.__dimen = dimen
+        if dimen.x is not None and dimen.y is not None:
+            self.set_pos(dimen.x, dimen.y)
 
     def set_on_click_listener(self, on_click):
         """
