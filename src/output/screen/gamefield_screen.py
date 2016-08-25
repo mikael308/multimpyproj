@@ -1,10 +1,8 @@
 import pygame
-
 import src.resource.resource as resource
 from src.output.screen.screen import Screen
 from src.output.view.view_object import ViewObject
 from src.output.view.buffer_view import BufferView
-from src.output.view.gameobjects.gameobject import GameObject
 from src.output.view.player_view import PlayerView
 from src.output.view.packet_view import PacketView
 from src.output.view.trash_view import TrashView
@@ -135,17 +133,22 @@ class GameFieldScreen(Screen):
             x += pos[0]
             y += pos[1]
         else:
-            if isinstance(object, GameObject):
-                x += object.get_pos()[0]
-                y += object.get_pos()[1]
+            if isinstance(object, ViewObject):
+                if object.has_gameobject():
+                    x += object.get_logic_pos()[0]
+                    y += object.get_logic_pos()[1]
+                else:
+                    x += object.get_pos()[0]
+                    y += object.get_pos()[1]
 
         x, y = self._scale_to_screen((x, y))
 
         surf = None
-        if isinstance(object, GameObject):
-            surf = object.get_image()
-        else:
+        if isinstance(object, ViewObject):
+            surf = object.render()
+        elif isinstance(object, pygame.Surface):
             surf = object
+
         scaled_img = self._scale_surface_to_screen(surf)
 
         self._get_main_surface().blit(scaled_img, (x, y))
