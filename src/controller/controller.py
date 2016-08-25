@@ -64,6 +64,14 @@ class Controller:
         """
         self._stop_running()
 
+    def start(self):
+        """
+        start this controller\n
+        controller state set to running\n
+        :return:
+        """
+        self._set_to_running()
+
     def is_running(self):
         """
         determine if this controller is in state running\n
