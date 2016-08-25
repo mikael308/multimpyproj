@@ -105,6 +105,7 @@ class GameEventHandler(EventHandler):
                         pr = p.get_rect()
                         if pr.colliderect(plr):
                             e.grab_packet(p)
+                            break
 
     def repeated_tasks(self):
         """
