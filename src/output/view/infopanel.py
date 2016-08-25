@@ -21,6 +21,12 @@ class InfoPanel(ViewObject):
     __dimen = resource.get_dimen("infopanel")
     __dimen_health  = resource.get_dimen("infopanel_health")
 
+    __font_res      = resource.get_font("infopanel")
+    __text_color    = resource.get_color("infopanel_text").rgb()
+
+    __background_color = resource.get_color("infopanel_background").rgb()
+    __background_surf = None
+
     def __init__(self):
 
         src = resource.get_imagesrc("health")
@@ -31,13 +37,8 @@ class InfoPanel(ViewObject):
 
         ViewObject.__init__(self, self.__background_surf)
 
-    def set_player(self, player):
-	"""
-	set this player as source of panels data to output
-	:return: this InfoPanel
-
     def __create_background(self):
-	"""
+        """
         create a background for this infopanel
         :return:
         """
@@ -60,8 +61,13 @@ class InfoPanel(ViewObject):
 
         return surf
 
+    def set_player(self, player):
+        """
+        set this player as source of panels data to view
+        :return: this InfoPanel
+        """
         self.__player = player
-	return self
+        return self
 
     def render(self):
         """
@@ -98,4 +104,3 @@ class InfoPanel(ViewObject):
         panel_surf.blit(self.__text.render(text_val, 0, self.__text_color), (x, y))
 
         return panel_surf
-
