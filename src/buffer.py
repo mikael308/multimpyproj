@@ -46,7 +46,7 @@ class Buffer:
         s = "[ "
 
         for i, e in enumerate(l):
-            s += str(e[0]) + ":" + str(e[1])
+            s += "[" + str(e[0]) + "]" + ":" + str(e[1])
             if i < len(self.__elements):
                 s += ", "
         s += " ]"
