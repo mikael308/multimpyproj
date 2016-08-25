@@ -6,7 +6,7 @@
 	<value name="n_cpus">4</value>
 	<value name="buffer_capacity">8</value>
 	<value name="buffer_size_start">4</value>
-	<value name="player_mov_speed">20</value>
+	<value name="player_mov_speed">30</value>
 	<value name="player_hp_start">3</value>
 	<!-- 	the points needed to level up the first time
 		will be changed during game by the factor  -->
