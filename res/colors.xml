@@ -31,4 +31,5 @@
 	<color name="packet_text" ref="black" />
 	<color name="startmenu_gametitle" ref="black" />
 	<color name="infopanel_text" ref="black" />
+	<color name="result_article_player" ref="white" />
 </colors>
