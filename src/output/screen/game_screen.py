@@ -1,7 +1,7 @@
 import pygame
 
 import src.resource.resource as resource
-from gamefield_screen import GameFieldScreen
+from src.output.screen.gamefield_screen import GameFieldScreen
 from src.output.screen.screen import Screen
 from src.output.view.infopanel import InfoPanel
 from src.output.view.switch_button import SwitchButton
