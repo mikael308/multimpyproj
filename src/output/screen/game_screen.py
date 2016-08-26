@@ -5,6 +5,7 @@ from src.output.screen.gamefield_screen import GameFieldScreen
 from src.output.screen.screen import Screen
 from src.output.view.infopanel import InfoPanel
 from src.output.view.switch_button import SwitchButton
+import src.settings.settings as settings
 
 
 class GameScreen(Screen):
@@ -57,7 +58,7 @@ class GameScreen(Screen):
         btn_surf_on = pygame.image.load(resource.get_imagesrc("soundfx_on"))
         btn_surf_off = pygame.image.load(resource.get_imagesrc("soundfx_off"))
 
-        return SwitchButton(btn_surf_on, btn_surf_off, switch_btn_dimen)
+        return SwitchButton(btn_surf_on, btn_surf_off, settings.is_soundfx_enabled(), switch_btn_dimen)
 
     def get_infopanel(self):
         """
