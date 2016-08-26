@@ -259,6 +259,27 @@ class GameController(Controller):
             self.buffer_overflow()
             return False
 
+    def pickup(self):
+        """
+        try to pickup packet from players current pos\n
+        :return: None
+        """
+        player = self.get_player()
+
+        if player.has_attached():
+            # DETACH PACKET
+            self.release_packet()
+
+        else:
+            # ATTACH PACKET
+            plr = player.get_rect()
+            for p in self.get_packets():
+                pr = p.get_rect()
+                if pr.colliderect(plr):
+                    self.grab_packet(p)
+                    break
+
+
     def grab_packet(self, packet):
         """
         player grabs a packet\n
