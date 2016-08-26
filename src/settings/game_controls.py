@@ -16,7 +16,7 @@ key_mov_right		= pygame.K_RIGHT
 key_mov_up			= pygame.K_UP
 key_mov_down		= pygame.K_DOWN
 
-key_action			= pygame.K_SPACE
+key_pickup			= pygame.K_SPACE
 
 
 

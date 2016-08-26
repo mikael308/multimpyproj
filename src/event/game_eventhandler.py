@@ -83,7 +83,7 @@ class GameEventHandler(EventHandler):
             if key == settings_controls.key_switch_sound_enabled:
                 controller.switch_soundfx_enabled()
 
-            elif key == game_controls.key_action:
+            elif key == game_controls.key_pickup:
                 player = controller.get_player()
 
                 if player.has_attached():

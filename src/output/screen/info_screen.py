@@ -79,7 +79,7 @@ class InfoScreen(ViewScreen):
         rows.append("up: '" + pygame.key.name(game_controls.key_mov_up) + "'")
         rows.append("right: '" + pygame.key.name(game_controls.key_mov_right) + "'")
         rows.append("down: '" + pygame.key.name(game_controls.key_mov_down) + "'")
-        rows.append("grab/release packets: '" + pygame.key.name(game_controls.key_action) + "'")
+        rows.append("grab/release packets: '" + pygame.key.name(game_controls.key_pickup) + "'")
         rows.append("enabled/disable sound effects: '" + pygame.key.name(game_controls.key_switch_sound_enabled) + "'")
         rows.append("")
 
