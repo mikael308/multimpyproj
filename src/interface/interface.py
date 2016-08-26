@@ -41,7 +41,10 @@ class Interface:
         controller      = self.get_controller()
         out             = self.get_output()
 
-        while controller.is_running() and pygame.display.get_init():
+        while controller.is_active()\
+                and eventhandler.is_active()\
+                and out.is_active()\
+                and pygame.display.get_init():
 
             out.render()
 
