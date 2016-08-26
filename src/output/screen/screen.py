@@ -28,6 +28,7 @@ class Screen:
     __background        = None
 
     def __init__(self, dimen=resource.get_dimen("main_window"), set_display_mode_dimen=True):
+        pygame.init()
         pygame.font.init()
         self.__dimen = dimen
         if set_display_mode_dimen:
