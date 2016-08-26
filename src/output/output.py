@@ -1,10 +1,10 @@
 import pygame
-
+from src.activable import Activable
 import src.resource.resource as resource
 from src.output.sound.sound_controller import SoundController
 
 
-class Output:
+class Output(Activable):
     """
     facade object handling all output\n
     contain parts:
@@ -28,13 +28,22 @@ class Output:
 
     def close(self):
         """
-        closes this resource
+        closes this resource\n
         :return: None
         """
+        self.stop()
         if self.get_screen() is not None:
             self.get_screen().close()
         if self.get_soundcontroller() is not None:
             self.get_soundcontroller().close()
+
+    def shutdown(self):
+        """
+        close resource and display\n
+        :return:
+        """
+        self.close()
+        pygame.display.quit()
 
     def get_soundcontroller(self):
         """
@@ -82,6 +91,7 @@ class Output:
 
         :return:
         """
+        self.start()
         self.get_screen().setup()
 
     def update(self):
