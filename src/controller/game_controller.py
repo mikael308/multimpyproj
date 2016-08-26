@@ -302,6 +302,7 @@ class GameController(Controller):
 		:return:
 		"""
 		self.__player.mod_health(-1)
+		self.get_output().buffer_overflow()
 
 	def packet_timeout(self, packet):
 		"""
@@ -317,12 +318,14 @@ class GameController(Controller):
 		:return:
 		"""
 		self.__player.mod_score(1)
+		self.get_output().score()
 
 	def wrong_cpu(self):
 		"""
 		simulates the effect releasing the wrong packet to wrong cpu\n
 		:return:
 		"""
+		self.get_output().wrong_cpu()
 		self.__restore_memento()
 
 	def level_up(self):
@@ -353,3 +356,11 @@ class GameController(Controller):
 		r = self.get_player().get_rect()
 
 		return self.get_player().get_pos()
+
+	def switch_soundfx_enabled(self):
+		"""
+		switch the current soundfx enabled value\n
+		:return:
+		"""
+		self.get_output().switch_sound_enabled()
+

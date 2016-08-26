@@ -33,10 +33,10 @@ class GameEventHandler(EventHandler):
                 pygame.quit()
 
         if event.type == pygame.MOUSEBUTTONUP:
-            output = intf.get_output()
             pos = pygame.mouse.get_pos()
 
-            output.get_screen().click(pos)
+            output = controller.get_output()
+            output.click(pos)
 
         elif event.type == pygame.KEYDOWN:
             key = pygame.key.get_pressed()
@@ -60,12 +60,11 @@ class GameEventHandler(EventHandler):
             # DEBUG
             if pygame.key.get_mods() & pygame.KMOD_ALT:
                 if key == pygame.K_s:
-                    intf.get_controller().score()
-                    intf.get_output().score()
+                    controller.score()
 
                 elif key == pygame.K_a:
-                    intf.get_controller().add_packet()
-                    intf.get_output().update()
+                    controller.add_packet()
+
                 elif key == pygame.K_k:
                     intf.get_controller().get_player().mod_health(-1)
 
@@ -92,11 +91,7 @@ class GameEventHandler(EventHandler):
 
                 if player.has_attached():
                     # DETACH PACKET
-                    rp_res = e.release_packet()
-                    if rp_res == 1:
-                        intf.get_output().score()
-                    elif rp_res == -1:
-                        intf.get_output().wrong_cpu()
+                    controller.release_packet()
 
                 else:
                     # ATTACH PACKET
