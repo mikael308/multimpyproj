@@ -38,17 +38,12 @@ class GameInterface(Interface):
     def run(self):
         Interface.run(self)
 
-        if pygame.display.get_init():
-            self._set_eventhandler(ResultEventHandler(self))
-            out = ResultOutput()
-            out.get_screen().set_game_controller(self.get_controller())
+        endstate = self.get_controller().get_endstate()
 
-            self._set_output(out)
+        if endstate.is_active():
+            # if game controller has a valid endstate, show the result
+            self._show_result(endstate)
 
-            self.get_controller().start()
-            self.get_output().setup()
-
-            Interface.run(self)
     def _show_result(self, endstate):
         """
         displays result_interface displaying the endstate result\n
