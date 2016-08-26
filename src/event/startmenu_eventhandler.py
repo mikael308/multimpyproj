@@ -24,9 +24,11 @@ class StartMenuEventHandler(EventHandler):
 
             if key[controls.key_quit]:
                 interf.get_controller().shutdown()
+                self.stop()
 
             elif key[pygame.K_ESCAPE]:
                 interf.get_controller().shutdown()
+                self.stop()
 
             if pygame.key.get_mods() & pygame.KMOD_ALT:
                 if key[pygame.K_s]:

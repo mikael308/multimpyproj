@@ -1,6 +1,7 @@
+from src.activable import Activable
 
 
-class EventHandler:
+class EventHandler(Activable):
     """
     EventHandler defines procedures of handling incoming pygame.event.Event instances and parse them into use-case logic\n
     Depending on the incoming event, the EventHandler can deligate tasks to a Interface\n
@@ -19,6 +20,7 @@ class EventHandler:
         :type interface: src.interface.Interface
         """
         self.__interface = interface
+        self.start()
 
     def _get_interface(self):
         """
@@ -34,7 +36,8 @@ class EventHandler:
         :type event: pygame.event.Event
         :return: None
         """
-        raise NotImplemented("abstract method not implemented")
+        if not self.is_active():
+            return
 
     def repeated_tasks(self):
         """
