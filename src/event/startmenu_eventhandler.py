@@ -49,3 +49,4 @@ class StartMenuEventHandler(EventHandler):
                 if b.get_rect().collidepoint(pos):
                     b.click()
                     break
+
