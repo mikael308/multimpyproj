@@ -1,25 +1,22 @@
+import pygame
+from src.activable import Activable
 
 
-class Controller:
+class Controller(Activable):
     """
-    Engine instance holding data about current use-case\n
-    instance that can be manipulated
+    Controller instance holding data about current use-case\n
+    instance that can be manipulated\n
 
-    controller can be in states:
-        * running
-        * not running
-    determine state with public method:
-        * is_running(self)
     state can be changed with public methods:
-        * setup(self)
-        * shutdown(self)
+        * start() set instance to running
+        * setup(self) set instance to running
+        * stop(self) set instance to not running
+        * shutdown(self) set instante to not running and close display
 
     :author: Mikael Holmbom
     :version: 1.0
     """
 
-    # the current state of this controller
-    __is_running        = None
 
     def __init__(self):
         """
@@ -27,26 +24,6 @@ class Controller:
         """
         pass
 
-    def close(self):
-        """
-        close this controller
-        :return:
-        """
-        self._stop_running()
-
-    def _set_to_running(self):
-        """
-        set this controller to state: running
-        :return: None
-        """
-        self.__is_running = True
-
-    def _stop_running(self):
-        """
-        set this controller to state: not running
-        :return: None
-        """
-        self.__is_running = False
 
     def setup(self):
         """
@@ -58,23 +35,19 @@ class Controller:
 
     def shutdown(self):
         """
-        shuts down this controller\n
+        shuts down this controller, calling this will stop the current window display\n
         state is set to not running\n
         :return: None
         """
-        self._stop_running()
+        self.stop()
+        if self.has_output():
+            self.get_output().shutdown()
 
-    def start(self):
+        pygame.quit()
+
         """
-        start this controller\n
-        controller state set to running\n
         :return:
         """
-        self._set_to_running()
 
-    def is_running(self):
         """
-        determine if this controller is in state running\n
-        :return: True if current state is: running
         """
-        return self.__is_running == True
