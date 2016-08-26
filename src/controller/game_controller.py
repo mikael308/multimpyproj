@@ -8,6 +8,7 @@ from src.controller.controller import Controller
 from src.game.gameobjects.packet import Packet
 from src.game.gameobjects.player import Player
 from src.game.gameobjects.cpu import CPU
+from src.game.endstate import EndState
 
 
 class GameController(Controller):
@@ -44,6 +45,8 @@ class GameController(Controller):
 	"""
 	__memento			= None
 
+	__endstate			= None
+
 	def __init__(self):
 		"""
 		initialize gameengine\n
@@ -55,6 +58,7 @@ class GameController(Controller):
 		self.__buffer 		= Buffer(resource.get_value("buffer_capacity"))
 		self.__cpus 	= []
 		self.__pending_packet 	= []
+		self.__endstate = EndState()
 
 	def setup(self):
 		"""
@@ -363,4 +367,14 @@ class GameController(Controller):
 		:return:
 		"""
 		self.get_output().switch_sound_enabled()
+
+	def get_endstate(self):
+		return self.__endstate
+
+	def update_endstate(self):
+		es = self.get_endstate()
+		es.activate()
+
+		es.score = self.get_player().get_score()
+		es.level = self.get_player().get_level()
 
