@@ -1,4 +1,5 @@
 import pygame
+from src.output.output import Output
 from src.activable import Activable
 
 
@@ -17,6 +18,7 @@ class Controller(Activable):
     :version: 1.0
     """
 
+    __output            = None
 
     def __init__(self):
         """
@@ -45,9 +47,25 @@ class Controller(Activable):
 
         pygame.quit()
 
+    def get_output(self):
         """
+        get this controllers output\n
         :return:
         """
+        return self.__output
 
+    def set_output(self, output):
         """
+        set this controllers output\n
+        :param output:
+        :type output: Output
+        :return:
         """
+        self.__output = output
+
+    def has_output(self):
+        """
+        determine if this controller has a output\n
+        :return: true if controller has output
+        """
+        return self.__output is not None
