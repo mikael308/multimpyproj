@@ -47,7 +47,7 @@ class Output(Activable):
 
     def get_soundcontroller(self):
         """
-        get soundengine
+        get soundengine\n
         :return: this SoundController instance
         :returns: SoundController
         """
@@ -55,14 +55,14 @@ class Output(Activable):
 
     def get_screen(self):
         """
-        get the screen
+        get the screen\n
         :return: this Screen instance
         """
         return self.__screen
 
     def render(self):
         """
-        renders output
+        renders output\n
         :return:
         """
         self.__screen.render()
