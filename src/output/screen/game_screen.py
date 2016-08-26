@@ -47,12 +47,6 @@ class GameScreen(Screen):
         self.__btns = {}
         self.__btns["SOUND"] = self.__create_soundfx_button()
 
-    def get_scaling_factors(self):
-        """
-        get the scaling factors acording to this size\n
-        :return: scaling factors as tuple (x, y)
-        """
-        return self.__scaling_factor_x, self.__scaling_factor_y
 
     def __create_soundfx_button(self):
         """
@@ -64,13 +58,6 @@ class GameScreen(Screen):
         btn_surf_off = pygame.image.load(resource.get_imagesrc("soundfx_off"))
 
         return SwitchButton(btn_surf_on, btn_surf_off, switch_btn_dimen)
-
-    def scale_pos(self, (x, y)):
-        """
-        scale a logic position to screen position
-        :return: modified position as tuple (x, y)
-        """
-        return (x * self.get_scaling_factors()[0]), (y * self.get_scaling_factors()[1])
 
     def get_infopanel(self):
         """
