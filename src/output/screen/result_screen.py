@@ -12,7 +12,7 @@ class ResultScreen(ViewScreen):
     :version: 1.0
     """
 
-    __game_controller    = None
+    __endstate    = None
 
     __article_player= None
 
@@ -27,8 +27,13 @@ class ResultScreen(ViewScreen):
         ViewScreen.__init__(self)
         self._article_padd = resource.get_dimen("result_article_padd")
 
-    def set_game_controller(self, game_controller):
-        self.__game_controller = game_controller
+    def set_endstate(self, endstate):
+        """
+        set this endstate to display as result\n
+        :param endstate:
+        :return:
+        """
+        self.__endstate = endstate
 
     def setup(self):
         ViewScreen.setup(self)
@@ -47,11 +52,11 @@ class ResultScreen(ViewScreen):
         create article displaying player result
         :return:
         """
-        player = self.__game_controller.get_player()
+        es = self.__endstate
 
         rows = []
-        rows.append("score : " + str(player.get_score()))
-        rows.append("level : " + str(player.get_level()))
+        rows.append("score : " + str(es.score))
+        rows.append("level : " + str(es.level))
 
         header = self.__header_result.upper()
         width, height = self._get_article_size(header, rows)
