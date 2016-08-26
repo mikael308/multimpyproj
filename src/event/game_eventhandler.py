@@ -24,6 +24,8 @@ class GameEventHandler(EventHandler):
         pygame.key.set_repeat(10, 10)
 
     def handle(self, event):
+        EventHandler.handle(self, event)
+
         controller = self.get_controller()
 
         if event.type == pygame.QUIT:

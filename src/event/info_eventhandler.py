@@ -12,6 +12,7 @@ class InfoEventHandler(EventHandler):
     """
 
     def handle(self, event):
+        EventHandler.handle(self, event)
 
         if event.type == pygame.QUIT:
             self.get_controller().shutdown()

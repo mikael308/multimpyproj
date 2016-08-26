@@ -12,6 +12,7 @@ class ResultEventHandler(EventHandler):
     """
 
     def handle(self, event):
+        EventHandler.handle(self, event)
         controller = self.get_controller()
 
         if event.type == pygame.QUIT:
