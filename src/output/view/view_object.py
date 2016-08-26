@@ -82,13 +82,14 @@ class ViewObject(Sprite):
 		:type x: int
 		:param y: y-axis position
 		:type y: int
-		:return: None
+		:return: self
 		"""
 		if self.has_gameobject():
 			self.get_gameobject().set_pos(x, y)
 
 		self.get_rect().x = x
 		self.get_rect().y = y
+		return self
 
 	def get_gameobject(self):
 		"""
