@@ -39,9 +39,10 @@ class ViewObject(Sprite):
 		"""
 		set a GameObject instance to this view
 		:param gameobject:
-		:return:
+		:return: return self
 		"""
 		self.__game_object = gameobject
+		return self
 
 	def set_rect(self, rect):
 		"""
