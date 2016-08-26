@@ -1,3 +1,4 @@
+import pygame
 from pygame.sprite import Sprite
 
 
@@ -19,12 +20,13 @@ class ViewObject(Sprite):
 	def __init__(self, img, gameobject=None):
 		"""
 
-
 		:param img: view representing this ViewObject
 		 :type img: pygame.Surface
 		:param gameobject: instance this ViewObject will represent
 		:type gameobject: src.game.GameObject
 		"""
+		pygame.font.init()
+
 		Sprite.__init__(self)
 
 		self.__image 	= img
