@@ -4,7 +4,7 @@ from pygame.sprite import Sprite
 
 class ViewObject(Sprite):
 	"""
-	graphic object used in gameplay
+	graphic object used in gameplay\n
 
 	author Mikael Holmbom
 	ver 1.0
