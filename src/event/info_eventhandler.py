@@ -12,18 +12,15 @@ class InfoEventHandler(EventHandler):
     """
 
     def handle(self, event):
-        interf = self._get_interface()
 
         if event.type == pygame.QUIT:
-            if interf is not None:
-                interf.shutdown()
-                pygame.quit()
+            self.get_controller().shutdown()
 
         elif event.type == pygame.KEYDOWN:
             key = pygame.key.get_pressed()
 
             if key[nav_controls.key_quit]:
-                interf.shutdown()
+                self.get_controller().shutdown()
             elif key[nav_controls.key_back]:
-                interf.back()
+                self.get_controller().stop()
 

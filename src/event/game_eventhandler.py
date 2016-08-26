@@ -17,20 +17,17 @@ class GameEventHandler(EventHandler):
     __game_time     = None
     __game_clock    = None
 
-    def __init__(self, interface):
-        EventHandler.__init__(self, interface)
+    def __init__(self):
+        EventHandler.__init__(self)
         self.__game_time = 0
         self.__game_clock = pygame.time.Clock()
         pygame.key.set_repeat(10, 10)
 
     def handle(self, event):
-        intf = self._get_interface()
+        controller = self.get_controller()
 
         if event.type == pygame.QUIT:
-            if intf is not None:
-                intf.shutdown()
-                intf.close()
-                pygame.quit()
+            controller.shutdown()
 
         if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
@@ -42,16 +39,15 @@ class GameEventHandler(EventHandler):
             key = pygame.key.get_pressed()
 
             if key[nav_controls.key_quit]:
-                intf.shutdown()
+                controller.shutdown()
 
             elif key[nav_controls.key_back]:
-                intf = self._get_interface()
-                intf.back()
+                controller.stop()
 
             else:
                 ## MOVEMENT
                 mov = self._parse_movement_event(key)
-                intf.get_controller().mov_player(mov)
+                controller.mov_player(mov)
 
         elif event.type == pygame.KEYUP:
             key = event.key
@@ -66,10 +62,10 @@ class GameEventHandler(EventHandler):
                     controller.add_packet()
 
                 elif key == pygame.K_k:
-                    intf.get_controller().get_player().mod_health(-1)
+                    controller.damage_player()
 
                 elif key == pygame.K_p:
-                    for p in self._get_interface().get_controller().get_packets():
+                    for p in controller.get_packets():
                         print " * " + str(p.get_receiver())
 
                 elif key == pygame.K_i:
@@ -83,11 +79,10 @@ class GameEventHandler(EventHandler):
             # ! DEBUG
             ####################################################
             if key == settings_controls.key_switch_sound_enabled:
-                intf.get_output().switch_sound_enabled()
+                controller.switch_soundfx_enabled()
 
             elif key == game_controls.key_action:
-                e = intf.get_controller()
-                player = e.get_player()
+                player = controller.get_player()
 
                 if player.has_attached():
                     # DETACH PACKET
@@ -96,10 +91,10 @@ class GameEventHandler(EventHandler):
                 else:
                     # ATTACH PACKET
                     plr = player.get_rect()
-                    for p in e.get_packets():
+                    for p in controller.get_packets():
                         pr = p.get_rect()
                         if pr.colliderect(plr):
-                            e.grab_packet(p)
+                            controller.grab_packet(p)
                             break
 
     def repeated_tasks(self):
@@ -111,25 +106,18 @@ class GameEventHandler(EventHandler):
         # delay framerate
         self.__game_time += self.__game_clock.tick(settings.get_FPS())
 
-        i = self._get_interface()
-        out     = i.get_output()
-        e       = i.get_controller()
-        player = e.get_player()
+        controller       = self.get_controller()
+        out     = controller.get_output()
+        player = controller.get_player()
 
         # player level up
-        while player.get_score() >= e.get_points_to_next_level():
-            e.level_up()
+        while player.get_score() >= controller.get_points_to_next_level():
+            controller.level_up()
             out.level_up()
 
         # spawn new packets every x second
-        if self.__game_time % e.get_timespan_add_packet() < settings.get_holdtime():
-            if e.add_packet():
-                out.update()
-            else:
-                out.buffer_overflow()
-
-        if not player.is_alive():
-            e.shutdown()
+        if self.__game_time % controller.get_timespan_add_packet() < settings.get_holdtime():
+            controller.add_packet()
 
     @staticmethod
     def _parse_movement_event(key):

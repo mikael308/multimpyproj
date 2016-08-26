@@ -16,9 +16,11 @@ class InfoInterface(Interface):
         """
 
         """
-        eh = InfoEventHandler(self)
+        eh = InfoEventHandler()
         c = InfoController()
         out = InfoOutput()
+
+        eh.set_controller(c)
 
         self._set_controller(c)
         self._set_eventhandler(eh)

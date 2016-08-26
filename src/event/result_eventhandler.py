@@ -12,22 +12,19 @@ class ResultEventHandler(EventHandler):
     """
 
     def handle(self, event):
-        interf = self._get_interface()
+        controller = self.get_controller()
 
         if event.type == pygame.QUIT:
-            if interf is not None:
-                interf.get_controller().shutdown()
-                pygame.quit()
+            controller.shutdown()
 
         if event.type == pygame.KEYDOWN:
             key = pygame.key.get_pressed()
 
             if key[nav_controls.key_quit]:
-                interf.get_controller().shutdown()
-                pygame.quit()
+                controller.shutdown()
 
             elif key[nav_controls.key_back]:
-                interf.get_controller().shutdown()
+                controller.stop()
 
-            interf.get_controller().shutdown()
+            controller.stop()
 

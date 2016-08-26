@@ -12,38 +12,40 @@ class StartMenuEventHandler(EventHandler):
     """
 
     def handle(self, event):
-        interf = self._get_interface()
+        EventHandler.handle(self, event)
+
+        controller = self.get_controller()
 
         if event.type == pygame.QUIT:
-            if interf is not None:
-                interf.get_controller().shutdown()
+            if controller is not None:
+                controller.shutdown()
                 pygame.quit()
 
         elif event.type == pygame.KEYDOWN:
             key = pygame.key.get_pressed()
 
             if key[controls.key_quit]:
-                interf.get_controller().shutdown()
+                controller.shutdown()
                 self.stop()
 
             elif key[pygame.K_ESCAPE]:
-                interf.get_controller().shutdown()
+                controller.shutdown()
                 self.stop()
 
             if pygame.key.get_mods() & pygame.KMOD_ALT:
                 if key[pygame.K_s]:
-                    interf.get_output().get_btns()["START"].click()
+                    controller.get_output().get_btns()["START"].click()
 
                 elif key[pygame.K_i]:
-                    interf.get_output().get_btns()["INFO"].click()
+                    controller.get_output().get_btns()["INFO"].click()
 
                 elif key[pygame.K_e]:
-                    interf.get_output().get_btns()["EXIT"].click()
+                    controller.get_output().get_btns()["EXIT"].click()
 
         elif event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
 
-            for b in interf.get_output().get_btns().itervalues():
+            for b in controller.get_output().get_btns().itervalues():
                 if b.get_rect().collidepoint(pos):
                     b.click()
                     break

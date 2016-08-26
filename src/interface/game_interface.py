@@ -18,9 +18,11 @@ class GameInterface(Interface):
 
     def __init__(self):
         Interface.__init__(self)
-        eh      = GameEventHandler(self)
+        eh      = GameEventHandler()
         c       = GameController()
         out     = GameOutput(c)
+
+        eh.set_controller(c)
 
         self._set_controller(c)
         self._set_eventhandler(eh)

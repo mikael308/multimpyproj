@@ -20,9 +20,11 @@ class StartMenuInterface(Interface):
         """
         Interface.__init__(self)
 
-        eh = StartMenuEventHandler(self)
+        eh = StartMenuEventHandler()
         c = StartMenuController()
         out = StartMenuOutput()
+
+        eh.set_controller(c)
 
         self._set_controller(c)
         self._set_eventhandler(eh)
