@@ -49,4 +49,21 @@ class GameInterface(Interface):
             self.get_output().setup()
 
             Interface.run(self)
+    def _show_result(self, endstate):
+        """
+        displays result_interface displaying the endstate result\n
+        :param endstate: endstate result to display
+        :return: None
+        """
+        eh = ResultEventHandler()
+        eh.set_controller(self.get_controller())
+        self._set_eventhandler(eh)
+        out = ResultOutput()
+        out.set_endstate(endstate)
+
+        self._set_output(out)
+        self.get_controller().start()
+        self.get_output().setup()
+
+        Interface.run(self)
 
