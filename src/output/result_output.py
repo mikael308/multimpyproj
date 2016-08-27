@@ -15,3 +15,11 @@ class ResultOutput(Output):
 
         self._set_screen(ResultScreen())
 
+    def set_endstate(self, endstate):
+        """
+        sets the endstate to show result from\n
+        :param endstate:
+        :return:
+        """
+        self.get_screen().set_endstate(endstate)
+
