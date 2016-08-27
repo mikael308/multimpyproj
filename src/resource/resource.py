@@ -178,7 +178,7 @@ def get_font(res_id):
 	get font from resource file
 	:param res_id: name of the font to access
 	:return: font, if resource not found -> None
-	:returns: src.resource.FontResource
+	:returns: FontResource
 	"""
 	attr_key = "name"
 	res_notfound_val = None
