@@ -32,7 +32,7 @@ class StartMenuEventHandler(EventHandler):
                 controller.shutdown()
                 self.stop()
 
-            if pygame.key.get_mods() & pygame.KMOD_ALT:
+            elif pygame.key.get_mods() & pygame.KMOD_ALT:
                 if key[pygame.K_s]:
                     controller.get_output().get_btns()["START"].click()
 
