@@ -82,6 +82,10 @@ class Buffer:
                 return key
 
     def __next_hash(self):
+        """
+        get the next hash index\n
+        :return:
+        """
         self.__idx += self.__idx_hashkey
         self.__idx %= self.__capacity
         return self.__idx
