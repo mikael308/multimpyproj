@@ -28,7 +28,7 @@ class Interface:
         """
 
         """
-        pygame.init()
+        pass
 
     def run(self):
         """
