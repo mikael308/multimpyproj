@@ -87,6 +87,11 @@ def get_dimen(res_id):
 
 
 def get_value(res_id):
+	"""
+	get value of name param
+	:param res_id: resource id as of attribute name in resource file
+	:return: value from resources, if resource not found: None is returned
+	"""
 	attr_key = "name"
 	res_notfound_val = None
 
