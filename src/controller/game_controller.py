@@ -394,9 +394,17 @@ class GameController(Controller):
         self.get_output().switch_sound_enabled()
 
     def get_endstate(self):
+        """
+        get this endstate\n
+        :return:
+        """
         return self.__endstate
 
     def update_endstate(self):
+        """
+        update the current endstate\n
+        :return:
+        """
         es = self.get_endstate()
         es.activate()
 
