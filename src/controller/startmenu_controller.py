@@ -3,7 +3,8 @@ from controller import Controller
 
 class StartMenuController(Controller):
     """
-    controller used for startmenu\n
+    controller used for use-case: startmenu\n
+
     :author: Mikael Holmbom
     :version: 1.0
     """
