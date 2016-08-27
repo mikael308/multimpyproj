@@ -103,8 +103,11 @@ class GameScreen(Screen):
         self.update()
 
     def update(self):
+        """
+        update this gamescreen\n
+        :return:
+        """
         self.__gamefield_screen.update()
-
 
     def render(self):
         """
