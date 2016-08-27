@@ -13,7 +13,8 @@ from src.game.endstate import EndState
 
 class GameController(Controller):
     """
-    controller for game use-case\n
+    controller for use-case: game\n
+
 
     :author: Mikael Holmbom
     :version: 1.0
