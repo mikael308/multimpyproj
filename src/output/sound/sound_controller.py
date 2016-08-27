@@ -20,7 +20,7 @@ class SoundController:
     def __init__(self):
         pygame.mixer.init()
 
-        res = resource.get_soundsrc()
+        res = resource.get_all_soundsrc()
 
         for name, soundsrc in res.iteritems():
             self.__sounds[name] = pygame.mixer.Sound(soundsrc)

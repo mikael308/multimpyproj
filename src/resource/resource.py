@@ -150,11 +150,11 @@ def get_soundsrc(res_id):
 	return res_notfound_val
 
 
-def get_soundsrc():
+def get_all_soundsrc():
 	"""
 	reads all data from sounds resourcefile into a ResourceAccessObject
-	:return: image source from resources, if resource not found:
-	:returns ResourceAccessObject: containing all values from sound resourcefile
+	:return: image sources from resources as a dictionary, keys is names from resource file \nif resource not found: empty dictionary
+
 	"""
 	attr_key = "name"
 
