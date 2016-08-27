@@ -62,12 +62,6 @@ class Interface:
         self.get_output().close()
         pygame.quit()
 
-    def back(self):
-        """
-        shutdown this current controller\n
-        :return:
-        """
-        self.get_controller().shutdown()
 
     def _set_output(self, output):
         """
