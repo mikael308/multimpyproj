@@ -165,3 +165,19 @@ class GameEventHandler(EventHandler):
             mov_y *= ddir
 
         return mov_x, mov_y
+
+    def _print_packets(self):
+        """
+        debug function\n
+        prints out all current packets in pending state and contained in buffer\n
+        :return:
+        """
+        controller = self.get_controller()
+        print "PENDING PACKETS"
+        for p in controller.get_pending_packets():
+            print " - " + str(p.get_pos()) + "  " + str(p)
+        print "BUFFER PACKETS"
+        buf = controller.get_buffer()
+        for p in buf:
+            print " [" + str(buf.index(p)) + "] " + str(p.get_pos()) + " " + str(p)
+
