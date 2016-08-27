@@ -20,6 +20,7 @@ class InfoInterface(Interface):
         c = InfoController()
         out = InfoOutput()
 
+        c.set_output(out)
         eh.set_controller(c)
 
         self._set_controller(c)

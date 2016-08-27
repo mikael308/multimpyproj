@@ -22,6 +22,7 @@ class GameInterface(Interface):
         c       = GameController()
         out     = GameOutput(c)
 
+        c.set_output(out)
         eh.set_controller(c)
 
         self._set_controller(c)

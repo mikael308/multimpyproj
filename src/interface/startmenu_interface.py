@@ -24,6 +24,7 @@ class StartMenuInterface(Interface):
         c = StartMenuController()
         out = StartMenuOutput()
 
+        c.set_output(out)
         eh.set_controller(c)
 
         self._set_controller(c)
