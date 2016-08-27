@@ -2,6 +2,12 @@ import pygame
 
 
 class GameObject:
+    """
+    represents a object used in gameplay\n
+    
+    :author: Mikael Holmbom
+    :version: 1.0
+    """
 
     __dimen = None
 
@@ -17,9 +23,17 @@ class GameObject:
             self.__rect = pygame.Rect(dimen.rect())
 
     def get_dimen(self):
+        """
+        get this dimension\n
+        :return:
+        """
         return self.__dimen
 
     def get_rect(self):
+        """
+        get this rect\n
+        :return:
+        """
         return self.__rect
 
     def move_pos(self, x, y):
@@ -64,4 +78,9 @@ class GameObject:
         return self
 
     def get_pos(self):
+        """
+        get this position
+        :return:
+        """
         return self.get_rect().x, self.get_rect().y
+
