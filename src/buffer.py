@@ -2,6 +2,9 @@
 
 class Buffer:
     """
+    buffer containing elements of specific capacity\n
+    the index uses linear hashprobing\n
+
     :author: Mikael Holmbom
     :ver: 1.0
     """
