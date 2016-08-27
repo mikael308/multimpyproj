@@ -74,7 +74,7 @@ class GameEventHandler(EventHandler):
 
             # ! DEBUG
             ####################################################
-            if key == settings_controls.key_switch_sound_enabled:
+            elif key == settings_controls.key_switch_sound_enabled:
                 controller.switch_soundfx_enabled()
 
             elif key == game_controls.key_pickup:
