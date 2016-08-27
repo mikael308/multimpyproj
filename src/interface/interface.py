@@ -53,13 +53,6 @@ class Interface:
 
             eventhandler.repeated_tasks()
 
-    def close(self):
-        """
-        close this controller\n
-        :return:
-        """
-        pass
-
     def shutdown(self):
         """
         shutdown this current controller, output, and quits pygame\n
