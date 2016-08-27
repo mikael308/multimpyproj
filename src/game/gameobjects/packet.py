@@ -7,8 +7,9 @@ class Packet(GameObject):
     """
     define a packet holding a value\n
 
+
     :author: Mikael Holmbom
-    :ver: 1.0
+    :version: 1.0
     """
 
     # this packet value
