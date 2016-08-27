@@ -22,10 +22,9 @@ class ResultScreen(ViewScreen):
 
     __header_result = resource.get_string("result_header_player")
 
-
     def __init__(self):
         ViewScreen.__init__(self)
-        self._article_padd = resource.get_dimen("result_article_padd")
+        self._dimen_article_padd = resource.get_dimen("result_article_padd")
 
     def set_endstate(self, endstate):
         """

@@ -14,7 +14,7 @@ class ViewScreen(Screen):
     _font_res_header    = None
     _font_header        = None
 
-    _article_padd       = None
+    _dimen_article_padd       = None
 
     def _blit_text(self, surface, text_content, text_color, pos):
         """
@@ -37,7 +37,7 @@ class ViewScreen(Screen):
         :param rows: the rows to blit
         :return:
         """
-        padd = self._article_padd
+        padd = self._dimen_article_padd
         x = padd.left
         y = padd.top
 
@@ -55,7 +55,7 @@ class ViewScreen(Screen):
         :param rows: strings of text
         :return: width and height of rows content including padding
         """
-        padd = self._article_padd
+        padd = self._dimen_article_padd
         header_size = self._font_header.size(header)
         x = header_size[0]
         for row in rows:

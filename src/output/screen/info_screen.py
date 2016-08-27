@@ -37,7 +37,7 @@ class InfoScreen(ViewScreen):
         self._font_res     = resource.get_font("info")
         self._font         = pygame.font.SysFont(self._font_res.name, self._font_res.size)
         self._font_header  = pygame.font.SysFont(self._font_res.name, self._font_res.size, True)
-        self._article_padd  = resource.get_dimen("info_article_padd")
+        self._dimen_article_padd  = resource.get_dimen("info_article_padd")
 
     def setup(self):
         """
