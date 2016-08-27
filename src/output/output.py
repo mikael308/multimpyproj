@@ -65,8 +65,9 @@ class Output(Activable):
         renders output\n
         :return:
         """
-        self.__screen.render()
-        pygame.display.update()
+        if pygame.display.get_init():
+            self.__screen.render()
+            pygame.display.update()
 
     def _set_screen(self, screen):
         """
