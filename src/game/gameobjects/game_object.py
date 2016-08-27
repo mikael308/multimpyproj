@@ -1,5 +1,4 @@
 import pygame
-from src.resource.dimen_resource import DimenResource
 
 
 class GameObject:
