@@ -108,3 +108,13 @@ class Output(Activable):
         :return: list of buttons from screen instance
         """
         return self.get_screen().get_btns()
+
+    def click(self, pos):
+        """
+        make a click event to current output\n
+        :param pos:
+        :return:
+        """
+        if self.get_screen() is not None:
+            self.get_screen().click(pos)
+
