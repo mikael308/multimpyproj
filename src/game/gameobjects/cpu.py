@@ -6,8 +6,9 @@ from game_object import GameObject
 class CPU(GameObject):
     """
     defines a CPU holding a value\n
-    author Mikael Holmbom
-    ver 1.0
+
+    :author: Mikael Holmbom
+    :version 1.0
     """
 
     # this value
