@@ -44,7 +44,6 @@ class Screen:
         :return: None
         """
         pygame.font.quit()
-        pygame.display.quit()
 
     def _get_main_surface(self):
         """
