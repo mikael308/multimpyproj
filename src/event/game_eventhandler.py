@@ -66,6 +66,8 @@ class GameEventHandler(EventHandler):
                 elif key == pygame.K_k:
                     controller.damage_player()
 
+                elif key == pygame.K_m:
+                    controller.switch_soundfx_enabled()
 
                 elif key == pygame.K_i:
                     print "PENDING PACKETS"
