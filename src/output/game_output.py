@@ -43,6 +43,13 @@ class GameOutput(Output):
         """
         self.get_soundcontroller().play("wrong_cpu")
 
+    def add_packet(self):
+        """
+        outputs add packet\n
+        :return:
+        """
+        self.get_soundcontroller().play("add_packet")
+
     def buffer_overflow(self):
         """
         outputs buffer overflow\n
