@@ -13,6 +13,8 @@ class Interface:
     * __init__(self)
     * setup(self)
     * run(self)
+    * shutdown(self)
+
 
     :author: Mikael Holmbom
     :version: 1.0
