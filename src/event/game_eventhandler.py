@@ -66,9 +66,6 @@ class GameEventHandler(EventHandler):
                 elif key == pygame.K_k:
                     controller.damage_player()
 
-                elif key == pygame.K_p:
-                    for p in controller.get_packets():
-                        print " * " + str(p.get_receiver())
 
                 elif key == pygame.K_i:
                     print "PENDING PACKETS"
