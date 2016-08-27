@@ -24,28 +24,28 @@ class GameOutput(Output):
 
     def level_up(self):
         """
-        outputs level up
+        outputs level up\n
         :return:
         """
         self.get_soundcontroller().play("level_up")
 
     def score(self):
         """
-        outputs score
+        outputs score\n
         :return:
         """
         self.get_soundcontroller().play("score")
 
     def wrong_cpu(self):
         """
-        outputs wrong cpu
+        outputs wrong cpu\n
         :return:
         """
         self.get_soundcontroller().play("wrong_cpu")
 
     def buffer_overflow(self):
         """
-        outputs buffer overflow
+        outputs buffer overflow\n
         :return:
         """
         self.get_soundcontroller().play("buffer_overflow")
