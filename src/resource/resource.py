@@ -207,6 +207,12 @@ def get_font(res_id):
 
 
 def get_color(res_id):
+	"""
+	get color of name param
+	:param res_id: resource id as of attribute name in resource file
+	:return: color resource from resources, if resource not found: None is returned
+	:returns: ColorDimension
+	"""
 	attr_key = "name"
 	res_notfound_val = None
 
