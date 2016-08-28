@@ -15,6 +15,7 @@ class ResultScreen(ViewScreen):
     __endstate    = None
 
     __article_player= None
+    __article_player_pos = None
     __article_player_color = resource.get_color("result_article_player").rgb()
 
     __background_color = resource.get_color("resultscreen_background").rgb()
@@ -63,6 +64,10 @@ class ResultScreen(ViewScreen):
         surf = pygame.Surface((width, height))
         surf.fill(self.__article_player_color)
 
+        main_surf = self._get_main_surface()
+        mid_x = (main_surf.get_width() / 2) - (width / 2)
+        mid_y = (main_surf.get_height() / 2) - (height / 2)
+        self.__article_player_pos = mid_x, mid_y
 
         self._blit_rows(surf, header, self.__text_color, rows)
 
@@ -72,4 +77,4 @@ class ResultScreen(ViewScreen):
         ViewScreen.render(self)
 
         mainsurf = self._get_main_surface()
-        mainsurf.blit(self.__article_player, (10,10))
+        mainsurf.blit(self.__article_player, self.__article_player_pos)
