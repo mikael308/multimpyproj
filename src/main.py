@@ -13,6 +13,7 @@ def start_game():
     i = StartMenuInterface()
     i.setup()
     i.run()
+    i.shutdown()
 
 
 start_game()
