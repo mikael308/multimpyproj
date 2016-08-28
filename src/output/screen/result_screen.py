@@ -50,7 +50,7 @@ class ResultScreen(ViewScreen):
 
     def __create_playerinfo_view(self):
         """
-        create article displaying player result
+        create article displaying player result\n
         :return:
         """
         es = self.__endstate
