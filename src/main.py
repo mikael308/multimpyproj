@@ -11,9 +11,7 @@ from interface.startmenu_interface import StartMenuInterface
 
 def start_game():
     i = StartMenuInterface()
-    i.setup()
-    i.run()
-    i.shutdown()
+    i.maindisplay()
 
 
 start_game()

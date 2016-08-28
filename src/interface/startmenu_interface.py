@@ -42,13 +42,11 @@ class StartMenuInterface(Interface):
 
         def click_start():
             i = GameInterface()
-            i.setup()
-            i.run()
+            i.display()
 
         def click_info():
             i = InfoInterface()
-            i.setup()
-            i.run()
+            i.display()
 
         def click_exit():
             self.get_controller().shutdown()
