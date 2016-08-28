@@ -32,6 +32,22 @@ class Interface:
         """
         pass
 
+    def display(self):
+        """
+        display this interface\n
+        :return: None
+        """
+        self.setup()
+        self.run()
+
+    def maindisplay(self):
+        """
+        display this interface, then shut down window\n
+        :return: None
+        """
+        self.display()
+        self.shutdown()
+
     def run(self):
         """
         run this interface:\n
