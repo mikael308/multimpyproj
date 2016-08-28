@@ -10,6 +10,7 @@ class GameEventHandler(EventHandler):
     """
     Handling events from use-case: Game\n
 
+
     :author: Mikael Holmbom
     :version: 1.0
     """
@@ -78,20 +79,7 @@ class GameEventHandler(EventHandler):
                 controller.switch_soundfx_enabled()
 
             elif key == game_controls.key_pickup:
-                player = controller.get_player()
-
-                if player.has_attached():
-                    # DETACH PACKET
-                    controller.release_packet()
-
-                else:
-                    # ATTACH PACKET
-                    plr = player.get_rect()
-                    for p in controller.get_packets():
-                        pr = p.get_rect()
-                        if pr.colliderect(plr):
-                            controller.grab_packet(p)
-                            break
+                controller.pickup()
 
     def repeated_tasks(self):
         """
