@@ -37,6 +37,7 @@ class GameInterface(Interface):
         out.get_screen().get_infopanel().set_player(e.get_player())
 
     def run(self):
+        #run the gameplay
         Interface.run(self)
 
         endstate = self.get_controller().get_endstate()
