@@ -253,6 +253,7 @@ class GameController(Controller):
         """
         p = self.generate_packet()
         if self.get_buffer().add(p):
+            self.get_output().add_packet()
             return True
 
         else:
