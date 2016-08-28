@@ -4,5 +4,6 @@
 	<sound name="level_up">46485__phreaksaccount__comms3.ogg</sound>
 	<sound name="score">319334__kurck__plop.ogg</sound>
 	<sound name="buffer_overflow">244113__jobro__alarm-1.ogg</sound>
+	<sound name="add_packet">46493__phreaksaccount__shields2.ogg</sound>
 
 </sounds>
