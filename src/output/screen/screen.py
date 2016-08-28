@@ -109,6 +109,10 @@ class Screen:
         self._get_main_surface().blit(self._get_background(), (0, 0))
 
     def get_dimen(self):
+        """
+        get this dimension\n
+        :return:
+        """
         return self.__dimen
 
     def get_width(self):
