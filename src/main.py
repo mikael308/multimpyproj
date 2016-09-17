@@ -6,7 +6,13 @@
 	:author: Mikael Holmbom
 	:version: 1.0
 """
-from interface.startmenu_interface import StartMenuInterface
+
+import sys, os
+
+path = os.getcwd() 
+sys.path.append(path)
+
+from src.interface.startmenu_interface import StartMenuInterface
 
 
 def start_game():
@@ -15,6 +21,3 @@ def start_game():
 
 
 start_game()
-
-
-
