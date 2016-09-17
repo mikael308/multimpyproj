@@ -1,4 +1,3 @@
-import src.resource.resource as resource
 from src.output.view.view_object import ViewObject
 
 
