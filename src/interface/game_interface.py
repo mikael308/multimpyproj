@@ -1,4 +1,3 @@
-import pygame
 
 from interface import Interface
 from src.controller.game_controller import GameController
