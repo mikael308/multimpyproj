@@ -6,6 +6,8 @@ to get string from resourcefile, use getString(resId) function\n
 :author: Mikael Holmbom
 :version: 1.0
 """
+import sys
+import os
 import xml.etree.ElementTree as ET
 from font_resource import FontResource
 from color_resource import ColorResource
@@ -13,7 +15,8 @@ from dimen_resource import DimenResource
 
 
 # path to resource data
-resdir = "../res/"
+resdir =  os.getcwd() + "/res/"
+sys.path.append(resdir)
 # resourcefiles containing data
 resfile_string 	= "strings.xml"
 resfile_dimen 	= "dimens.xml"
