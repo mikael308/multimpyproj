@@ -69,3 +69,11 @@ class Controller(Activable):
         :return: true if controller has output
         """
         return self.__output is not None
+
+    def back(self):
+    	"""
+    	stops this controller\n
+    	make this controller go to previous use-case\n
+    	:return: None
+    	"""
+        Activable.stop(self)
