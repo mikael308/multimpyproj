@@ -45,8 +45,4 @@ class StartMenuEventHandler(EventHandler):
         elif event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
 
-            for b in controller.get_output().get_btns().itervalues():
-                if b.get_rect().collidepoint(pos):
-                    b.click()
-                    break
-
+            controller.get_output().click(pos)
