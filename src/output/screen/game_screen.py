@@ -83,7 +83,6 @@ class GameScreen(Screen):
         :return: None
         """
         for b in self.get_btns().itervalues():
-            print "r: " + str(b.get_rect().x) + ", " + str(b.get_rect().y)
             if b.get_rect().collidepoint(pos):
                 b.click()
                 break
