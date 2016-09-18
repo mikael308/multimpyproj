@@ -27,6 +27,8 @@ class Screen:
 
     __background        = None
 
+    __btns              = None
+
     def __init__(self, dimen=resource.get_dimen("main_window"), set_display_mode_dimen=True):
         pygame.init()
         self.__dimen = dimen
@@ -36,6 +38,8 @@ class Screen:
             self.__main_surface = pygame.Surface(dimen.wh())
 
         self.__background = pygame.Surface(dimen.wh())
+
+        self.__btns = {}
 
     def close(self):
         """
@@ -131,6 +135,14 @@ class Screen:
         :return: main surface height
         """
         return self.__main_surface.get_height()
+
+    def get_btns(self):
+        """
+        get dictionary of buttons from this screen\n
+        if no buttons is existing on screen, empty dictionary is returned
+        :return: dictionary of buttons existing on screen
+        """
+        return self.__btns
 
     def _get_background(self):
         """
