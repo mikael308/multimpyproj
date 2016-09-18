@@ -20,7 +20,6 @@ class StartMenuScreen(Screen):
 
 
     def __init__(self):
-        dimen_window = resource.get_dimen("main_window")
         Screen.__init__(self)
 
         self.__btns = {}
@@ -82,4 +81,3 @@ class StartMenuScreen(Screen):
         :return:
         """
         return self.__btns
-
