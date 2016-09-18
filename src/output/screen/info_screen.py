@@ -33,8 +33,7 @@ class InfoScreen(ViewScreen):
         """
 
         """
-        dimen_window = resource.get_dimen("main_window")
-        ViewScreen.__init__(self, dimen_window)
+        ViewScreen.__init__(self)
 
         self._font_res     = resource.get_font("info")
         self._font         = pygame.font.SysFont(self._font_res.name, self._font_res.size)
