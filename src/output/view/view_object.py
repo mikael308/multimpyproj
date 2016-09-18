@@ -100,7 +100,8 @@ class ViewObject(Sprite):
 
 	def get_dimen(self):
 		"""
-		get this dimension\n
+		get this dimension of the gameobject this view_object represent\n
+		if this has no gameobject, None is returned\n
 		:return:
 		"""
 		if self.has_gameobject():
