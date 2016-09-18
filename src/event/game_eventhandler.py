@@ -45,7 +45,7 @@ class GameEventHandler(EventHandler):
                 controller.shutdown()
 
             elif key[nav_controls.key_back]:
-                controller.stop()
+                controller.back()
 
             else:
                 ## MOVEMENT

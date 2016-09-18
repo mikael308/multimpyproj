@@ -25,7 +25,7 @@ class ResultEventHandler(EventHandler):
                 controller.shutdown()
 
             elif key[nav_controls.key_back]:
-                controller.stop()
+                controller.back()
 
-            controller.stop()
+            controller.back()
 

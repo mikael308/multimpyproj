@@ -23,5 +23,5 @@ class InfoEventHandler(EventHandler):
             if key[nav_controls.key_quit]:
                 self.get_controller().shutdown()
             elif key[nav_controls.key_back]:
-                self.get_controller().stop()
+                self.get_controller().back()
 
