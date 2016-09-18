@@ -66,7 +66,10 @@ class Screen:
         :param pos:
         :return: None
         """
-        pass
+        for b in self.get_btns().itervalues():
+            if b.get_rect().collidepoint(pos):
+                b.click()
+                break
 
     def _blit(self, object, pos=None):
         """
