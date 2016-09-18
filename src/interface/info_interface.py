@@ -16,6 +16,7 @@ class InfoInterface(Interface):
         """
 
         """
+        Interface.__init__(self)
         eh = InfoEventHandler()
         c = InfoController()
         out = InfoOutput()
