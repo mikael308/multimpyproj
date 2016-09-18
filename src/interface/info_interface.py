@@ -26,3 +26,18 @@ class InfoInterface(Interface):
         self._set_controller(c)
         self._set_eventhandler(eh)
         self._set_output(out)
+
+
+    def setup(self):
+        """
+
+        :return:
+        """
+        Interface.setup(self)
+
+        btns = self.get_output().get_btns()
+
+        def click_back():
+            self.get_controller().back()
+
+        btns["BACK"].set_on_click_listener(click_back)

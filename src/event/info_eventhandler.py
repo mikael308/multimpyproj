@@ -25,3 +25,8 @@ class InfoEventHandler(EventHandler):
             elif key[nav_controls.key_back]:
                 self.get_controller().back()
 
+        elif event.type == pygame.MOUSEBUTTONUP:
+            pos = pygame.mouse.get_pos()
+
+            self.get_controller().get_output().click(pos)
+
