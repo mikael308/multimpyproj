@@ -41,3 +41,9 @@ class Button(ViewObject):
         if self.__on_click is not None:
             self.__on_click()
 
+    def get_dimen(self):
+        """
+        get the dimension of this button\n
+        :return: src.resource.DimenResource instance
+        """
+        return self.__dimen
