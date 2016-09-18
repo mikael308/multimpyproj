@@ -40,3 +40,4 @@ class Button(ViewObject):
         """
         if self.__on_click is not None:
             self.__on_click()
+
