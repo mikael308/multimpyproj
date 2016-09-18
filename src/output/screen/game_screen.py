@@ -16,8 +16,6 @@ class GameScreen(Screen):
     :version: 1.0
     """
 
-    __btns                  = None
-
     __infopanel             = None
     __infopanel_dimen       = resource.get_dimen("infopanel")
 
@@ -45,8 +43,7 @@ class GameScreen(Screen):
         self.__gamescreen_margin_left = (self.get_dimen().width / 2) - (dimen_gamefield.width / 2)
         self.__gamescreen_margin_top = (self.get_dimen().height / 2) - (dimen_gamefield.height / 2)
 
-        self.__btns = {}
-        self.__btns["SOUND"] = self.__create_soundfx_button()
+        self.get_btns()["SOUND"] = self.__create_soundfx_button()
 
 
     def __create_soundfx_button(self):
@@ -120,15 +117,8 @@ class GameScreen(Screen):
 
         self._blit(self.__infopanel.render(), self.__infopanel_dimen.pos())
 
-        for b in self.__btns.itervalues():
+        for b in self.get_btns().itervalues():
             self._blit(b)
-
-    def get_btns(self):
-        """
-        get the existing buttons in this screen\n
-        :return: dictionary of button instances
-        """
-        return self.__btns
 
     def get_gamefield(self):
         """

@@ -28,7 +28,6 @@ class InfoScreen(ViewScreen):
     __gameinfo_header_value = resource.get_string("info_header_gameinfo")
     __controls_header_value = resource.get_string("info_header_controls")
 
-    __btns = None
 
     def __init__(self):
         """
@@ -42,8 +41,7 @@ class InfoScreen(ViewScreen):
         self._font_header  = pygame.font.SysFont(self._font_res.name, self._font_res.size, True)
         self._dimen_article_padd  = resource.get_dimen("info_article_padd")
 
-        self.__btns = {}
-        self.__btns["BACK"] = TextButton(resource.get_string("btn_back_text"), resource.get_dimen("info_btn_back"))
+        self.get_btns()["BACK"] = TextButton(resource.get_string("btn_back_text"), resource.get_dimen("info_btn_back"))
 
     def setup(self):
         """
@@ -54,7 +52,7 @@ class InfoScreen(ViewScreen):
         self._get_background().fill(resource.get_color("infoscreen_background").rgb())
 
         # set back button position
-        btn_back = self.__btns["BACK"]
+        btn_back = self.get_btns()["BACK"]
         btn_y = self.get_height() - btn_back.get_height() - btn_back.get_dimen().bottom
         btn_back.set_pos(btn_back.get_dimen().left, btn_y)
 
@@ -79,7 +77,7 @@ class InfoScreen(ViewScreen):
         main_surf.blit(self.__controls_view, self.__controls_dimen.pos())
         main_surf.blit(self.__gameinfo_view, self.__gameinfo_dimen.pos())
 
-        for btn in self.__btns.itervalues():
+        for btn in self.get_btns().itervalues():
             self._blit(btn)
 
     def __create_controls_view(self):
@@ -129,9 +127,3 @@ class InfoScreen(ViewScreen):
 
         return surf
 
-    def get_btns(self):
-        """
-        get the current buttons from this screen\n
-        :return:
-        """
-        return self.__btns
