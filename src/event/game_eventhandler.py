@@ -45,6 +45,7 @@ class GameEventHandler(EventHandler):
                 controller.shutdown()
 
             elif key[nav_controls.key_back]:
+                controller.update_endstate()
                 controller.back()
 
             else:
