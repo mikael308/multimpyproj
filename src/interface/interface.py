@@ -5,7 +5,7 @@ class Interface:
     """
     Interface facade used for specific use-cases\n
     Interface contains parts:
-        * Engine - contains data and logic for the current use-case
+        * Controller - contains data and logic for the current use-case
         * Output - used for outputting the state of the current use-case
         * EventHandler - contains procedure to handle events according to current use-case
 
