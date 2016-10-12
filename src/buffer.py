@@ -90,6 +90,13 @@ class Buffer:
         self.__idx %= self.__capacity
         return self.__idx
 
+    def clear(self):
+    	"""
+    	clear the elements in this buffer
+    	"""
+    	self.__elements.clear()
+    	return self.is_empty() == True
+    	
     def add(self, item):
         """
         add item to this Buffer
