@@ -40,6 +40,9 @@ class Buffer:
         return self.__elements.itervalues()
 
     def __contains__(self, item):
+    	"""
+    	determine if buffer contains item
+    	"""
         return item in self.__elements.values()
 
     def __delitem__(self, key):
