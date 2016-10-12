@@ -106,6 +106,18 @@ class Buffer:
 
         return False
 
+    def deleteAt(self, idx):
+    	"""
+    	delete element at requested index
+    	:param idx: index to delete
+    	:return: True if element was not empty and is now deleted
+    	"""
+    	if self.__elements.has_key(idx):
+    		del self.__elements[idx]
+    		if not self.__elements.has_key(idx):
+    			return True
+    	return False
+
     def delete(self, elem):
         """
         delete element from this Buffer
