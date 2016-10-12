@@ -34,6 +34,9 @@ class Buffer:
         return len(self.__elements)
 
     def __iter__(self):
+    	"""
+    	iterate over buffers values
+    	"""
         return self.__elements.itervalues()
 
     def __contains__(self, item):
