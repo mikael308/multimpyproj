@@ -18,8 +18,18 @@ class Buffer:
     def __init__(self, capacity):
         if capacity <= 0:
             raise ValueError("buffer capacity must be a positive number")
-        if capacity == 3:
-            self.__idx_hashkey = 7
+
+        # set hashkey
+		primes = {3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67}
+		if capacity < 3:
+			self.__idx_hashkey = 1
+		else:
+			for p in primes:
+				if not capacity % p == 0:
+					self.__idx_hashkey = p
+					break
+			else:
+				self.__idx = 1
 
         self.__capacity = capacity
         self.__elements = {}
