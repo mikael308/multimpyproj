@@ -38,6 +38,7 @@ class TestCase:
 		if print_elapse_time:
 			timer = Timer()
 		try:
+			print "running testcase: " + self.__name
 			if print_elapse_time:
 				timer.start()
 			self._run()
