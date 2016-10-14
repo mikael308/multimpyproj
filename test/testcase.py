@@ -38,20 +38,20 @@ class TestCase:
 		if print_elapse_time:
 			timer = Timer()
 		try:
-			print "running testcase: " + self.__name
+			print "running testcase: %s" % self.__name
 			if print_elapse_time:
 				timer.start()
 			self._run()
 			if print_elapse_time:
 				timer.stop()
-			TestCase._print_success("+ ["+self.__name +"] test PASSED")
+			TestCase._print_success("+ [%s] test PASSED" % self.__name)
 
 		except Exception as e:
-			s = "- ["+self.__name +"] test FAILED"
-			s = s+ e.message
+			s = "- [%s] test FAILED %s" % (self.__name, e.message)
 			TestCase._print_fail(s)
 		if print_elapse_time:
-			print "test " + str(self.__name) + " duration " + Timer.secondsToStr(timer.get_elapsed()) + "s"
+
+			print "test %s: duration %s" % (str(self.__name), Timer.secondsToStr(timer.get_startstop_diff()))
 			
 	@staticmethod
 	def _print_fail(message):
