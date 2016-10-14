@@ -41,6 +41,9 @@ class Buffer:
         return self.__elements.get(item, None)
 
     def __len__(self):
+    	"""
+    	determine the length of buffers elements
+    	"""
         return len(self.__elements)
 
     def __iter__(self):
