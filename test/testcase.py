@@ -1,5 +1,6 @@
 import sys
 import os
+from timer import Timer
 
 sys.path.append(os.getcwd())
 
@@ -29,20 +30,27 @@ class TestCase:
 		"""
 		raise NotImplementedError("test not implemented")
 
-	def run_test(self):
+	def run_test(self, print_elapse_time=False):
 		"""
 		run this testcase\n
 		prints out the result\n
 		"""
+		if print_elapse_time:
+			timer = Timer()
 		try:
+			if print_elapse_time:
+				timer.start()
 			self._run()
-
+			if print_elapse_time:
+				timer.stop()
 			TestCase._print_success("+ ["+self.__name +"] test PASSED")
 
 		except Exception as e:
 			s = "- ["+self.__name +"] test FAILED"
 			s = s+ e.message
 			TestCase._print_fail(s)
+		if print_elapse_time:
+			print "test " + str(self.__name) + " duration " + Timer.secondsToStr(timer.get_elapsed()) + "s"
 			
 	@staticmethod
 	def _print_fail(message):
