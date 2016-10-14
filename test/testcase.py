@@ -50,6 +50,8 @@ class TestCase:
 			s = "- [%s] test FAILED %s" % (self.__name, e.message)
 			TestCase._print_fail(s)
 		if print_elapse_time:
+			if timer.is_running():
+				timer.stop()
 
 			print "test %s: duration %s" % (str(self.__name), Timer.secondsToStr(timer.get_startstop_diff()))
 			
