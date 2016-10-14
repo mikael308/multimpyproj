@@ -16,7 +16,7 @@ def assertTrue(test_val, testtag=""):
 	:param testtag: tag used for exception message\n
 	"""
 	if not test_val:
-		raise Exception("["+ str(testtag) + "]: test not passed : { " +  str(test_val) + " is not True }")
+		raise Exception("[%s]: test not passed : { value was %s: expected True }" % (str(testtag), test_val))
 
 
 def assertFalse(test_val, testtag=""):
@@ -27,7 +27,7 @@ def assertFalse(test_val, testtag=""):
 	:param testtag: tag used for exception message\n
 	"""
 	if test_val:
-		raise Exception("["+ str(testtag) + "]: test not passed : { " +  str(test_val) + " is not False }")
+		raise Exception("[%s]: test not passed : { value was %s: expected False }" % (str(testtag), test_val))
 
 
 def assertEquals(a, b, testtag=""):
@@ -39,4 +39,5 @@ def assertEquals(a, b, testtag=""):
 	:param testtag: tag used for exception message\n
 	"""
 	if a != b:
-		raise Exception("["+ str(testtag) + "]: test not passed : { " +  str(a) + " != "+str(b)+" }")
+		raise Exception("[%s]: test not passed : { %s != %s }" % (str(testtag),a, b ))
+		
