@@ -6,6 +6,19 @@ class Timer:
 	"""
 	timer used for measure time durations in tests
 
+	typical use-case:
+		timer = Timer()
+		timer.start()
+		loop:
+			# timeconsuming process
+			timer.interval()
+
+		timer.stop()
+		# get results
+		for i in timer.get_intervals():
+			print Timer.secondsToStr(i)	
+		print Timer.secondsToStr(timer.get_startstop_diff())
+
 	:author: Mikael Holmbom
 	:version: 1.0
 	"""
