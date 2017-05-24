@@ -1,5 +1,6 @@
 import sys
 import os
+import traceback
 from timer import Timer
 
 sys.path.append(os.getcwd())
@@ -49,6 +50,8 @@ class TestCase:
 		except Exception as e:
 			s = "- [%s] test FAILED %s" % (self.__name, e.message)
 			TestCase._print_fail(s)
+			TestCase._print_fail(traceback.format_exc())
+			
 		if print_elapse_time:
 			if timer.is_running():
 				timer.stop()
