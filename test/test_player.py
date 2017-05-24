@@ -15,7 +15,6 @@ class TestPlayer(TestCase):
         TestCase.__init__(self, "player")
 
     def _run(self):
-
         player = Player()
         TestPlayer._test_health(player)
         
