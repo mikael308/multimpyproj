@@ -35,5 +35,6 @@ class TestPlayer(TestCase):
         tools.assertTrue(player.get_health() == (13-20))
         tools.assertTrue(not player.is_alive(), "player not alive is True")
         tools.assertFalse(player.is_alive(), "player alive is False")
+        tools.assertTrue(player.is_alive(), "player is alive") # will fail, used to demonstrate failed test
 
 
