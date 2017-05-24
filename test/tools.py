@@ -5,8 +5,6 @@ functions to help make tests in testcase modules\n
 :author: Mikael Holmbom
 :version: 1.0
 """
-import traceback
-
 
 def assertTrue(test_val, testtag=""):
 	"""
