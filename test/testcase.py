@@ -58,6 +58,12 @@ class TestCase:
 
 			print "test %s: duration %s" % (str(self.__name), Timer.secondsToStr(timer.get_startstop_diff()))
 			
+	def name(self):
+		"""
+		get the name of this testcase
+		"""
+		return self.__class__.__name__
+
 	@staticmethod
 	def _print_fail(message):
 		print('\x1b[6;30;41m' + message + '\x1b[0m')
