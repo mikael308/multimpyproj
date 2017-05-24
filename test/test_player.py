@@ -11,9 +11,6 @@ class TestPlayer(TestCase):
     :version: 1.0
     """
 
-    def __init__(self):
-        TestCase.__init__(self, "player")
-
     def _run(self):
         player = Player()
         TestPlayer._test_health(player)

@@ -16,9 +16,6 @@ class TestBuffer(TestCase):
     :version: 1.0
     """
 
-    def __init__(self):
-        TestCase.__init__(self, "buffer")
-
     def _run(self):
 
 		for j in range(0, 3):

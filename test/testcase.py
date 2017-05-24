@@ -19,11 +19,9 @@ class TestCase:
 	:version: 1.0
 	"""
 
-	# the name of this testcase
-	__name = ""
-
-	def __init__(self, name):
-		self.__name = name
+	def __init__(self):
+		pass
+		
 
 	def _run(self):
 		"""
@@ -39,16 +37,16 @@ class TestCase:
 		if print_elapse_time:
 			timer = Timer()
 		try:
-			print "running testcase: %s" % self.__name
+			print "running testcase: %s" % self.name()
 			if print_elapse_time:
 				timer.start()
 			self._run()
 			if print_elapse_time:
 				timer.stop()
-			TestCase._print_success("+ [%s] test PASSED" % self.__name)
+			TestCase._print_success("+ [%s] test PASSED" % self.name())
 
 		except Exception as e:
-			s = "- [%s] test FAILED %s" % (self.__name, e.message)
+			s = "- [%s] test FAILED %s" % (self.name(), e.message)
 			TestCase._print_fail(s)
 			TestCase._print_fail(traceback.format_exc())
 			
@@ -56,7 +54,7 @@ class TestCase:
 			if timer.is_running():
 				timer.stop()
 
-			print "test %s: duration %s" % (str(self.__name), Timer.secondsToStr(timer.get_startstop_diff()))
+			print "test %s: duration %s" % (str(self.name()), Timer.secondsToStr(timer.get_startstop_diff()))
 			
 	def name(self):
 		"""
